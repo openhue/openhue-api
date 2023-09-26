@@ -1,4 +1,5 @@
 # Open-Hue
+[![Build](https://github.com/thibauult/open-hue/actions/workflows/build.yml/badge.svg)](https://github.com/thibauult/open-hue/actions/workflows/build.yml)
 
 ![Open-Hue Logo](./docs/logo_128.png)
 
