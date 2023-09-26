@@ -1,0 +1,7 @@
+type: string
+description: Indicates which signal is currently active.
+enum:
+  - no_signal
+  - on_off
+  - on_off_color
+  - alternating

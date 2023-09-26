@@ -1,0 +1,200 @@
+type: object
+properties:
+  type:
+    type: string
+    description: Type of the supported resources (always `light` here)
+  on:
+    type: object
+    properties:
+      on:
+        type: boolean
+        description: On/Off state of the light on=true, off=false
+  dimming:
+    type: object
+    properties:
+      brightness:
+        type: integer
+        minimum: 0
+        maximum: 100
+        description: Brightness percentage. value cannot be 0, writing 0 changes it to lowest possible brightness
+  dimming_delta:
+    type: object
+    properties:
+      action:
+        type: string
+        enum:
+          - up
+          - down
+          - stop
+      brightness_delta:
+        type: number
+        minimum: 0
+        maximum: 100
+        description: |
+          Brightness percentage of full-scale increase delta to current dimlevel. Clip at Max-level or Min-level.
+  color_temperature:
+    type: object
+    properties:
+      mirek:
+        $ref: './Mirek.yaml'
+  color_temperature_delta:
+    type: object
+    properties:
+      action:
+        type: string
+        enum:
+          - up
+          - down
+          - stop
+      mirek_delta:
+        type: integer
+        minimum: 0
+        maximum: 347
+        description: Mirek delta to current mirek. Clip at mirek_minimum and mirek_maximum of mirek_schema.
+  color:
+    type: object
+    properties:
+      xy:
+        $ref: './GamutPosition.yaml'
+  dynamics:
+    type: object
+    properties:
+      duration:
+        type: integer
+        description: Duration of a light transition or timed effects in ms.
+      speed:
+        type: number
+        minimum: 0
+        maximum: 0
+        description: speed of dynamic palette or effect. The speed is valid for the dynamic palette if the status is dynamic_palette or for the corresponding effect listed in status. In case of status none, the speed is not valid
+  alert:
+    type: object
+    properties:
+      action:
+        type: string
+  signaling:
+    type: object
+    description: Feature containing signaling properties.
+    properties:
+      signal:
+        type: string
+        enum:
+          - no_signal
+          - on_off
+          - on_off_color
+          - alternating
+      duration:
+        type: integer
+        description: Duration has a max of 65534000 ms and a stepsize of 1 second. Values inbetween steps will be rounded. Duration is ignored for no_signal.
+      colors:
+        type: array
+        minItems: 1
+        maxItems: 2
+        description: Colors that were provided for the active effect.
+        items:
+          $ref: './ColorFeatureBasicGet.yaml'
+  mode:
+    type: string
+    enum:
+      - normal
+      - streaming
+  gradient:
+    type: object
+    description: Basic feature containing gradient properties.
+    properties:
+      points:
+        type: array
+        description: Collection of gradients points. For control of the gradient points through a PUT a minimum of 2 points need to be provided.
+        items:
+          $ref: './GradientPointGet.yaml'
+        maxItems: 5
+      mode:
+        $ref: './SupportedGradientMode.yaml'
+  effect:
+    type: object
+    description: Basic feature containing effect properties.
+    properties:
+      effect:
+        $ref: './SupportedEffects.yaml'
+  timed_effects:
+    type: object
+    description: Basic feature containing timed effect properties.
+    properties:
+      effect:
+        $ref: './SupportedTimedEffects.yaml'
+      duration:
+        type: integer
+        description: Duration is mandatory when timed effect is set except for no_effect. Resolution decreases for a larger duration. e.g Effects with duration smaller than a minute will be rounded to a resolution of 1s, while effects with duration larger than an hour will be arounded up to a resolution of 300s. Duration has a max of 21600000 ms.
+  powerup:
+    type: object
+    description: Feature containing properties to configure powerup behaviour of a lightsource.
+    properties:
+      preset:
+        type: string
+        description: When setting the custom preset the additional properties can be set. For all other presets, no other properties can be included.
+        enum:
+          - safety
+          - powerfail
+          - last_on_state
+          - custom
+      configured:
+        type: boolean
+        description: Indicates if the shown values have been configured in the lightsource.
+      on:
+        type: object
+        properties:
+          mode:
+            type: string
+            description: |
+              State to activate after powerup.
+              On will use the value specified in the “on” property.
+              When setting mode “on”, the on property must be included.
+              Toggle will alternate between on and off on each subsequent power toggle.
+              Previous will return to the state it was in before powering off.
+            enum:
+              - on
+              - toggle
+              - previous
+          on:
+            type: object
+            properties:
+              on:
+                type: boolean
+                description: On/Off state of the light on=true, off=false
+      dimming:
+        type: object
+        properties:
+          mode:
+            type: string
+            description: |
+              Dimming will set the brightness to the specified value after power up.
+              When setting mode “dimming”, the dimming property must be included.
+              Previous will set brightness to the state it was in before powering off.
+            enum:
+              - dimming
+              - previous
+          dimming:
+            type: object
+            properties:
+              brightness:
+                type: number
+                minimum: 0
+                maximum: 100
+                description: Brightness percentage. value cannot be 0, writing 0 changes it to lowest possible brightness
+          color:
+            type: object
+            properties:
+              mode:
+                type: string
+                enum:
+                  - color_temperature
+                  - color
+                  - previous
+                description: State to activate after powerup. Availability of “color_temperature” and “color” modes depend on the capabilities of the lamp. Colortemperature will set the colortemperature to the specified value after power up. When setting color_temperature, the color_temperature property must be included Color will set the color tot he specified value after power up. When setting color mode, the color property must be included Previous will set color to the state it was in before powering off.
+              color_temperature:
+                type: object
+                properties:
+                  mirek:
+                    $ref: './Mirek.yaml'
+                  color:
+                    $ref: './ColorFeatureBasicGet.yaml'

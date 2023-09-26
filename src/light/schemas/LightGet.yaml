@@ -1,0 +1,258 @@
+type: object
+properties:
+  type:
+    type: string
+    description: Type of the supported resources (always `light` here)
+  id:
+    type: string
+    description: Unique identifier representing a specific resource instance
+    pattern: ^[0-9a-f]{8}-([0-9a-f]{4}-){3}[0-9a-f]{12}$
+  id_v1:
+    type: string
+    description: Clip v1 resource identifier
+    pattern: ^(\/[a-z]{4,32}\/[0-9a-zA-Z-]{1,32})?$
+  owner:
+    $ref: './ResourceIdentifier.yaml'
+  on:
+    type: object
+    properties:
+      on:
+        type: boolean
+        description: On/Off state of the light on=true, off=false
+  dimming:
+    type: object
+    properties:
+      brightness:
+        type: integer
+        minimum: 0
+        maximum: 100
+        description: Brightness percentage. value cannot be 0, writing 0 changes it to lowest possible brightness
+      min_dim_level:
+        type: integer
+        minimum: 0
+        maximum: 100
+        description: Percentage of the maximum lumen the device outputs on minimum brightness
+  color_temperature:
+    type: object
+    properties:
+      mirek:
+        type: integer
+        minimum: 153
+        maximum: 500
+        description: color temperature in mirek or null when the light color is not in the ct spectrum
+      mirek_valid:
+        type: boolean
+        description: Indication whether the value presented in mirek is valid
+      mirek_schema:
+        type: object
+        properties:
+          mirek_minimum:
+            type: integer
+            minimum: 153
+            maximum: 500
+            description: minimum color temperature this light supports
+          mirek_maximum:
+            type: integer
+            minimum: 153
+            maximum: 500
+            description: maximum color temperature this light supports
+  color:
+    type: object
+    properties:
+      xy:
+        $ref: './GamutPosition.yaml'
+      gamut:
+        type: object
+        description: Color gamut of color bulb. Some bulbs do not properly return the Gamut information. In this case this is not present.
+        properties:
+          red:
+            $ref: './GamutPosition.yaml'
+          green:
+            $ref: './GamutPosition.yaml'
+          blue:
+            $ref: './GamutPosition.yaml'
+      gamut_type:
+        type: string
+        description: The gammut types supported by hue – A Gamut of early Philips color-only products – B Limited gamut of first Hue color products – C Richer color gamut of Hue white and color ambiance products – other Color gamut of non-hue products with non-hue gamuts resp w/o gamut
+        enum:
+          - A
+          - B
+          - C
+          - other
+  dynamics:
+    type: object
+    properties:
+      status:
+        $ref: './SupportedDynamicStatus.yaml'
+      status_values:
+        type: array
+        description: Statuses in which a lamp could be when playing dynamics.
+        items:
+          $ref: './SupportedDynamicStatus.yaml'
+      speed:
+        type: number
+        minimum: 0
+        maximum: 0
+        description: speed of dynamic palette or effect. The speed is valid for the dynamic palette if the status is dynamic_palette or for the corresponding effect listed in status. In case of status none, the speed is not valid
+      speed_valid:
+        type: boolean
+        description: Indicates whether the value presented in speed is valid
+  alert:
+    type: object
+    description: TODO # TODO find the AlertEffectType
+  signaling:
+    type: object
+    description: Feature containing signaling properties.
+    properties:
+      signal_values:
+        type: array
+        items:
+          $ref: './SupportedSignals.yaml'
+      estimated_end:
+        type: integer
+        description: Timestamp indicating when the active signal is expected to end. Value is not set if there is no_signal
+      colors:
+        type: array
+        description: Colors that were provided for the active effect.
+        items:
+          $ref: './ColorFeatureBasicGet.yaml'
+  mode:
+    type: string
+    enum:
+      - normal
+      - streaming
+  gradient:
+    type: object
+    description: Basic feature containing gradient properties.
+    properties:
+      points:
+        type: array
+        description: Collection of gradients points. For control of the gradient points through a PUT a minimum of 2 points need to be provided.
+        items:
+          $ref: './GradientPointGet.yaml'
+        maxItems: 5
+      mode:
+        $ref: './SupportedGradientMode.yaml'
+      points_capable:
+        type: integer
+        description: Number of color points that gradient lamp is capable of showing with gradience.
+      mode_values:
+        type: array
+        description: Modes a gradient device can deploy the gradient palette of colors
+        items:
+          $ref: './SupportedGradientMode.yaml'
+      pixel_count:
+        type: integer
+        description: Number of pixels in the device
+  effect:
+    type: object
+    description: Basic feature containing effect properties.
+    properties:
+      status:
+        $ref: './SupportedEffects.yaml'
+      status_values:
+        type: array
+        description: Possible status values in which a light could be when playing an effect.
+        items:
+          $ref: './SupportedEffects.yaml'
+      effect:
+        $ref: './SupportedEffects.yaml'
+      effect_values:
+        type: array
+        description: Possible status values in which a light could be when playing an effect.
+        items:
+          $ref: './SupportedEffects.yaml'
+  timed_effects:
+    type: object
+    description: Basic feature containing timed effect properties.
+    properties:
+      effect:
+        $ref: './SupportedTimedEffects.yaml'
+      effect_values:
+        type: array
+        description: Possible timed effect values you can set in a light.
+        items:
+          $ref: './SupportedTimedEffects.yaml'
+      status:
+        $ref: './SupportedTimedEffects.yaml'
+      status_values:
+        type: array
+        description: Possible status values in which a light could be when playing a timed effect.
+        items:
+          $ref: './SupportedTimedEffects.yaml'
+      duration:
+        type: integer
+        description: Duration is mandatory when timed effect is set except for no_effect. Resolution decreases for a larger duration. e.g Effects with duration smaller than a minute will be rounded to a resolution of 1s, while effects with duration larger than an hour will be arounded up to a resolution of 300s. Duration has a max of 21600000 ms.
+  powerup:
+    type: object
+    description: Feature containing properties to configure powerup behaviour of a lightsource.
+    properties:
+      preset:
+        type: string
+        description: When setting the custom preset the additional properties can be set. For all other presets, no other properties can be included.
+        enum:
+          - safety
+          - powerfail
+          - last_on_state
+          - custom
+      configured:
+        type: boolean
+        description: Indicates if the shown values have been configured in the lightsource.
+      on:
+        type: object
+        properties:
+          mode:
+            type: string
+            description: |
+              State to activate after powerup.
+              On will use the value specified in the “on” property.
+              When setting mode “on”, the on property must be included.
+              Toggle will alternate between on and off on each subsequent power toggle.
+              Previous will return to the state it was in before powering off.
+            enum:
+              - on
+              - toggle
+              - previous
+          on:
+            type: object
+            properties:
+              on:
+                type: boolean
+                description: On/Off state of the light on=true, off=false
+      dimming:
+        type: object
+        properties:
+          mode:
+            type: string
+            description: |
+              Dimming will set the brightness to the specified value after power up.
+              When setting mode “dimming”, the dimming property must be included.
+              Previous will set brightness to the state it was in before powering off.
+            enum:
+              - dimming
+              - previous
+          dimming:
+            type: object
+            properties:
+              brightness:
+                type: number
+                minimum: 0
+                maximum: 100
+                description: Brightness percentage. value cannot be 0, writing 0 changes it to lowest possible brightness
+          color:
+            type: object
+            properties:
+              mode:
+                type: string
+                enum:
+                  - color_temperature
+                  - color
+                  - previous
+                description: State to activate after powerup. Availability of “color_temperature” and “color” modes depend on the capabilities of the lamp. Colortemperature will set the colortemperature to the specified value after power up. When setting color_temperature, the color_temperature property must be included Color will set the color tot he specified value after power up. When setting color mode, the color property must be included Previous will set color to the state it was in before powering off.
+              color_temperature:
+                type: object
+                properties:
+                  mirek:
+                    $ref: './Mirek.yaml'
+                  color:
+                    $ref: './ColorFeatureBasicGet.yaml'

@@ -1,0 +1,113 @@
+get:
+  operationId: getLight
+  summary: Get light.
+  description: Get details of a single light from its given `{lightId}`.
+  tags:
+    - Light
+  security:
+    - HueApplicationKey: [ ]
+  parameters:
+    - name: lightId
+      in: path
+      schema:
+        type: integer
+      required: true
+      description: ID of the light.
+  responses:
+    200:
+      description: Light Success Response
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              errors:
+                type: array
+                items:
+                  $ref: '../common/error.yaml#/components/schemas/Error'
+              data:
+                type: array
+                items:
+                  $ref: './schemas/LightGet.yaml'
+    401:
+      $ref: '../common/error.yaml#/components/responses/Unauthorized'
+    403:
+      $ref: '../common/error.yaml#/components/responses/Forbidden'
+    404:
+      $ref: '../common/error.yaml#/components/responses/NotFound'
+    405:
+      $ref: '../common/error.yaml#/components/responses/MethodNotAllowed'
+    406:
+      $ref: '../common/error.yaml#/components/responses/NotAcceptable'
+    409:
+      $ref: '../common/error.yaml#/components/responses/Conflict'
+    429:
+      $ref: '../common/error.yaml#/components/responses/TooManyRequests'
+    500:
+      $ref: '../common/error.yaml#/components/responses/InternalServerError'
+    503:
+      $ref: '../common/error.yaml#/components/responses/ServiceUnavailable'
+    507:
+      $ref: '../common/error.yaml#/components/responses/InsufficientStorage'
+put:
+  operationId: updateLight
+  summary: Update light.
+  description: Update a single light from its given `{lightId}`.
+  tags:
+    - Light
+  security:
+    - HueApplicationKey: [ ]
+  parameters:
+    - name: lightId
+      in: path
+      schema:
+        type: integer
+      required: true
+      description: ID of the light.
+  requestBody:
+    content:
+      application/json:
+        examples:
+          TurnOn:
+            summary: Turn the light on.
+            value:
+              on:
+                on: true
+        schema:
+          $ref: './schemas/LightPut.yaml'
+  responses:
+    200:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              errors:
+                type: array
+                items:
+                  $ref: '../common/error.yaml#/components/schemas/Error'
+              data:
+                type: array
+                items:
+                  $ref: './schemas/ResourceIdentifier.yaml'
+    401:
+      $ref: '../common/error.yaml#/components/responses/Unauthorized'
+    403:
+      $ref: '../common/error.yaml#/components/responses/Forbidden'
+    404:
+      $ref: '../common/error.yaml#/components/responses/NotFound'
+    405:
+      $ref: '../common/error.yaml#/components/responses/MethodNotAllowed'
+    406:
+      $ref: '../common/error.yaml#/components/responses/NotAcceptable'
+    409:
+      $ref: '../common/error.yaml#/components/responses/Conflict'
+    429:
+      $ref: '../common/error.yaml#/components/responses/TooManyRequests'
+    500:
+      $ref: '../common/error.yaml#/components/responses/InternalServerError'
+    503:
+      $ref: '../common/error.yaml#/components/responses/ServiceUnavailable'
+    507:
+      $ref: '../common/error.yaml#/components/responses/InsufficientStorage'

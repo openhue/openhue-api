@@ -1,0 +1,5 @@
+type: string
+description: Current status values the light is in regarding timed effects
+enum:
+  - sunrise
+  - no_effect

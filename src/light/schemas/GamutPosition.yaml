@@ -1,0 +1,13 @@
+type: object
+description: CIE XY gamut position
+properties:
+  x:
+    type: number
+    minimum: 0
+    maximum: 1
+    description: X position in color gamut
+  y:
+    type: number
+    minimum: 0
+    maximum: 1
+    description: y position in color gamut

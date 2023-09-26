@@ -1,0 +1,26 @@
+post:
+  operationId: authenticate
+  summary: Authenticate
+  description: Authenticate to retrieve the HUE application key. Requires to go and press the button on the bridge.
+  tags:
+    - Auth
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            devicetype:
+              type: string
+              example: app_name#instance_name
+            generateclientkey:
+              type: boolean
+  responses:
+    200:
+      description: Authentication Success
+      content:
+        application/json:
+          schema:
+            $ref: ./response.yaml
+    401:
+      $ref: '../common/error.yaml#/components/responses/Unauthorized'

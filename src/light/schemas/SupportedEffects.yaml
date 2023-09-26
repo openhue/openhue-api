@@ -1,0 +1,9 @@
+type: string
+enum:
+  - prism
+  - opal
+  - glisten
+  - sparkle
+  - fire
+  - candle
+  - no_effect

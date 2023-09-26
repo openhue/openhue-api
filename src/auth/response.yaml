@@ -1,0 +1,9 @@
+type: object
+properties:
+  success:
+    type: object
+    properties:
+      username:
+        type: string
+      clientkey:
+        type: string

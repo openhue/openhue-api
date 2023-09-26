@@ -1,0 +1,4 @@
+type: integer
+minimum: 153
+maximum: 500
+description: color temperature in mirek or null when the light color is not in the ct spectrum

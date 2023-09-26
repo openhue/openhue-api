@@ -1,0 +1,5 @@
+type: string
+description: Current status of the lamp with dynamics.
+enum:
+  - dynamic_palette
+  - none
