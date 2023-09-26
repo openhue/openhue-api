@@ -1,0 +1,35 @@
+# Execute redocly bundle (https://redocly.com/docs/cli/commands/bundle) when a Github release is created and upload
+# the bundle file as a release asset
+
+name: Release
+
+on:
+  release:
+    types: [ published ]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+
+      - name: Install Redocly CLI
+        run: npm i -g @redocly/cli@latest
+
+      - name: Run Redocly CLI Linter
+        run: redocly bundle -o open-hue.yaml
+
+      - name: Upload binaries to release
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: open-hue.yaml
+          asset_name: open-hue.yaml
+          tag: ${{ github.ref }}
+          overwrite: true
