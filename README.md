@@ -1,5 +1,7 @@
 # Open-Hue
 
+![Open-Hue Logo](./docs/logo_128.png)
+
 Open-Hue is an open-source project that provides a comprehensive OpenAPI specification for the Philips Hue REST API, known as "Clip."
 This specification serves as a bridge between developers and Philips Hue smart lighting systems, enabling seamless integration
 and control of Hue lighting within various applications and platforms.
