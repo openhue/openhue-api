@@ -49,7 +49,9 @@ Whether you're a developer, designer, or enthusiast, there are several ways you 
 
 ### Reporting Issues
 
-If you encounter a bug, have a feature request, or have suggestions for improvements, please [open an issue](link-to-issue-tracker) on our GitHub issue tracker. When reporting issues, please provide as much detail as possible to help us understand and address the problem.
+If you encounter a bug, have a feature request, or have suggestions for improvements,
+please [open an issue](https://github.com/thibauult/open-hue/issues/new) on our GitHub issue tracker.
+When reporting issues, please provide as much detail as possible to help us understand and address the problem.
 
 ### Code Contributions
 
@@ -74,11 +76,12 @@ Simply submit a PR with your improvements.
 
 To maintain code quality and consistency, please adhere to the following guidelines when contributing to Open-Hue:
 
-- Follow the [coding style](link-to-coding-style-guide) used in the project.
 - Write clear and concise commit messages.
 - Keep your code and commits focused on a single task or feature.
 
 ## License
 
-Open-Hue is distributed under the [Apache License 2.0](LICENSE).
+Open-Hue is distributed under the [Apache License 2.0](http://www.apache.org/licenses/),
+making it open and free for anyone to use and contribute to.
+See the [license](./LICENSE) file for detailed terms.
 
