@@ -1,0 +1,56 @@
+type: object
+description: |
+  The API is actually returning the full resource description depending on the type, not just the fields that are
+  documented below.
+required:
+  - id
+  - id_v1
+  - type
+properties:
+  id:
+    type: string
+    description: Unique identifier representing a specific resource instance
+    pattern: ^[0-9a-f]{8}-([0-9a-f]{4}-){3}[0-9a-f]{12}$
+  id_v1:
+    type: string
+    description: Clip v1 resource identifier
+    pattern: ^(\/[a-z]{4,32}\/[0-9a-zA-Z-]{1,32})?$
+  type:
+    type: string
+    description: Type of the supported resources
+    example: light
+    enum:
+      - device
+      - bridge_home
+      - room
+      - zone
+      - light
+      - button
+      - relative_rotary
+      - temperature
+      - light_level
+      - motion
+      - camera_motion
+      - entertainment
+      - contact
+      - tamper
+      - grouped_light
+      - device_power
+      - zigbee_bridge_connectivity
+      - zigbee_connectivity
+      - zgp_connectivity
+      - bridge
+      - zigbee_device_discovery
+      - homekit
+      - matter
+      - matter_fabric
+      - scene
+      - entertainment_configuration
+      - public_image
+      - auth_v1
+      - behavior_script
+      - behavior_instance
+      - geofence
+      - geofence_client
+      - geolocation
+      - smart_scene
