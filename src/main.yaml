@@ -21,11 +21,15 @@ servers:
 tags:
   - name: Auth
     description: Authentication operations.
+  - name: Resource
+    description: API to retrieve all API resources.
   - name: Light
     description: API to manage light services. These are offered by devices with lighting capabilities.
 paths:
   /api:
     $ref: './auth/auth.yaml'
+  /clip/v2/resource:
+    $ref: './resource/resource.yaml'
   /clip/v2/resource/light:
     $ref: './light/light.yaml'
   /clip/v2/resource/light/{lightId}:
