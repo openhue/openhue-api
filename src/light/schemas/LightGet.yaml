@@ -13,6 +13,20 @@ properties:
     pattern: ^(\/[a-z]{4,32}\/[0-9a-zA-Z-]{1,32})?$
   owner:
     $ref: './ResourceIdentifier.yaml'
+  metadata:
+    type: object
+    description: Deprecated, use metadata on device level
+    properties:
+      name:
+        type: string
+        description: Human readable name of a resource
+      archetype:
+        $ref: './LightArchetype.yaml'
+      fixed_mired:
+        type: integer
+        minimum: 0
+        maximum: 100
+        description: A fixed mired value of the white lamp
   on:
     type: object
     properties:

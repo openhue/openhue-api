@@ -10,7 +10,7 @@ get:
     - name: lightId
       in: path
       schema:
-        type: integer
+        type: string
       required: true
       description: ID of the light.
   responses:
@@ -61,7 +61,7 @@ put:
     - name: lightId
       in: path
       schema:
-        type: integer
+        type: string
       required: true
       description: ID of the light.
   requestBody:
