@@ -2,7 +2,7 @@
 [![Build](https://github.com/thibauult/open-hue/actions/workflows/build.yml/badge.svg)](https://github.com/thibauult/open-hue/actions/workflows/build.yml)
 [![GitHub issues](https://img.shields.io/github/issues/thibauult/open-hue)](https://github.com/thibauult/open-hue/issues)
 [![GitHub](https://img.shields.io/github/license/thibauult/open-hue)](https://github.com/thibauult/open-hue/blob/main/LICENSE)
-[![GitHub release (with filter)](https://img.shields.io/github/v/release/thibauult/open-hue?logo=openapiinitiative&labelColor=white&color=grey)](https://github.com/thibauult/open-hue/releases)
+[![GitHub release (with filter)](https://img.shields.io/github/v/release/thibauult/open-hue?logo=openapiinitiative&labelColor=white&color=grey)](https://github.com/thibauult/open-hue/releases/latest)
 
 Open-Hue is an open-source project that provides a comprehensive OpenAPI specification for the Philips Hue REST API, known as CLIP (_Connected Lighting Interface Protocol_) API.
 This specification serves as a bridge between developers and Philips Hue smart lighting systems, enabling seamless integration
