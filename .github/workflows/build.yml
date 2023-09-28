@@ -29,7 +29,7 @@ jobs:
         uses: actions/setup-node@v3.8.1
 
       - name: Install Redocly CLI
-        run: npm i -g @redocly/cli@latest
+        run: make setup
 
       - name: Run Redocly CLI Linter
-        run: redocly lint
+        run: make verify
