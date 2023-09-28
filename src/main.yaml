@@ -2,16 +2,7 @@ openapi: 3.0.3
 info:
   title: Hue CLIP API
   version: v2
-  description: |
-    ## Step 1
-    First make sure your bridge is connected to your network and is functioning properly. Test that the official Philips Hue mobile app can control the lights on the same network.
-    ## Step 2
-    Then you need to discover the IP address of the bridge on your network. You can do this in a few ways.
-    > NOTE – When you are ready to make a production app, you need to discover the bridge automatically using [Hue Bridge Discovery Guide](https://developers.meethue.com/develop/application-design-guidance/hue-bridge-discovery/).
-    1. Go to the settings menu in the app. Go to Hue Bridges. Select your bridge. The ip address of the bridge will show.
-    2. Use an mDNS discovery app to find Philips hue in your network.
-    3. Use our broker server discover process by visiting [discovery.meethue.com](https://discovery.meethue.com)
-    4. Log into your wireless router and look Philips hue up in the DHCP table.
+  description: See [thibauult/open-hue](https://github.com/thibauult/open-hue)
   license:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0.html
@@ -25,6 +16,8 @@ tags:
     description: API to retrieve all API resources.
   - name: Light
     description: API to manage light services. These are offered by devices with lighting capabilities.
+  - name: Bridge
+    description: API to manage the bridge.
 paths:
   /api:
     $ref: './auth/auth.yaml'
@@ -34,7 +27,10 @@ paths:
     $ref: './light/light.yaml'
   /clip/v2/resource/light/{lightId}:
     $ref: './light/light_{lightId}.yaml'
-
+  /clip/v2/resource/bridge:
+    $ref: './bridge/bridge.yaml'
+  /clip/v2/resource/bridge/{bridgeId}:
+    $ref: './bridge/bridge_{bridgeId}.yaml'
 components:
   securitySchemes:
     HueApplicationKey:

@@ -1,14 +1,14 @@
 get:
-  operationId: getLights
-  summary: List lights.
-  description: List all available lights.
+  operationId: getBridges
+  summary: List bridges.
+  description: List all available bridges.
   tags:
-    - Light
+    - Bridge
   security:
     - HueApplicationKey: [ ]
   responses:
     200:
-      description: Light Success Response
+      description: Bridge Success Response
       content:
         application/json:
           schema:
@@ -19,7 +19,7 @@ get:
                   data:
                     type: array
                     items:
-                      $ref: './schemas/LightGet.yaml'
+                      $ref: './schemas/BridgeGet.yaml'
     401:
       $ref: '../common/error.yaml#/components/responses/Unauthorized'
     403:
