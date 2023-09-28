@@ -1,21 +1,21 @@
 get:
-  operationId: getLight
-  summary: Get light.
-  description: Get details of a single light from its given `{lightId}`.
+  operationId: getBridge
+  summary: Get bridge.
+  description: Get details of a single bridge from its given `{bridgeId}`.
   tags:
-    - Light
+    - Bridge
   security:
     - HueApplicationKey: [ ]
   parameters:
-    - name: lightId
+    - name: bridgeId
       in: path
       schema:
         type: string
       required: true
-      description: ID of the light.
+      description: ID of the bridge.
   responses:
     200:
-      description: Light Success Response
+      description: Bridge Success Response
       content:
         application/json:
           schema:
@@ -26,7 +26,7 @@ get:
                   data:
                     type: array
                     items:
-                      $ref: './schemas/LightGet.yaml'
+                      $ref: './schemas/BridgeGet.yaml'
     401:
       $ref: '../common/error.yaml#/components/responses/Unauthorized'
     403:
@@ -48,31 +48,25 @@ get:
     507:
       $ref: '../common/error.yaml#/components/responses/InsufficientStorage'
 put:
-  operationId: updateLight
-  summary: Update light.
-  description: Update a single light from its given `{lightId}`.
+  operationId: updateBridge
+  summary: Update bridge.
+  description: Update a single bridge from its given `{bridgeId}`.
   tags:
-    - Light
+    - Bridge
   security:
     - HueApplicationKey: [ ]
   parameters:
-    - name: lightId
+    - name: bridgeId
       in: path
       schema:
         type: string
       required: true
-      description: ID of the light.
+      description: ID of the bridge.
   requestBody:
     content:
       application/json:
-        examples:
-          TurnOn:
-            summary: Turn the light on.
-            value:
-              on:
-                on: true
         schema:
-          $ref: './schemas/LightPut.yaml'
+          $ref: './schemas/BridgePut.yaml'
   responses:
     200:
       description: Success

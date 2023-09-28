@@ -1,0 +1,8 @@
+type: object
+properties:
+  errors:
+    type: array
+    items:
+      $ref: './error.yaml#/components/schemas/Error'
+  data:
+    type: array

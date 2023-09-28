@@ -1,18 +1,7 @@
 type: object
+allOf:
+  - $ref: '../../common/Resource.yaml'
 properties:
-  type:
-    type: string
-    description: Type of the supported resources (always `light` here)
-  id:
-    type: string
-    description: Unique identifier representing a specific resource instance
-    pattern: ^[0-9a-f]{8}-([0-9a-f]{4}-){3}[0-9a-f]{12}$
-  id_v1:
-    type: string
-    description: Clip v1 resource identifier
-    pattern: ^(\/[a-z]{4,32}\/[0-9a-zA-Z-]{1,32})?$
-  owner:
-    $ref: './ResourceIdentifier.yaml'
   metadata:
     type: object
     description: Deprecated, use metadata on device level
