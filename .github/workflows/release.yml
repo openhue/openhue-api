@@ -26,19 +26,16 @@ jobs:
         uses: actions/setup-node@v3.8.1
 
       - name: Install Redocly CLI
-        run: npm i -g @redocly/cli@latest
-
-      - name: Run Redocly CLI Linter
-        run: redocly lint
+        run: make setup
 
       - name: Run Redocly CLI Bundle
-        run: redocly bundle -o open-hue.yaml
+        run: make build
 
       - name: Upload bundled open-hue.yaml to release assets
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: open-hue.yaml
+          file: build/open-hue.yaml
           asset_name: open-hue.yaml
           tag: ${{ github.ref }}
           overwrite: true
