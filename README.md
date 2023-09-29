@@ -1,6 +1,7 @@
 # Open-Hue
 [![Build](https://github.com/thibauult/open-hue/actions/workflows/build.yml/badge.svg)](https://github.com/thibauult/open-hue/actions/workflows/build.yml)
 [![GitHub issues](https://img.shields.io/github/issues/thibauult/open-hue)](https://github.com/thibauult/open-hue/issues)
+![GitHub Repo stars](https://img.shields.io/github/stars/thibauult/open-hue)
 [![GitHub](https://img.shields.io/github/license/thibauult/open-hue)](https://github.com/thibauult/open-hue/blob/main/LICENSE)
 [![GitHub release (with filter)](https://img.shields.io/github/v/release/thibauult/open-hue?logo=openapiinitiative&labelColor=white&color=grey)](https://github.com/thibauult/open-hue/releases/latest)
 
