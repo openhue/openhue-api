@@ -1,7 +1,7 @@
 type: object
 description: Definition of a bridge resource
 allOf:
-  - $ref: '../../common/Resource.yaml'
+  - $ref: '../../common/ResourceOwned.yaml'
 properties:
   type:
     type: string

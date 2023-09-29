@@ -1,6 +1,6 @@
 type: object
 allOf:
-  - $ref: '../../common/Resource.yaml'
+  - $ref: '../../common/ResourceOwned.yaml'
 properties:
   metadata:
     type: object

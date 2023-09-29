@@ -9,7 +9,7 @@ Below, you'll find a list of upcoming APIs that we plan to include.
 - [x] `/resource`
 - [x] `/resource/light`
 - [x] `/resource/bridge`
-- [ ] `/resource/bridge_home`
+- [x] `/resource/bridge_home`
 - [ ] `/resource/scene`
 - [ ] `/resource/smart_scene`
 - [ ] `/resource/room`

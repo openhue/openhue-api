@@ -3,7 +3,7 @@ description: |
   The API is actually returning the full resource description depending on the type, not just the fields that are
   documented below.
 allOf:
-  - $ref: '../common/Resource.yaml'
+  - $ref: '../common/ResourceOwned.yaml'
 properties:
   type:
     type: string

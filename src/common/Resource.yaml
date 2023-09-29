@@ -15,5 +15,3 @@ properties:
     description: Clip v1 resource identifier
     pattern: ^(\/[a-z]{4,32}\/[0-9a-zA-Z-]{1,32})?$
     example: /lights/8
-  owner:
-    $ref: './ResourceIdentifier.yaml'
