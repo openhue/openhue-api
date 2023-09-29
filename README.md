@@ -21,9 +21,42 @@ With Open-Hue, developers can:
 - **Enhance User Experiences**: By integrating Open-Hue into your projects, you can create innovative lighting experiences that respond to user interactions, environmental conditions, or specific events, enhancing user comfort and ambiance.
 - **Save Development Time**: Avoid the complexities of reverse-engineering the Philips Hue API. Open-Hue eliminates the need for developers to decipher the API's intricacies and reduces development time, enabling faster implementation of Hue-related features.
 
-## Getting Started
+## Usage
 
 [![Introduction video on YouTube](./docs/youtube.png)](https://youtu.be/wMsKOpvBEp0)
+
+To use the Open-Hue OpenAPI specification in your projects, you can obtain it from our GitHub releases. Here's how:
+
+### Obtain the OpenAPI Specification
+
+1. Visit our [GitHub releases page](https://github.com/thibauult/open-hue/releases).
+2. Select the desired release version that suits your needs. Each release contains the complete OpenAPI specification for Open-Hue.
+3. Download the `open-hue.yaml` file from the selected release. This YAML file represents the OpenAPI specification, which defines the structure and behavior of the Open-Hue API.
+
+### Integration with Postman
+
+You can easily import the OpenAPI specification into Postman, a popular API development and testing tool. Here's how:
+
+1. Open Postman and click on the "Import" button in the top-left corner of the application.
+2. Select "API schema" as the import type.
+3. Upload the `open-hue.yaml` file that you downloaded from the Open-Hue release.
+4. Postman will automatically generate a collection based on the OpenAPI specification, allowing you to make requests to the Open-Hue API with ease.
+
+### Generate Client Code
+
+The OpenAPI specification `open-hue.yaml` can be used to generate client code in virtually any programming language. There are various tools and libraries available that can take the specification and generate client code tailored to your language of choice.
+
+Here's a basic example using the [`openapi-generator-cli`](https://github.com/OpenAPITools/openapi-generator-cli) to generate a Python client:
+
+```bash
+npx @openapitools/openapi-generator-cli generate -g python -i path/to/open-hue.yaml -o output/directory
+```
+Replace _path/to/open-hue.yaml_ with the actual path to your downloaded `open-hue.yaml` file and _output/directory_ with your desired output directory.
+
+By following these steps, you can integrate Open-Hue's OpenAPI specification into your development workflow,
+test the API using Postman, and generate client code in your preferred programming language.
+
+## Getting Started
 
 To begin developing with Open-Hue's OpenAPI specification, follow these steps:
 
@@ -63,39 +96,6 @@ make build
 The bundled specification file can be found at `build/open-hue.yaml`. This consolidated file makes it easier to work with the API definition and can be used for various purposes, including generating client libraries and documentation.
 
 With these initial setup steps completed, you're ready to start developing and utilizing the Open-Hue OpenAPI specification for your projects.
-
-## Usage
-
-To use the Open-Hue OpenAPI specification in your projects, you can obtain it from our GitHub releases. Here's how:
-
-### Obtain the OpenAPI Specification
-
-1. Visit our [GitHub releases page](https://github.com/thibauult/open-hue/releases).
-2. Select the desired release version that suits your needs. Each release contains the complete OpenAPI specification for Open-Hue.
-3. Download the `open-hue.yaml` file from the selected release. This YAML file represents the OpenAPI specification, which defines the structure and behavior of the Open-Hue API.
-
-### Integration with Postman
-
-You can easily import the OpenAPI specification into Postman, a popular API development and testing tool. Here's how:
-
-1. Open Postman and click on the "Import" button in the top-left corner of the application.
-2. Select "API schema" as the import type.
-3. Upload the `open-hue.yaml` file that you downloaded from the Open-Hue release.
-4. Postman will automatically generate a collection based on the OpenAPI specification, allowing you to make requests to the Open-Hue API with ease.
-
-### Generate Client Code
-
-The OpenAPI specification `open-hue.yaml` can be used to generate client code in virtually any programming language. There are various tools and libraries available that can take the specification and generate client code tailored to your language of choice.
-
-Here's a basic example using the [`openapi-generator-cli`](https://github.com/OpenAPITools/openapi-generator-cli) to generate a Python client:
-
-```bash
-npx @openapitools/openapi-generator-cli generate -g python -i path/to/open-hue.yaml -o output/directory
-```
-Replace _path/to/open-hue.yaml_ with the actual path to your downloaded `open-hue.yaml` file and _output/directory_ with your desired output directory.
-
-By following these steps, you can integrate Open-Hue's OpenAPI specification into your development workflow,
-test the API using Postman, and generate client code in your preferred programming language.
 
 ## Contributing
 
