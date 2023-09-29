@@ -1,0 +1,7 @@
+type: object
+description: Common resource properties including the owner
+allOf:
+  - $ref: './Resource.yaml'
+properties:
+  owner:
+    $ref: './ResourceIdentifier.yaml'

@@ -18,6 +18,8 @@ tags:
     description: API to manage light services. These are offered by devices with lighting capabilities.
   - name: Bridge
     description: API to manage the bridge.
+  - name: Bridge Home
+    description: API to manage bridge homes. Homes group rooms as well as devices not assigned to a room.
 paths:
   /api:
     $ref: './auth/auth.yaml'
@@ -31,6 +33,10 @@ paths:
     $ref: './bridge/bridge.yaml'
   /clip/v2/resource/bridge/{bridgeId}:
     $ref: './bridge/bridge_{bridgeId}.yaml'
+  /clip/v2/resource/bridge_home:
+    $ref: './bridge_home/bridge_home.yaml'
+  /clip/v2/resource/bridge_home/{bridgeHomeId}:
+    $ref: './bridge_home/bridge_home_{bridgeHomeId}.yaml'
 components:
   securitySchemes:
     HueApplicationKey:
