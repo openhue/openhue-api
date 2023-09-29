@@ -20,6 +20,10 @@ build: _check-redocly-installation
 verify: _check-redocly-installation
 	@redocly lint
 
+.PHONY: docs
+docs: _check-redocly-installation
+	@redocly build-docs -o docs/index.html
+
 #
 # Private targets
 #

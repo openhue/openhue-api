@@ -9,7 +9,7 @@ Open-Hue is an open-source project that provides a comprehensive OpenAPI specifi
 This specification serves as a bridge between developers and Philips Hue smart lighting systems, enabling seamless integration
 and control of Hue lighting within various applications and platforms.
 
-![Open-Hue Logo](./docs/header.png)
+![Open-Hue Logo](docs/images/header.png)
 
 > 🚀 Open-Hue has just taken off, and you can follow the roadmap progression from our [Discussions](https://github.com/thibauult/open-hue/discussions/11) space
 > in GitHub!
@@ -26,7 +26,7 @@ With Open-Hue, developers can:
 
 ## Usage
 
-[![Introduction video on YouTube](./docs/youtube.png)](https://youtu.be/wMsKOpvBEp0)
+[![Introduction video on YouTube](docs/images/youtube.png)](https://youtu.be/wMsKOpvBEp0)
 
 To use the Open-Hue OpenAPI specification in your projects, you can obtain it from our GitHub releases. Here's how:
 
