@@ -23,7 +23,7 @@ verify: _check-redocly-installation
 .PHONY: docs
 docs: _check-redocly-installation
 	@mkdir -p build/images
-	@cp -R ./docs/images ./build/images
+	@cp -R ./docs/images ./build
 	@redocly build-docs -o build/index.html
 
 .PHONY: clean
