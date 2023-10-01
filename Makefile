@@ -22,7 +22,13 @@ verify: _check-redocly-installation
 
 .PHONY: docs
 docs: _check-redocly-installation
-	@redocly build-docs -o docs/index.html
+	@mkdir -p build/images
+	@cp -R ./docs/images ./build/images
+	@redocly build-docs -o build/index.html
+
+.PHONY: clean
+clean:
+	@rm -rf ./build
 
 #
 # Private targets

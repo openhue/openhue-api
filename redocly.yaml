@@ -9,8 +9,10 @@ apis:
 
 theme:
   openapi:
+    htmlTemplate: ./docs/index.html
     schemaExpansionLevel: 2
     generateCodeSamples:
       languages:
         - lang: curl
         - lang: Java
+        - lang: Node.js
