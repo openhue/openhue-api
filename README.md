@@ -5,14 +5,14 @@
 [![GitHub](https://img.shields.io/github/license/thibauult/open-hue)](https://github.com/thibauult/open-hue/blob/main/LICENSE)
 [![GitHub release (with filter)](https://img.shields.io/github/v/release/thibauult/open-hue?logo=openapiinitiative&labelColor=white&color=grey)](https://github.com/thibauult/open-hue/releases/latest)
 
-Open-Hue is an open-source project that provides a comprehensive OpenAPI specification for the Philips Hue REST API, known as CLIP (_Connected Lighting Interface Protocol_) API.
+[Open-Hue](https://openhue.io) is an open-source project that provides a comprehensive OpenAPI specification for the Philips Hue REST API, known as CLIP (_Connected Lighting Interface Protocol_) API.
 This specification serves as a bridge between developers and Philips Hue smart lighting systems, enabling seamless integration
 and control of Hue lighting within various applications and platforms.
 
 ![Open-Hue Logo](docs/images/header.png)
 
-> 🚀 Open-Hue has just taken off, and you can follow the roadmap progression from our [Discussions](https://github.com/thibauult/open-hue/discussions/11) space
-> in GitHub!
+> 🚀 The Open-Hue project has just taken off, and you can follow the roadmap
+> progression from our [Discussions](https://github.com/thibauult/open-hue/discussions/11) space in GitHub!
 
 ## Introduction
 The Philips Hue lighting system is renowned for its versatility and convenience in home and commercial lighting solutions.
@@ -51,7 +51,7 @@ The OpenAPI specification `open-hue.yaml` can be used to generate client code in
 
 Here's a basic example using the [`openapi-generator-cli`](https://github.com/OpenAPITools/openapi-generator-cli) to generate a Python client:
 
-```bash
+```shell
 npx @openapitools/openapi-generator-cli generate -g python -i path/to/open-hue.yaml -o output/directory
 ```
 Replace _path/to/open-hue.yaml_ with the actual path to your downloaded `open-hue.yaml` file and _output/directory_ with your desired output directory.
@@ -75,28 +75,36 @@ This will create a copy of the project that you can work on independently.
 ### Setup
 
 1. Clone the Open-Hue repository to your local machine:
-```
+```shell
 git clone https://github.com/your-username/open-hue.git
 cd open-hue
 ```
 2Run the following command to set up the development environment. This will install the Redocly CLI, which is used for documentation management:
-```
+```shell
 make setup
 ```
 
 ### Validate the Specification
 Before proceeding, it's essential to ensure that the OpenAPI specification is valid and error-free. You can do this by running the following command:
-```
+```shell
 make verify
 ```
 This command will validate the specification file and provide feedback if there are any issues.
 
 ### Build the Specification
 To bundle the OpenAPI specification into a single file, run the following command:
-```
+```shell
 make build
 ```
 The bundled specification file can be found at `build/open-hue.yaml`. This consolidated file makes it easier to work with the API definition and can be used for various purposes, including generating client libraries and documentation.
+
+### Build the Documentation
+To build the static HTML documentation, run the following command:
+```shell
+make docs
+```
+The bundled documentation can be found at `build/index.html`.
+The `build/` folder will also contain all the files required to display the HTML page, including images, fonts, etc.
 
 With these initial setup steps completed, you're ready to start developing and utilizing the Open-Hue OpenAPI specification for your projects.
 
