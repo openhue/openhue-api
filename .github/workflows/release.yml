@@ -1,5 +1,5 @@
-# Execute redocly bundle (https://redocly.com/docs/cli/commands/bundle) when a Github release is created and upload
-# the bundle file as a release asset
+# Executes the Redocly bundle commands (https://redocly.com/docs/cli/commands/bundle)
+# when a GitBub release is created and upload the bundle file as a release asset.
 
 name: Release
 

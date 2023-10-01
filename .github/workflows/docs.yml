@@ -1,5 +1,5 @@
 # Simple workflow for deploying static content to GitHub Pages
-name: Deploy static content to Pages
+name: Docs
 
 on:
   push:
@@ -32,13 +32,22 @@ jobs:
         uses: actions/checkout@v3
       - name: Setup Pages
         uses: actions/configure-pages@v3
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3.8.1
+
+      - name: Install Redocly CLI
+        run: make setup
+
       - name: Generate Redoc HTML
         run: make docs
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
-          # Upload the docs repository
+          # Upload the build repository
           path: './build'
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
