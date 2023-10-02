@@ -14,7 +14,7 @@ setup:
 .PHONY: build
 build: _check-redocly-installation
 	@echo "Building the OpenAPI single-file specification..."
-	@redocly bundle --lint -o build/open-hue.yaml
+	@redocly bundle --lint -o build/openhue.yaml
 
 .PHONY: verify
 verify: _check-redocly-installation

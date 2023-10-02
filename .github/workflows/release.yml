@@ -31,11 +31,11 @@ jobs:
       - name: Run Redocly CLI Bundle
         run: make build
 
-      - name: Upload bundled open-hue.yaml to release assets
+      - name: Upload bundled openhue.yaml to release assets
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: build/open-hue.yaml
-          asset_name: open-hue.yaml
+          file: build/openhue.yaml
+          asset_name: openhue.yaml
           tag: ${{ github.ref }}
           overwrite: true

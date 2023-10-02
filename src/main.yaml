@@ -2,7 +2,7 @@ openapi: 3.0.3
 info:
   title: Hue CLIP API
   version: v2
-  description: See [thibauult/open-hue](https://github.com/thibauult/open-hue)
+  description: See [openhue/openhue-api](https://github.com/openhue/openhue-api)
   license:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0.html

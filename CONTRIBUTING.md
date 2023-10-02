@@ -6,7 +6,7 @@ Whether you're a developer, designer, or enthusiast, there are several ways you 
 ## Reporting Issues
 
 If you encounter a bug, have a feature request, or have suggestions for improvements,
-please [open an issue](https://github.com/thibauult/open-hue/issues/new) on our GitHub issue tracker.
+please [open an issue](https://github.com/openhue/openhue-api/issues/new) on our GitHub issue tracker.
 When reporting issues, please provide as much detail as possible to help us understand and address the problem.
 
 ## Code Contributions
