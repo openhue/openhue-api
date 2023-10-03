@@ -20,6 +20,8 @@ tags:
     description: API to manage the bridge.
   - name: Bridge Home
     description: API to manage bridge homes. Homes group rooms as well as devices not assigned to a room.
+  - name: Scene
+    description: API to manage scenes. Scenes are used to store and recall settings for a group of lights.
 paths:
   /api:
     $ref: './auth/auth.yaml'
@@ -37,6 +39,10 @@ paths:
     $ref: './bridge_home/bridge_home.yaml'
   /clip/v2/resource/bridge_home/{bridgeHomeId}:
     $ref: './bridge_home/bridge_home_{bridgeHomeId}.yaml'
+  /clip/v2/resource/scene:
+    $ref: './scene/scene.yaml'
+  /clip/v2/resource/scene/{sceneId}:
+    $ref: './scene/scene_{sceneId}.yaml'
 components:
   securitySchemes:
     HueApplicationKey:

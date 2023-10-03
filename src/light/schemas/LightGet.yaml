@@ -17,19 +17,12 @@ properties:
         maximum: 100
         description: A fixed mired value of the white lamp
   on:
-    type: object
-    properties:
-      on:
-        type: boolean
-        description: On/Off state of the light on=true, off=false
+    $ref: '../../common/On.yaml'
   dimming:
     type: object
     properties:
       brightness:
-        type: integer
-        minimum: 0
-        maximum: 100
-        description: Brightness percentage. value cannot be 0, writing 0 changes it to lowest possible brightness
+        $ref: '../../common/Brightness.yaml'
       min_dim_level:
         type: integer
         minimum: 0
@@ -63,17 +56,17 @@ properties:
     type: object
     properties:
       xy:
-        $ref: './GamutPosition.yaml'
+        $ref: '../../common/GamutPosition.yaml'
       gamut:
         type: object
         description: Color gamut of color bulb. Some bulbs do not properly return the Gamut information. In this case this is not present.
         properties:
           red:
-            $ref: './GamutPosition.yaml'
+            $ref: '../../common/GamutPosition.yaml'
           green:
-            $ref: './GamutPosition.yaml'
+            $ref: '../../common/GamutPosition.yaml'
           blue:
-            $ref: './GamutPosition.yaml'
+            $ref: '../../common/GamutPosition.yaml'
       gamut_type:
         type: string
         description: The gammut types supported by hue – A Gamut of early Philips color-only products – B Limited gamut of first Hue color products – C Richer color gamut of Hue white and color ambiance products – other Color gamut of non-hue products with non-hue gamuts resp w/o gamut
@@ -118,7 +111,7 @@ properties:
         type: array
         description: Colors that were provided for the active effect.
         items:
-          $ref: './ColorFeatureBasicGet.yaml'
+          $ref: '../../common/Color.yaml'
   mode:
     type: string
     enum:
@@ -126,16 +119,9 @@ properties:
       - streaming
   gradient:
     type: object
-    description: Basic feature containing gradient properties.
+    allOf:
+      - $ref: '../../common/Gradient.yaml'
     properties:
-      points:
-        type: array
-        description: Collection of gradients points. For control of the gradient points through a PUT a minimum of 2 points need to be provided.
-        items:
-          $ref: './GradientPointGet.yaml'
-        maxItems: 5
-      mode:
-        $ref: './SupportedGradientMode.yaml'
       points_capable:
         type: integer
         description: Number of color points that gradient lamp is capable of showing with gradience.
@@ -143,28 +129,28 @@ properties:
         type: array
         description: Modes a gradient device can deploy the gradient palette of colors
         items:
-          $ref: './SupportedGradientMode.yaml'
+          $ref: '../../common/SupportedGradientMode.yaml'
       pixel_count:
         type: integer
         description: Number of pixels in the device
-  effect:
+  effects:
     type: object
     description: Basic feature containing effect properties.
     properties:
       status:
-        $ref: './SupportedEffects.yaml'
+        $ref: '../../common/SupportedEffects.yaml'
       status_values:
         type: array
         description: Possible status values in which a light could be when playing an effect.
         items:
-          $ref: './SupportedEffects.yaml'
+          $ref: '../../common/SupportedEffects.yaml'
       effect:
-        $ref: './SupportedEffects.yaml'
+        $ref: '../../common/SupportedEffects.yaml'
       effect_values:
         type: array
         description: Possible status values in which a light could be when playing an effect.
         items:
-          $ref: './SupportedEffects.yaml'
+          $ref: '../../common/SupportedEffects.yaml'
   timed_effects:
     type: object
     description: Basic feature containing timed effect properties.
@@ -217,11 +203,7 @@ properties:
               - toggle
               - previous
           on:
-            type: object
-            properties:
-              on:
-                type: boolean
-                description: On/Off state of the light on=true, off=false
+            $ref: '../../common/On.yaml'
       dimming:
         type: object
         properties:
@@ -235,13 +217,7 @@ properties:
               - dimming
               - previous
           dimming:
-            type: object
-            properties:
-              brightness:
-                type: number
-                minimum: 0
-                maximum: 100
-                description: Brightness percentage. value cannot be 0, writing 0 changes it to lowest possible brightness
+            $ref: '../../common/Dimming.yaml'
           color:
             type: object
             properties:
@@ -256,6 +232,6 @@ properties:
                 type: object
                 properties:
                   mirek:
-                    $ref: './Mirek.yaml'
+                    $ref: '../../common/Mirek.yaml'
                   color:
-                    $ref: './ColorFeatureBasicGet.yaml'
+                    $ref: '../../common/Color.yaml'

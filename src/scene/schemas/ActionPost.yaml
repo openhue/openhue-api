@@ -1,0 +1,35 @@
+type: object
+required:
+  - target
+  - action
+properties:
+  target:
+    type: object
+    description: The identifier of the light to execute the action on
+    $ref: '../../common/ResourceIdentifier.yaml'
+  action:
+    type: object
+    description: The action to be executed on recall
+    properties:
+      on:
+        $ref: '../../common/On.yaml'
+      dimming:
+        $ref: '../../common/Dimming.yaml'
+      color:
+        $ref: '../../common/Color.yaml'
+      color_temperature:
+        $ref: '../../common/Mirek.yaml'
+      gradient:
+        $ref: '../../common/Gradient.yaml'
+      effects:
+        type: object
+        description: Basic feature containing effect properties.
+        properties:
+          effect:
+            $ref: '../../common/SupportedEffects.yaml'
+      dynamics:
+        type: object
+        properties:
+          duration:
+            type: integer
+            description: Duration of a light transition or timed effects in ms.

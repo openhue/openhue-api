@@ -1,0 +1,11 @@
+type: object
+description: Basic feature containing gradient properties.
+properties:
+  points:
+    type: array
+    description: Collection of gradients points. For control of the gradient points through a PUT a minimum of 2 points need to be provided.
+    items:
+      $ref: './Color.yaml'
+    maxItems: 5
+  mode:
+    $ref: './SupportedGradientMode.yaml'
