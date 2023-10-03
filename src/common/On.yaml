@@ -1,0 +1,5 @@
+type: object
+properties:
+  on:
+    type: boolean
+    description: On/Off state of the light on=true, off=false

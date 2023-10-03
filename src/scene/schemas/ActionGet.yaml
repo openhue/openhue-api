@@ -1,0 +1,28 @@
+type: object
+allOf:
+  - $ref: '../../common/ResourceOwned.yaml'
+properties:
+  target:
+    type: object
+    description: The identifier of the light to execute the action on
+    $ref: '../../common/ResourceIdentifier.yaml'
+  action:
+    type: object
+    description: The action to be executed on recall
+    properties:
+      on:
+        $ref: '../../common/On.yaml'
+      dimming:
+        $ref: '../../common/Dimming.yaml'
+      color:
+        $ref: '../../common/Color.yaml'
+      color_temperature:
+        $ref: '../../common/Mirek.yaml'
+      gradient:
+        $ref: '../../common/Gradient.yaml'
+      effects:
+        type: object
+        description: Basic feature containing effect properties.
+        properties:
+          effect:
+            $ref: '../../common/SupportedEffects.yaml'

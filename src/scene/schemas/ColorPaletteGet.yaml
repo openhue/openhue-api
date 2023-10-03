@@ -1,0 +1,6 @@
+type: object
+properties:
+  color:
+    $ref: '../../common/Color.yaml'
+  dimming:
+    $ref: '../../common/Dimming.yaml'

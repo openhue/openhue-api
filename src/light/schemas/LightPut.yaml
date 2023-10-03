@@ -4,19 +4,9 @@ properties:
     type: string
     description: Type of the supported resources (always `light` here)
   on:
-    type: object
-    properties:
-      on:
-        type: boolean
-        description: On/Off state of the light on=true, off=false
+    $ref: '../../common/On.yaml'
   dimming:
-    type: object
-    properties:
-      brightness:
-        type: integer
-        minimum: 0
-        maximum: 100
-        description: Brightness percentage. value cannot be 0, writing 0 changes it to lowest possible brightness
+    $ref: '../../common/Dimming.yaml'
   dimming_delta:
     type: object
     properties:
@@ -36,7 +26,7 @@ properties:
     type: object
     properties:
       mirek:
-        $ref: './Mirek.yaml'
+        $ref: '../../common/Mirek.yaml'
   color_temperature_delta:
     type: object
     properties:
@@ -52,10 +42,7 @@ properties:
         maximum: 347
         description: Mirek delta to current mirek. Clip at mirek_minimum and mirek_maximum of mirek_schema.
   color:
-    type: object
-    properties:
-      xy:
-        $ref: './GamutPosition.yaml'
+    $ref: '../../common/GamutPosition.yaml'
   dynamics:
     type: object
     properties:
@@ -92,30 +79,20 @@ properties:
         maxItems: 2
         description: Colors that were provided for the active effect.
         items:
-          $ref: './ColorFeatureBasicGet.yaml'
+          $ref: '../../common/Color.yaml'
   mode:
     type: string
     enum:
       - normal
       - streaming
   gradient:
-    type: object
-    description: Basic feature containing gradient properties.
-    properties:
-      points:
-        type: array
-        description: Collection of gradients points. For control of the gradient points through a PUT a minimum of 2 points need to be provided.
-        items:
-          $ref: './GradientPointGet.yaml'
-        maxItems: 5
-      mode:
-        $ref: './SupportedGradientMode.yaml'
-  effect:
+    $ref: '../../common/Gradient.yaml'
+  effects:
     type: object
     description: Basic feature containing effect properties.
     properties:
       effect:
-        $ref: './SupportedEffects.yaml'
+        $ref: '../../common/SupportedEffects.yaml'
   timed_effects:
     type: object
     description: Basic feature containing timed effect properties.
@@ -156,11 +133,7 @@ properties:
               - toggle
               - previous
           on:
-            type: object
-            properties:
-              on:
-                type: boolean
-                description: On/Off state of the light on=true, off=false
+            $ref: '../../common/On.yaml'
       dimming:
         type: object
         properties:
@@ -174,13 +147,7 @@ properties:
               - dimming
               - previous
           dimming:
-            type: object
-            properties:
-              brightness:
-                type: number
-                minimum: 0
-                maximum: 100
-                description: Brightness percentage. value cannot be 0, writing 0 changes it to lowest possible brightness
+            $ref: '../../common/Brightness.yaml'
           color:
             type: object
             properties:
@@ -195,6 +162,6 @@ properties:
                 type: object
                 properties:
                   mirek:
-                    $ref: './Mirek.yaml'
+                    $ref: '../../common/Mirek.yaml'
                   color:
-                    $ref: './ColorFeatureBasicGet.yaml'
+                    $ref: '../../common/Color.yaml'

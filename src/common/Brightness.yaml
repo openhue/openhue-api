@@ -1,0 +1,4 @@
+type: number
+minimum: 0
+maximum: 100
+description: Brightness percentage. value cannot be 0, writing 0 changes it to lowest possible brightness

@@ -1,0 +1,9 @@
+type: object
+properties:
+  color_temperature:
+    type: object
+    properties:
+      mirek:
+        $ref: '../../common/Mirek.yaml'
+  dimming:
+    $ref: '../../common/Dimming.yaml'
