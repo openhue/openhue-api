@@ -1,0 +1,24 @@
+type: object
+required:
+  - children
+  - metadata
+properties:
+  children:
+    type: array
+    description: Child devices/services to group by the derived group
+    items:
+      $ref: '../../common/ResourceIdentifier.yaml'
+  metadata:
+    type: object
+    description: configuration object for a room
+    required:
+      - name
+      - archetype
+    properties:
+      name:
+        type: string
+        minLength: 1
+        maxLength: 32
+        description: Human readable name of a resource
+      archetype:
+        $ref: './RoomArchetype.yaml'
