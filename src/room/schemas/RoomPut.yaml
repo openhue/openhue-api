@@ -1,0 +1,19 @@
+type: object
+properties:
+  type:
+    type: string
+    description: Type of the supported resources (always `room` here)
+  children:
+    type: array
+    description: Child devices/services to group by the derived group
+    items:
+      $ref: '../../common/ResourceIdentifier.yaml'
+  metadata:
+    type: object
+    description: configuration object for a room
+    properties:
+      name:
+        type: string
+        description: Human readable name of a resource
+      archetype:
+        $ref: './RoomArchetype.yaml'

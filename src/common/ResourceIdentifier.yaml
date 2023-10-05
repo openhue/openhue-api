@@ -4,6 +4,7 @@ properties:
     type: string
     description: The unique id of the referenced resource
     pattern: ^[0-9a-f]{8}-([0-9a-f]{4}-){3}[0-9a-f]{12}$
+    example: 42edd1f5-9538-4180-9ced-2d9e07f26d0f
   rtype:
     type: string
     description: The type of the referenced resource
