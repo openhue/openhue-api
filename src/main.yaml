@@ -24,31 +24,45 @@ tags:
     description: API to manage scenes. Scenes are used to store and recall settings for a group of lights.
   - name: Room
     description: API to manage rooms. Rooms group devices and each device can only be part of one room.
+  - name: Zone
+    description: API to manage zones. Zones group services and each service can be part of multiple zones.
 paths:
+#  Authentication
   /api:
     $ref: './auth/auth.yaml'
+#  Resources
   /clip/v2/resource:
     $ref: './resource/resource.yaml'
+#  Light
   /clip/v2/resource/light:
     $ref: './light/light.yaml'
   /clip/v2/resource/light/{lightId}:
     $ref: './light/light_{lightId}.yaml'
+#  Bridge
   /clip/v2/resource/bridge:
     $ref: './bridge/bridge.yaml'
   /clip/v2/resource/bridge/{bridgeId}:
     $ref: './bridge/bridge_{bridgeId}.yaml'
+#  Bridge Home
   /clip/v2/resource/bridge_home:
     $ref: './bridge_home/bridge_home.yaml'
   /clip/v2/resource/bridge_home/{bridgeHomeId}:
     $ref: './bridge_home/bridge_home_{bridgeHomeId}.yaml'
+#  Scene
   /clip/v2/resource/scene:
     $ref: './scene/scene.yaml'
   /clip/v2/resource/scene/{sceneId}:
     $ref: './scene/scene_{sceneId}.yaml'
+#  Room
   /clip/v2/resource/room:
     $ref: './room/room.yaml'
   /clip/v2/resource/room/{roomId}:
     $ref: './room/room_{roomId}.yaml'
+# Zone
+  /clip/v2/resource/zone:
+    $ref: './zone/zone.yaml'
+  /clip/v2/resource/zone/{zoneId}:
+    $ref: './zone/zone_{zoneId}.yaml'
 components:
   securitySchemes:
     HueApplicationKey:
