@@ -1,14 +1,14 @@
 get:
-  operationId: getRooms
-  summary: List rooms
-  description: List all available rooms
+  operationId: getZones
+  summary: List zones
+  description: List all available zones
   tags:
-    - Room
+    - Zone
   security:
     - HueApplicationKey: [ ]
   responses:
     200:
-      description: Room Success Response
+      description: Zone Success Response
       content:
         application/json:
           schema:
@@ -19,7 +19,7 @@ get:
                   data:
                     type: array
                     items:
-                      $ref: './schemas/RoomGet.yaml'
+                      $ref: '../room/schemas/RoomGet.yaml' # Zone and Room schemas are strictly equivalent
     401:
       $ref: '../common/error.yaml#/components/responses/Unauthorized'
     403:
@@ -41,28 +41,28 @@ get:
     507:
       $ref: '../common/error.yaml#/components/responses/InsufficientStorage'
 post:
-  operationId: createRoom
+  operationId: createZone
   summary: Create room
   description: Create a new room
   tags:
-    - Room
+    - Zone
   security:
     - HueApplicationKey: [ ]
   requestBody:
     content:
       application/json:
         examples:
-          NewTvRoom:
-            summary: Create a new TV Room
+          NewTvZone:
+            summary: Create a new TV Zone
             value:
               children:
                 - rid: 00afc7d2-bae5-4613-8cd8-5ba0d064a572
                   rtype: light
               metadata:
-                name: TV Room
+                name: TV Zone
                 archetype: tv
         schema:
-          $ref: './schemas/RoomPut.yaml'
+          $ref: '../room/schemas/RoomPut.yaml' # Zone and Room schemas are strictly equivalent
   responses:
     200:
       description: Success

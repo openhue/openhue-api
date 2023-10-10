@@ -1,14 +1,21 @@
 get:
-  operationId: getRooms
-  summary: List rooms
-  description: List all available rooms
+  operationId: getZone
+  summary: Get Zone.
+  description: Get details of a single Zone from its given `{zoneId}`
   tags:
-    - Room
+    - Zone
   security:
     - HueApplicationKey: [ ]
+  parameters:
+    - name: zoneId
+      in: path
+      schema:
+        type: string
+      required: true
+      description: ID of the Zone
   responses:
     200:
-      description: Room Success Response
+      description: Zone Success Response
       content:
         application/json:
           schema:
@@ -19,7 +26,7 @@ get:
                   data:
                     type: array
                     items:
-                      $ref: './schemas/RoomGet.yaml'
+                      $ref: '../room/schemas/RoomGet.yaml' # Zone and Room schemas are strictly equivalent
     401:
       $ref: '../common/error.yaml#/components/responses/Unauthorized'
     403:
@@ -40,29 +47,75 @@ get:
       $ref: '../common/error.yaml#/components/responses/ServiceUnavailable'
     507:
       $ref: '../common/error.yaml#/components/responses/InsufficientStorage'
-post:
-  operationId: createRoom
-  summary: Create room
-  description: Create a new room
+put:
+  operationId: updateZone
+  summary: Update Zone
+  description: Update a single Zone from its given `{zoneId}`
   tags:
-    - Room
+    - Zone
   security:
     - HueApplicationKey: [ ]
+  parameters:
+    - name: zoneId
+      in: path
+      schema:
+        type: string
+      required: true
+      description: ID of the Zone
   requestBody:
     content:
       application/json:
-        examples:
-          NewTvRoom:
-            summary: Create a new TV Room
-            value:
-              children:
-                - rid: 00afc7d2-bae5-4613-8cd8-5ba0d064a572
-                  rtype: light
-              metadata:
-                name: TV Room
-                archetype: tv
         schema:
-          $ref: './schemas/RoomPut.yaml'
+          $ref: '../room/schemas/RoomPut.yaml' # Zone and Room schemas are strictly equivalent
+  responses:
+    200:
+      description: Success
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: '../common/ApiResponse.yaml'
+              - type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '../common/ResourceIdentifier.yaml'
+    401:
+      $ref: '../common/error.yaml#/components/responses/Unauthorized'
+    403:
+      $ref: '../common/error.yaml#/components/responses/Forbidden'
+    404:
+      $ref: '../common/error.yaml#/components/responses/NotFound'
+    405:
+      $ref: '../common/error.yaml#/components/responses/MethodNotAllowed'
+    406:
+      $ref: '../common/error.yaml#/components/responses/NotAcceptable'
+    409:
+      $ref: '../common/error.yaml#/components/responses/Conflict'
+    429:
+      $ref: '../common/error.yaml#/components/responses/TooManyRequests'
+    500:
+      $ref: '../common/error.yaml#/components/responses/InternalServerError'
+    503:
+      $ref: '../common/error.yaml#/components/responses/ServiceUnavailable'
+    507:
+      $ref: '../common/error.yaml#/components/responses/InsufficientStorage'
+delete:
+  operationId: deleteZone
+  summary: Delete Zone
+  description: Delete a single Zone from its given `{zoneId}`
+  tags:
+    - Zone
+  security:
+    - HueApplicationKey: [ ]
+  parameters:
+    - name: zoneId
+      in: path
+      schema:
+        type: string
+      required: true
+      description: ID of the Zone
   responses:
     200:
       description: Success
