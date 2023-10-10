@@ -2,25 +2,26 @@ type: object
 description: Definition of a bridge resource
 allOf:
   - $ref: '../../common/Resource.yaml'
-properties:
-  type:
-    type: string
-    enum:
-      - bridge_home
-  children:
-    type: array
-    description: Child devices/services to group by the derived group.
-    items:
-      $ref: '../../common/ResourceIdentifier.yaml'
-  services:
-    type: array
-    description: |
-      References all services aggregating control and state of children in the group.
-      This includes all services grouped in the group hierarchy given by child relation.
-      This includes all services of a device grouped in the group hierarchy given by child relation.
-      Aggregation is per service type, ie every service type which can be grouped has a corresponding definition
-      of grouped type Supported types: – grouped_light
-    items:
-      $ref: '../../common/ResourceIdentifier.yaml'
+  - type: object
+    properties:
+      type:
+        type: string
+        enum:
+          - bridge_home
+      children:
+        type: array
+        description: Child devices/services to group by the derived group.
+        items:
+          $ref: '../../common/ResourceIdentifier.yaml'
+      services:
+        type: array
+        description: |
+          References all services aggregating control and state of children in the group.
+          This includes all services grouped in the group hierarchy given by child relation.
+          This includes all services of a device grouped in the group hierarchy given by child relation.
+          Aggregation is per service type, ie every service type which can be grouped has a corresponding definition
+          of grouped type Supported types: – grouped_light
+        items:
+          $ref: '../../common/ResourceIdentifier.yaml'
 
 

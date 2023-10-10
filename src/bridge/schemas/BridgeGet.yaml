@@ -2,19 +2,20 @@ type: object
 description: Definition of a bridge resource
 allOf:
   - $ref: '../../common/ResourceOwned.yaml'
-properties:
-  type:
-    type: string
-    enum:
-      - bridge
-  bridge_id:
-    type: string
-    description: Unique identifier of the bridge as printed on the device. Lower case (shouldn't it be upper case?)
-  time_zone:
-    type: object
+  - type: object
     properties:
-      time_zone:
+      type:
         type: string
-        description: Time zone where the user's home is located (as Olson ID).
+        enum:
+          - bridge
+      bridge_id:
+        type: string
+        description: Unique identifier of the bridge as printed on the device. Lower case (shouldn't it be upper case?)
+      time_zone:
+        type: object
+        properties:
+          time_zone:
+            type: string
+            description: Time zone where the user's home is located (as Olson ID).
 
 
