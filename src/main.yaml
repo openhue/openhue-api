@@ -30,6 +30,8 @@ tags:
     description: API to manage rooms. Rooms group devices and each device can only be part of one room.
   - name: Zone
     description: API to manage zones. Zones group services and each service can be part of multiple zones.
+  - name: Temperature
+    description: API to manage temperature services. These are offered by devices with temperature sensing capabilities.
 paths:
 #  Authentication
   /api:
