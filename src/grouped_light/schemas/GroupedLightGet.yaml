@@ -1,0 +1,30 @@
+type: object
+allOf:
+  - $ref: '../../common/ResourceOwned.yaml'
+  - type: object
+    properties:
+      on:
+        description: Joined on control & aggregated on state. “on” is true if any light in the group is on.
+        $ref: '../../common/On.yaml'
+      dimming:
+        description: Joined dimming control – “dimming.brightness” contains average brightness of group containing turned-on lights only.
+        $ref: '../../common/Dimming.yaml'
+      alert:
+        type: object
+        description: Joined alert control
+        properties:
+          action_values:
+            type: array
+            items:
+              type: string
+              example: breathe
+      signaling:
+        type: object
+        description: Feature containing basic signaling properties.
+        properties:
+          signal_values:
+            type: array
+            description: Signals that the light supports.
+            items:
+              $ref: '../../common/SupportedSignals.yaml'
+

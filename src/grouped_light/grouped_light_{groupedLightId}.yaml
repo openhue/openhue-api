@@ -1,0 +1,109 @@
+get:
+  operationId: getGroupedLight
+  summary: Get grouped light.
+  description: Get details of a single grouped light from its given `{groupedLightId}`.
+  tags:
+    - GroupedLight
+  security:
+    - HueApplicationKey: [ ]
+  parameters:
+    - name: groupedLightId
+      in: path
+      schema:
+        type: string
+      required: true
+      description: ID of the grouped light.
+  responses:
+    200:
+      description: Grouped Light Success Response
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: '../common/ApiResponse.yaml'
+              - type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: './schemas/GroupedLightGet.yaml'
+    401:
+      $ref: '../common/error.yaml#/components/responses/Unauthorized'
+    403:
+      $ref: '../common/error.yaml#/components/responses/Forbidden'
+    404:
+      $ref: '../common/error.yaml#/components/responses/NotFound'
+    405:
+      $ref: '../common/error.yaml#/components/responses/MethodNotAllowed'
+    406:
+      $ref: '../common/error.yaml#/components/responses/NotAcceptable'
+    409:
+      $ref: '../common/error.yaml#/components/responses/Conflict'
+    429:
+      $ref: '../common/error.yaml#/components/responses/TooManyRequests'
+    500:
+      $ref: '../common/error.yaml#/components/responses/InternalServerError'
+    503:
+      $ref: '../common/error.yaml#/components/responses/ServiceUnavailable'
+    507:
+      $ref: '../common/error.yaml#/components/responses/InsufficientStorage'
+put:
+  operationId: updateGroupedLight
+  summary: Update grouped light
+  description: Update a single grouped light from its given `{groupedLightId}`.
+  tags:
+    - GroupedLight
+  security:
+    - HueApplicationKey: [ ]
+  parameters:
+    - name: groupedLightId
+      in: path
+      schema:
+        type: string
+      required: true
+      description: ID of the light.
+  requestBody:
+    content:
+      application/json:
+        examples:
+          SetOn:
+            summary: Set light group on
+            value:
+              on:
+                on: true
+        schema:
+          $ref: './schemas/GroupedLightPut.yaml'
+  responses:
+    200:
+      description: Success
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: '../common/ApiResponse.yaml'
+              - type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '../common/ResourceIdentifier.yaml'
+    401:
+      $ref: '../common/error.yaml#/components/responses/Unauthorized'
+    403:
+      $ref: '../common/error.yaml#/components/responses/Forbidden'
+    404:
+      $ref: '../common/error.yaml#/components/responses/NotFound'
+    405:
+      $ref: '../common/error.yaml#/components/responses/MethodNotAllowed'
+    406:
+      $ref: '../common/error.yaml#/components/responses/NotAcceptable'
+    409:
+      $ref: '../common/error.yaml#/components/responses/Conflict'
+    429:
+      $ref: '../common/error.yaml#/components/responses/TooManyRequests'
+    500:
+      $ref: '../common/error.yaml#/components/responses/InternalServerError'
+    503:
+      $ref: '../common/error.yaml#/components/responses/ServiceUnavailable'
+    507:
+      $ref: '../common/error.yaml#/components/responses/InsufficientStorage'
