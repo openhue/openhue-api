@@ -1,0 +1,30 @@
+type: object
+allOf:
+  - $ref: '../../common/ResourceOwned.yaml'
+  - type: object
+    properties:
+      enabled:
+        type: boolean
+        description: |
+          `true` when sensor is activated, `false` when deactivated
+      temperature:
+        type: object
+        properties:
+          temperature:
+            type: number
+            description: Deprecated. Moved to Temperature_report/temperature
+            example: 23
+          temperature_valid:
+            type: boolean
+            description: Deprecated. Indication whether the value presented in temperature is valid
+          temperature_report:
+            type: object
+            properties:
+              changed:
+                type: string
+                format: date-time
+                description: last time the value of this property is changed.
+              temperature:
+                type: number
+                description: Temperature in 1.00 degrees Celsius
+                example: 23

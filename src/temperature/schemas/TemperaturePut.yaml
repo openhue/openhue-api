@@ -1,0 +1,10 @@
+type: object
+properties:
+  type:
+    type: string
+    description: Type of the supported resources (always `temperature` here)
+    enum:
+      - temperature
+  enabled:
+    type: boolean
+    description: true when sensor is activated, false when deactivated
