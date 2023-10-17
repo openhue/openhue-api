@@ -104,7 +104,7 @@ allOf:
           signal_values:
             type: array
             items:
-              $ref: './SupportedSignals.yaml'
+              $ref: '../../common/SupportedSignals.yaml'
           estimated_end:
             type: integer
             description: Timestamp indicating when the active signal is expected to end. Value is not set if there is no_signal
