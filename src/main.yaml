@@ -16,6 +16,8 @@ tags:
     description: API to retrieve all API resources.
   - name: Light
     description: API to manage light services. These are offered by devices with lighting capabilities.
+  - name: LightLevel
+    description: API to manage light level services. These are offered by devices with light level sensing capabilities.
   - name: Bridge
     description: API to manage the bridge.
   - name: Bridge Home
@@ -38,6 +40,11 @@ paths:
     $ref: './light/light.yaml'
   /clip/v2/resource/light/{lightId}:
     $ref: './light/light_{lightId}.yaml'
+  #  Light Level
+  /clip/v2/resource/light_level:
+    $ref: './light_level/light_level.yaml'
+  /clip/v2/resource/light_level/{lightId}:
+    $ref: './light_level/light_level_{lightLevelId}.yaml'
 #  Bridge
   /clip/v2/resource/bridge:
     $ref: './bridge/bridge.yaml'
