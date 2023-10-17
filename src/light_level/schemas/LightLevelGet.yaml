@@ -1,0 +1,31 @@
+type: object
+allOf:
+  - $ref: '../../common/ResourceOwned.yaml'
+  - type: object
+    properties:
+      enabled:
+        type: boolean
+        description: true when sensor is activated, false when deactivated
+      light:
+        type: object
+        properties:
+          light_level:
+            type: integer
+            description: Deprecated. Moved to light_level_report/light_level
+          light_level_valid:
+            type: boolean
+            description: Deprecated. Indication whether the value presented in light_level is valid
+          light_level_report:
+            type: object
+            properties:
+              changed:
+                type: string
+                format: date-time
+                description: last time the value of this property is changed.
+              light_level:
+                type: integer
+                description: |
+                  Light level in 10000*log10(lux) +1 measured by sensor.
+                  Logarithmic scale used because the human eye adjusts to light levels and small changes at low
+                  lux levels are more noticeable than at high lux levels.
+                  This allows use of linear scale configuration sliders.
