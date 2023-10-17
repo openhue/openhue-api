@@ -1,0 +1,112 @@
+get:
+  operationId: getTemperature
+  summary: Get temperature sensor information
+  description: Get details of a single temperature sensor from its given `{temperatureId}`.
+  tags:
+    - Temperature
+  security:
+    - HueApplicationKey: [ ]
+  parameters:
+    - name: temperatureId
+      in: path
+      schema:
+        type: string
+      required: true
+      description: ID of the temperature sensor
+  responses:
+    200:
+      description: Temperature Success Response
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: '../common/ApiResponse.yaml'
+              - type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: './schemas/TemperatureGet.yaml'
+    401:
+      $ref: '../common/error.yaml#/components/responses/Unauthorized'
+    403:
+      $ref: '../common/error.yaml#/components/responses/Forbidden'
+    404:
+      $ref: '../common/error.yaml#/components/responses/NotFound'
+    405:
+      $ref: '../common/error.yaml#/components/responses/MethodNotAllowed'
+    406:
+      $ref: '../common/error.yaml#/components/responses/NotAcceptable'
+    409:
+      $ref: '../common/error.yaml#/components/responses/Conflict'
+    429:
+      $ref: '../common/error.yaml#/components/responses/TooManyRequests'
+    500:
+      $ref: '../common/error.yaml#/components/responses/InternalServerError'
+    503:
+      $ref: '../common/error.yaml#/components/responses/ServiceUnavailable'
+    507:
+      $ref: '../common/error.yaml#/components/responses/InsufficientStorage'
+put:
+  operationId: updateTemperature
+  summary: Update temperature sensor
+  description: Update a temperature sensor from its given `{temperatureId}`.
+  tags:
+    - Temperature
+  security:
+    - HueApplicationKey: [ ]
+  parameters:
+    - name: temperatureId
+      in: path
+      schema:
+        type: string
+      required: true
+      description: ID of the temperature sensor
+  requestBody:
+    content:
+      application/json:
+        examples:
+          Enable:
+            summary: Enable temperature sensor
+            value:
+              enabled: true
+          Disable:
+            summary: Disable temperature sensor
+            value:
+              enabled: false
+        schema:
+          $ref: './schemas/TemperaturePut.yaml'
+  responses:
+    200:
+      description: Success
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: '../common/ApiResponse.yaml'
+              - type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '../common/ResourceIdentifier.yaml'
+    401:
+      $ref: '../common/error.yaml#/components/responses/Unauthorized'
+    403:
+      $ref: '../common/error.yaml#/components/responses/Forbidden'
+    404:
+      $ref: '../common/error.yaml#/components/responses/NotFound'
+    405:
+      $ref: '../common/error.yaml#/components/responses/MethodNotAllowed'
+    406:
+      $ref: '../common/error.yaml#/components/responses/NotAcceptable'
+    409:
+      $ref: '../common/error.yaml#/components/responses/Conflict'
+    429:
+      $ref: '../common/error.yaml#/components/responses/TooManyRequests'
+    500:
+      $ref: '../common/error.yaml#/components/responses/InternalServerError'
+    503:
+      $ref: '../common/error.yaml#/components/responses/ServiceUnavailable'
+    507:
+      $ref: '../common/error.yaml#/components/responses/InsufficientStorage'

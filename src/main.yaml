@@ -77,6 +77,11 @@ paths:
     $ref: './zone/zone.yaml'
   /clip/v2/resource/zone/{zoneId}:
     $ref: './zone/zone_{zoneId}.yaml'
+# Temperature
+  /clip/v2/resource/temperature:
+    $ref: './temperature/temperature.yaml'
+  /clip/v2/resource/temperature/{temperatureId}:
+    $ref: './temperature/temperature_{temperatureId}.yaml'
 components:
   securitySchemes:
     HueApplicationKey:
