@@ -2,7 +2,7 @@ extends:
   - recommended
 
 apis:
-  clip@v2:
+  openhue@v2:
     root: ./src/main.yaml
     rules:
       no-ambiguous-paths: error
