@@ -114,3 +114,6 @@ Open-Hue is distributed under the [Apache License 2.0](http://www.apache.org/lic
 making it open and free for anyone to use and contribute to.
 See the [license](./LICENSE) file for detailed terms.
 
+## Acknowledgments
+
+We want to extend our heartfelt gratitude to [GitBook](https://www.gitbook.com/) for their generous support of the OpenHue Project. GitBook's commitment to helping open-source initiatives like ours thrive is truly appreciated. They have graciously provided the [OSS plan](https://docs.gitbook.com/account-management/plans/apply-for-the-non-profit-open-source-plan) for OpenHue, which will be instrumental in our documentation efforts, making it easier for developers and users to get started with OpenHue.
