@@ -161,7 +161,7 @@ allOf:
             $ref: './SupportedTimedEffects.yaml'
           effect_values:
             type: array
-            description: Possible timed effect values you can set in a light.
+            description: Possible timed effect values you can set in a light
             items:
               $ref: './SupportedTimedEffects.yaml'
           status:

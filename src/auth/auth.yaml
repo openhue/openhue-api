@@ -1,7 +1,7 @@
 post:
   operationId: authenticate
   summary: Authenticate
-  description: Authenticate to retrieve the HUE application key. Requires to go and press the button on the bridge.
+  description: Authenticate to retrieve the HUE application key. Requires to go and press the button on the bridge
   tags:
     - Auth
   requestBody:

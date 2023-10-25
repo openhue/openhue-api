@@ -1,6 +1,6 @@
 get:
   operationId: getGroupedLight
-  summary: Get grouped light.
+  summary: Get grouped light
   description: Get details of a single grouped light from its given `{groupedLightId}`.
   tags:
     - GroupedLight
@@ -12,7 +12,7 @@ get:
       schema:
         type: string
       required: true
-      description: ID of the grouped light.
+      description: ID of the grouped light
   responses:
     200:
       description: Grouped Light Success Response
@@ -61,7 +61,7 @@ put:
       schema:
         type: string
       required: true
-      description: ID of the light.
+      description: ID of the light
   requestBody:
     content:
       application/json:

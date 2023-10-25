@@ -31,7 +31,7 @@ tags:
   - name: GroupedLight
     description: API to manage grouped light services. These are offered by rooms, zones, and homes.
   - name: Bridge
-    description: API to manage the bridge.
+    description: API to manage the bridge
   - name: Bridge Home
     description: API to manage bridge homes. Homes group rooms as well as devices not assigned to a room.
   - name: Scene

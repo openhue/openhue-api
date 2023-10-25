@@ -1,7 +1,7 @@
 get:
   operationId: getBridges
-  summary: List bridges.
-  description: List all available bridges.
+  summary: List bridges
+  description: List all available bridges
   tags:
     - Bridge
   security:

@@ -1,6 +1,6 @@
 get:
   operationId: getLight
-  summary: Get light.
+  summary: Get light
   description: Get details of a single light from its given `{lightId}`.
   tags:
     - Light
@@ -12,7 +12,7 @@ get:
       schema:
         type: string
       required: true
-      description: ID of the light.
+      description: ID of the light
   responses:
     200:
       description: Light Success Response
@@ -49,7 +49,7 @@ get:
       $ref: '../common/error.yaml#/components/responses/InsufficientStorage'
 put:
   operationId: updateLight
-  summary: Update light.
+  summary: Update light
   description: Update a single light from its given `{lightId}`.
   tags:
     - Light
@@ -61,7 +61,7 @@ put:
       schema:
         type: string
       required: true
-      description: ID of the light.
+      description: ID of the light
   requestBody:
     content:
       application/json:

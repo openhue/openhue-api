@@ -42,8 +42,8 @@ get:
       $ref: '../common/error.yaml#/components/responses/InsufficientStorage'
 post:
   operationId: createZone
-  summary: Create room
-  description: Create a new room
+  summary: Create zone
+  description: Create a new zone
   tags:
     - Zone
   security:
