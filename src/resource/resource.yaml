@@ -1,7 +1,7 @@
 get:
   operationId: getResources
-  summary: List resources.
-  description: API to retrieve all API resources.
+  summary: List resources
+  description: API to retrieve all API resources
   tags:
     - Resource
   security:

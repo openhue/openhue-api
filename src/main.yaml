@@ -3,12 +3,22 @@ info:
   title: Hue CLIP API
   version: v2
   description: See [openhue/openhue-api](https://github.com/openhue/openhue-api)
+  contact:
+    name: OpenHue
+    email: contact@openhue.io
+    url: https://www.openhue.io
   license:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0.html
 servers:
-  - url: 'https://192.168.1.68'
-    description: My Home Bridge
+  - url: 'https://{bridgeInternalIPAddress}'
+    description: Your Home Bridge
+    variables:
+      bridgeInternalIPAddress:
+        default: 192.168.1.0
+        description: |
+          Use the broker server discover process by visiting https://discovery.meethue.com
+          to discover the IP address of the bridge on your network
 tags:
   - name: Auth
     description: Authentication operations.
