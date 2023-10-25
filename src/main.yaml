@@ -23,7 +23,7 @@ tags:
   - name: Auth
     description: Authentication operations.
   - name: Resource
-    description: API to retrieve all API resources.
+    description: API to retrieve all API resources
   - name: Light
     description: API to manage light services. These are offered by devices with lighting capabilities.
   - name: LightLevel
