@@ -1,9 +1,24 @@
-type: object
-properties:
-  success:
-    type: object
-    properties:
-      username:
-        type: string
-      clientkey:
-        type: string
+type: array
+minItems: 1
+maxItems: 1
+items:
+  type: object
+  properties:
+    success:
+      type: object
+      properties:
+        username:
+          type: string
+        clientkey:
+          type: string
+    error:
+      type: object
+      properties:
+        type:
+          type: integer
+          example: 101
+        address:
+          type: string
+        description:
+          type: string
+          example: link button bot pressed
