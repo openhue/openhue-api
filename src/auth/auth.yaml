@@ -22,5 +22,17 @@ post:
         application/json:
           schema:
             $ref: ./response.yaml
+          examples:
+            Success:
+              value:
+                - success:
+                    username: a4e08834-0893-4013-b646-738582ec15c9
+                    clientkey: 8c7f2f7e-efb5-4b89-9b54-aac797040ea4
+            Error:
+              value:
+                - error:
+                    type: 101
+                    address: ""
+                    description: link button not pressed
     401:
       $ref: '../common/error.yaml#/components/responses/Unauthorized'
