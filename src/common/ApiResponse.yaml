@@ -6,3 +6,5 @@ properties:
       $ref: './error.yaml#/components/schemas/Error'
   data:
     type: array
+    items:
+      type: object
