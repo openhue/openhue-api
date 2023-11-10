@@ -32,6 +32,13 @@ To use the OpenHue OpenAPI specification in your projects, you can obtain it fro
 
 ### Obtain the OpenAPI Specification
 
+The OpenHue OpenAPI Specification is hosted on [Redocly](https://redocly.com),
+you can directly obtain it via [this link](https://api.redocly.com/registry/bundle/openhue/openhue/v2/openapi.yaml).
+
+Click [here](https://editor.swagger.io?url=https://api.redocly.com/registry/bundle/openhue/openhue/v2/openapi.yaml)
+to view the specification via the Swagger Editor.
+
+#### From GitHub
 1. Visit our [GitHub releases page](https://github.com/openhue/openhue-api/releases).
 2. Select the desired release version that suits your needs. Each release contains the complete OpenAPI specification for OpenHue.
 3. Download the `openhue.yaml` file from the selected release. This YAML file represents the OpenAPI specification, which defines the structure and behavior of the OpenHue API.
