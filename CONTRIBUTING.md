@@ -1,6 +1,6 @@
 # Contributing
 
-We welcome contributions from the community to enhance and improve Open-Hue.
+We welcome contributions from the community to enhance and improve OpenHue.
 Whether you're a developer, designer, or enthusiast, there are several ways you can get involved:
 
 ## Reporting Issues
@@ -11,13 +11,13 @@ When reporting issues, please provide as much detail as possible to help us unde
 
 ## Code Contributions
 
-If you're interested in contributing code to Open-Hue, follow these steps:
+If you're interested in contributing code to OpenHue, follow these steps:
 
-1. Fork the Open-Hue repository to your GitHub account.
+1. Fork the OpenHue repository to your GitHub account.
 2. Create a new branch for your feature or bug fix.
 3. Make your changes, following our coding guidelines and practices.
 4. Test your changes thoroughly.
-5. Create a pull request (PR) to the `main` branch of the Open-Hue repository.
+5. Create a pull request (PR) to the `main` branch of the OpenHue repository.
 6. Clearly describe the purpose of your PR and the changes made.
 7. Our team will review your PR, provide feedback, and work with you to ensure its quality.
 8. Once approved, your contribution will be merged into the project.
@@ -25,12 +25,12 @@ If you're interested in contributing code to Open-Hue, follow these steps:
 ## Documentation
 
 Improving and expanding our documentation is another valuable way to contribute.
-Help us make Open-Hue more accessible to developers by enhancing our guides, README, and API documentation.
+Help us make OpenHue more accessible to developers by enhancing our guides, README, and API documentation.
 Simply submit a PR with your improvements.
 
 ## Coding Guidelines
 
-To maintain code quality and consistency, please adhere to the following guidelines when contributing to Open-Hue:
+To maintain code quality and consistency, please adhere to the following guidelines when contributing to OpenHue:
 
 - Write clear and concise commit messages.
 - Keep your code and commits focused on a single task or feature.
