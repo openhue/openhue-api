@@ -54,17 +54,15 @@ You can easily import the OpenAPI specification into Postman, a popular API deve
 
 ### Generate Client Code
 
-The OpenAPI specification `openhue.yaml` can be used to generate client code in virtually any programming language. There are various tools and libraries available that can take the specification and generate client code tailored to your language of choice.
+The OpenAPI specification `openhue.yaml` can be used to generate client code in virtually any programming language.
+There are various tools and libraries available that can take the specification,
+and generate client code tailored to your language of choice.
 
 Here's a basic example using the [`openapi-generator-cli`](https://github.com/OpenAPITools/openapi-generator-cli) to generate a Python client:
 
 ```shell
-npx @openapitools/openapi-generator-cli generate -g python -i path/to/openhue.yaml -o output/directory
+npx @openapitools/openapi-generator-cli generate -g python -i https://api.redocly.com/registry/bundle/openhue/openhue/v2/openapi.yaml -o my-openhue-project
 ```
-Replace _path/to/openhue.yaml_ with the actual path to your downloaded `openhue.yaml` file and _output/directory_ with your desired output directory.
-
-By following these steps, you can integrate OpenHue's OpenAPI specification into your development workflow,
-test the API using Postman, and generate client code in your preferred programming language.
 
 ## Getting Started
 
