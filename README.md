@@ -5,7 +5,7 @@
 [![GitHub](https://img.shields.io/github/license/openhue/openhue-api)](https://github.com/openhue/openhue-api/blob/main/LICENSE)
 [![GitHub release (with filter)](https://img.shields.io/github/v/release/openhue/openhue-api?logo=openapiinitiative&labelColor=white&color=grey)](https://github.com/openhue/openhue-api/releases/latest)
 
-[OpenHue](https://openhue.io) is an open-source project that provides a comprehensive OpenAPI specification for the Philips Hue REST API, known as CLIP (_Connected Lighting Interface Protocol_) API.
+[OpenHue](https://www.openhue.io) is an open-source project that provides a comprehensive OpenAPI specification for the Philips Hue REST API, known as CLIP (_Connected Lighting Interface Protocol_) API.
 This specification serves as a bridge between developers and Philips Hue smart lighting systems, enabling seamless integration
 and control of Hue lighting within various applications and platforms.
 
