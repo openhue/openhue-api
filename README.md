@@ -1,9 +1,9 @@
 # OpenHue API
 [![Build](https://github.com/openhue/openhue-api/actions/workflows/build.yml/badge.svg)](https://github.com/openhue/openhue-api/actions/workflows/build.yml)
-[![GitHub issues](https://img.shields.io/github/issues/openhue/openhue-api)](https://github.com/openhue/openhue-api/issues)
-![GitHub Repo stars](https://img.shields.io/github/stars/openhue/openhue-api)
-[![GitHub](https://img.shields.io/github/license/openhue/openhue-api)](https://github.com/openhue/openhue-api/blob/main/LICENSE)
-[![GitHub release (with filter)](https://img.shields.io/github/v/release/openhue/openhue-api?logo=openapiinitiative&labelColor=white&color=grey)](https://github.com/openhue/openhue-api/releases/latest)
+[![GitHub Issues](https://img.shields.io/github/issues/openhue/openhue-api)](https://github.com/openhue/openhue-api/issues)
+[![GitHub Repo stars](https://img.shields.io/github/stars/openhue/openhue-api)](https://github.com/openhue/openhue-api/stargazers)
+[![GitHub License file](https://img.shields.io/github/license/openhue/openhue-api)](https://github.com/openhue/openhue-api/blob/main/LICENSE)
+[![GitHub Releases](https://img.shields.io/github/v/release/openhue/openhue-api?logo=openapiinitiative&labelColor=white&color=grey)](https://github.com/openhue/openhue-api/releases/latest)
 
 [OpenHue](https://www.openhue.io) is an open-source project that provides a comprehensive OpenAPI specification for the Philips Hue REST API, known as CLIP (_Connected Lighting Interface Protocol_) API.
 This specification serves as a bridge between developers and Philips Hue smart lighting systems, enabling seamless integration
