@@ -1,0 +1,37 @@
+type: object
+properties:
+  type:
+    type: string
+    enum:
+      - device
+  metadata:
+    type: object
+    properties:
+      name:
+        type: string
+        minLength: 1
+        maxLength: 32
+        description: Human readable name of a resource
+      archetype:
+        $ref: './ProductArchetype.yaml'
+        description: By default archetype given by manufacturer. Can be changed by user.
+  identify:
+    type: object
+    properties:
+      action:
+        type: string
+        description: |
+          Triggers a visual identification sequence, current implemented as (which can change in the future):
+          Bridge performs Zigbee LED identification cycles for 5 seconds Lights perform one breathe cycle Sensors
+          perform LED identification cycles for 15 seconds
+        enum:
+          - identify
+  usertest:
+    type: object
+    properties:
+      usertest:
+        type: boolean
+        description: |
+          Activates or extends user usertest mode of device for 120 seconds.
+          `false` deactivates usertest mode. In usertest mode, devices report changes in state faster and indicate
+          state changes on device LED (if applicable)

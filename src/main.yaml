@@ -24,6 +24,8 @@ tags:
     description: Authentication operations.
   - name: Resource
     description: API to retrieve all API resources
+  - name: Device
+    description: API to manage devices. Devices have device level properties and offer services such as light. Bridge device cannot be deleted.
   - name: Light
     description: API to manage light services. These are offered by devices with lighting capabilities.
   - name: LightLevel
@@ -49,6 +51,11 @@ paths:
 #  Resources
   /clip/v2/resource:
     $ref: './resource/resource.yaml'
+#  Device
+  /clip/v2/device:
+    $ref: './device/device.yaml'
+  /clip/v2/device/{deviceId}:
+    $ref: './device/device_{deviceId}.yaml'
 #  Light
   /clip/v2/resource/light:
     $ref: './light/light.yaml'

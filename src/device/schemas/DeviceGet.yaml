@@ -1,0 +1,42 @@
+type: object
+description: Definition of a bridge resource
+allOf:
+  - $ref: '../../common/ResourceOwned.yaml'
+  - type: object
+    properties:
+      type:
+        type: string
+        enum:
+          - device
+      product_data:
+        $ref: './ProductData.yaml'
+      metadata:
+        type: object
+        properties:
+          name:
+            type: string
+            minLength: 1
+            maxLength: 32
+            description: Human readable name of a resource
+          archetype:
+            $ref: './ProductData.yaml'
+            description: By default archetype given by manufacturer. Can be changed by user.
+      usertest:
+        type: object
+        properties:
+          status:
+            type: string
+            enum:
+              - set
+              - changing
+          usertest:
+            type: boolean
+            description: |
+              Activates or extends user usertest mode of device for 120 seconds.
+              `false` deactivates usertest mode.
+              In usertest mode, devices report changes in state faster and indicate state changes on device LED (if applicable)
+      services:
+        type: array
+        description: References all services providing control and state of the device.
+        items:
+          $ref: '../../common/ResourceIdentifier.yaml'
