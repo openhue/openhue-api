@@ -1,0 +1,28 @@
+type: object
+properties:
+  model_id:
+    type: string
+    description: Unique identification of device model
+    example: 7602031P7
+  manufacturer_name:
+    type: string
+    description: Name of device manufacturer
+    example: Signify Netherlands B.V.
+  product_name:
+    type: string
+    description: Name of the product
+    example: Hue Go
+  product_archetype:
+    $ref: './ProductArchetype.yaml'
+  certified:
+    type: boolean
+    description: This device is Hue certified
+  software_version:
+    type: string
+    description: Software version of the product
+    pattern: \d+\.\d+\.\d+
+    example: 1.104.3
+  hardware_platform_type:
+    type: string
+    description: Hardware type; identified by Manufacturer code and ImageType
+    example: 100b-120
