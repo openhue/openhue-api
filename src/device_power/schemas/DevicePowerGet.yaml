@@ -1,0 +1,26 @@
+type: object
+description: Definition of a bridge resource
+allOf:
+  - $ref: '../../common/ResourceOwned.yaml'
+  - type: object
+    properties:
+      power_state:
+        type: object
+        properties:
+          battery_state:
+            type: string
+            enum:
+              - normal
+              - low
+              - critical
+            description: |
+              Status of the power source of a device, only for battery powered devices.
+
+              - `normal` – battery level is sufficient
+              - `low` – battery level low, some features (e.g. software update) might stop working, please change battery soon
+              - `critical` – battery level critical, device can fail any moment
+          battery_level:
+            type: integer
+            minimum: 0
+            maximum: 100
+            description: The current battery state in percent, only for battery powered devices.

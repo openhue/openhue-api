@@ -26,6 +26,8 @@ tags:
     description: API to retrieve all API resources
   - name: Device
     description: API to manage devices. Devices have device level properties and offer services such as light. Bridge device cannot be deleted.
+  - name: Device Power
+    description: API to manage device power services. These are offered by battery powered devices. The update endpoint (e.g. `PUT`) was intentionally not implemented.
   - name: Light
     description: API to manage light services. These are offered by devices with lighting capabilities.
   - name: LightLevel
@@ -56,6 +58,11 @@ paths:
     $ref: './device/device.yaml'
   /clip/v2/device/{deviceId}:
     $ref: './device/device_{deviceId}.yaml'
+#  Device Power
+  /clip/v2/device_power:
+    $ref: './device_power/device_power.yaml'
+  /clip/v2/device_power/{deviceId}:
+    $ref: './device_power/device_power_{deviceId}.yaml'
 #  Light
   /clip/v2/resource/light:
     $ref: './light/light.yaml'
