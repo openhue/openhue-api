@@ -63,6 +63,7 @@ Here's a basic example using the [`openapi-generator-cli`](https://github.com/Op
 ```shell
 npx @openapitools/openapi-generator-cli generate -g python -i https://api.redocly.com/registry/bundle/openhue/openhue/v2/openapi.yaml -o my-openhue-project
 ```
+> ℹ️ `openapi-generator-cli` requires Java 17 to be installed
 
 ## Getting Started
 
