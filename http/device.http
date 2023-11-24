@@ -1,0 +1,67 @@
+# -------------------------------------------------------------------------------------------------------------------- #
+#     /resource/device and /resource/device_power
+# -------------------------------------------------------------------------------------------------------------------- #
+
+# List all devices
+GET {{baseUrl}}/device
+hue-application-key: {{apiKey}}
+
+> {%
+  client.test("Request executed successfully", function() {
+    client.assert(response.status === 200, "Response status is not 200");
+  });
+  client.test("Assigning a device with light services", function () {
+
+    // find devices that offer light service
+    const devicesWithLight = response.body.data.filter((device) => {
+      return device.services.filter((service) => service.rtype == 'light' ).length > 0;
+    });
+
+    if (devicesWithLight.length == 0) {
+      client.log("No device with light service found")
+      client.exit();
+    }
+
+    client.global.set("device_with_light_id", devicesWithLight[0].id);
+  });
+%}
+
+###
+
+# Get device details
+GET {{baseUrl}}/device/{{device_with_light_id}}
+hue-application-key: {{apiKey}}
+
+###
+
+# Identify a device
+PUT {{baseUrl}}/device/{{device_with_light_id}}
+hue-application-key: {{apiKey}}
+Content-Type: application/json
+
+{
+  "identify": {
+    "action": "identify"
+  }
+}
+
+###
+
+# List devices with power
+GET {{baseUrl}}/device_power
+hue-application-key: {{apiKey}}
+
+> {%
+  client.test("Request executed successfully", function() {
+    client.assert(response.status === 200, "Response status is not 200");
+  });
+  client.test("Assigning a device with power", function () {
+    client.global.set("device_with_power_id", response.body.data[0].id);
+  });
+%}
+
+###
+
+# List devices with power
+GET {{baseUrl}}/device_power/{{device_with_power_id}}
+hue-application-key: {{apiKey}}
