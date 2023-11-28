@@ -1,0 +1,62 @@
+type: object
+description: Feature containing properties to configure powerup behaviour of a lightsource.
+properties:
+  preset:
+    type: string
+    description: When setting the custom preset the additional properties can be set. For all other presets, no other properties can be included.
+    enum:
+      - safety
+      - powerfail
+      - last_on_state
+      - custom
+  configured:
+    type: boolean
+    description: Indicates if the shown values have been configured in the lightsource.
+  on:
+    type: object
+    properties:
+      mode:
+        type: string
+        description: |
+          State to activate after powerup.
+          On will use the value specified in the “on” property.
+          When setting mode “on”, the on property must be included.
+          Toggle will alternate between on and off on each subsequent power toggle.
+          Previous will return to the state it was in before powering off.
+        enum:
+          - on
+          - toggle
+          - previous
+      on:
+        $ref: '../../common/On.yaml'
+  dimming:
+    type: object
+    properties:
+      mode:
+        type: string
+        description: |
+          Dimming will set the brightness to the specified value after power up.
+          When setting mode “dimming”, the dimming property must be included.
+          Previous will set brightness to the state it was in before powering off.
+        enum:
+          - dimming
+          - previous
+      dimming:
+        $ref: '../../common/Brightness.yaml'
+      color:
+        type: object
+        properties:
+          mode:
+            type: string
+            enum:
+              - color_temperature
+              - color
+              - previous
+            description: State to activate after powerup. Availability of “color_temperature” and “color” modes depend on the capabilities of the lamp. Colortemperature will set the colortemperature to the specified value after power up. When setting color_temperature, the color_temperature property must be included Color will set the color tot he specified value after power up. When setting color mode, the color property must be included Previous will set color to the state it was in before powering off.
+          color_temperature:
+            type: object
+            properties:
+              mirek:
+                $ref: '../../common/Mirek.yaml'
+              color:
+                $ref: '../../common/Color.yaml'

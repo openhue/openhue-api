@@ -1,0 +1,5 @@
+type: object
+description: Basic feature containing effect properties.
+properties:
+  effect:
+    $ref: '../../common/SupportedEffects.yaml'

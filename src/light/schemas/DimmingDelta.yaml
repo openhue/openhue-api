@@ -1,0 +1,14 @@
+type: object
+properties:
+  action:
+    type: string
+    enum:
+      - up
+      - down
+      - stop
+  brightness_delta:
+    type: number
+    minimum: 0
+    maximum: 100
+    description: |
+      Brightness percentage of full-scale increase delta to current dimlevel. Clip at Max-level or Min-level.
