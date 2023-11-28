@@ -1,0 +1,29 @@
+# -------------------------------------------------------------------------------------------------------------------- #
+#     /resource/light
+# -------------------------------------------------------------------------------------------------------------------- #
+
+# List all lights
+GET {{baseUrl}}/light
+hue-application-key: {{apiKey}}
+
+###
+
+# Get single light
+GET {{baseUrl}}/light/15f51223-1e83-4e48-9158-0c20dbd5734e
+hue-application-key: {{apiKey}}
+
+###
+
+# UPdate single light
+PUT {{baseUrl}}/light/15f51223-1e83-4e48-9158-0c20dbd5734e
+hue-application-key: {{apiKey}}
+Content-Type: application/json
+
+{
+  "color": {
+    "xy": {
+      "x": 0.40,
+      "y": 0.20
+    }
+  }
+}
