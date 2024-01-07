@@ -1,5 +1,5 @@
 type: object
-description: Definition of a bridge resource
+description: Definition of a device resource
 allOf:
   - $ref: '../../common/ResourceOwned.yaml'
   - type: object
@@ -19,8 +19,7 @@ allOf:
             maxLength: 32
             description: Human readable name of a resource
           archetype:
-            $ref: './ProductData.yaml'
-            description: By default archetype given by manufacturer. Can be changed by user.
+            $ref: './ProductArchetype.yaml'
       usertest:
         type: object
         properties:

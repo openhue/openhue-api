@@ -14,7 +14,6 @@ properties:
         description: Human readable name of a resource
       archetype:
         $ref: './ProductArchetype.yaml'
-        description: By default archetype given by manufacturer. Can be changed by user.
   identify:
     type: object
     properties:
