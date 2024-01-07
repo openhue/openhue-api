@@ -1,5 +1,5 @@
 type: object
-description: Definition of a bridge resource
+description: Definition of a bridge power resource
 allOf:
   - $ref: '../../common/ResourceOwned.yaml'
   - type: object

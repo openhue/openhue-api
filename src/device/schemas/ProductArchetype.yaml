@@ -1,8 +1,8 @@
 type: string
-description: Archetype of the product
+description: The default archetype given by manufacturer. Can be changed by user.
 example: hue_go
 enum:
-  - one of bridge_v2
+  - bridge_v2
   - unknown_archetype
   - classic_bulb
   - sultan_bulb

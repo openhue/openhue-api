@@ -1,5 +1,6 @@
 type: string
 description: Light archetype
+example: classic_bulb
 enum:
   - unknown_archetype
   - classic_bulb
