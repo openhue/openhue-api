@@ -1,4 +1,0 @@
-type: object
-properties:
-  mirek:
-    $ref: '../../common/Mirek.yaml'

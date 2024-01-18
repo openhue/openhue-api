@@ -18,7 +18,7 @@ allOf:
           color:
             $ref: '../../common/Color.yaml'
           color_temperature:
-            $ref: '../../common/Mirek.yaml'
+            $ref: '../../common/ColorTemperature.yaml'
           gradient:
             $ref: '../../common/Gradient.yaml'
           effects:
