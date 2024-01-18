@@ -18,7 +18,10 @@ properties:
       color:
         $ref: '../../common/Color.yaml'
       color_temperature:
-        $ref: '../../common/Mirek.yaml'
+        type: object
+        properties:
+          mirek:
+            $ref: '../../common/Mirek.yaml'
       gradient:
         $ref: '../../common/Gradient.yaml'
       effects:

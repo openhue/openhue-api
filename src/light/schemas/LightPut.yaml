@@ -10,7 +10,7 @@ properties:
   dimming_delta:
     $ref: './DimmingDelta.yaml'
   color_temperature:
-    $ref: './ColorTemperature.yaml'
+    $ref: '../../common/ColorTemperature.yaml'
   color_temperature_delta:
     $ref: './ColorTemperatureDelta.yaml'
   color:
