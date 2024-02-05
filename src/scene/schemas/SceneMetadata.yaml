@@ -1,0 +1,14 @@
+type: object
+properties:
+  name:
+    type: string
+    minLength: 1
+    maxLength: 32
+    description: Human readable name of a resource
+  image:
+    $ref: '../../common/ResourceIdentifier.yaml'
+  appdata:
+    type: string
+    minLength: 1
+    maxLength: 16
+    description: Application specific data. Free format string.

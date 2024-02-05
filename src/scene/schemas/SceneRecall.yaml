@@ -1,0 +1,14 @@
+type: object
+properties:
+  action:
+    type: string
+    description: When writing active, the actions in the scene are executed on the target. dynamic_palette starts dynamic scene with colors in the Palette object.
+    enum:
+      - active
+      - dynamic_palette
+      - static
+  duration:
+    type: integer
+    description: Transition to the scene within the timeframe given by duration
+  dimming:
+    $ref: '../../common/Dimming.yaml'

@@ -1,0 +1,30 @@
+type: object
+description: Group of colors that describe the palette of colors to be used when playing dynamics
+properties:
+  color:
+    type: array
+    minItems: 0
+    maxItems: 9
+    items:
+      $ref: './ColorPaletteGet.yaml'
+  dimming:
+    type: array
+    minItems: 0
+    maxItems: 1
+    items:
+      $ref: '../../common/Dimming.yaml'
+  color_temperature:
+    type: array
+    minItems: 0
+    maxItems: 1
+    items:
+      $ref: './ColorTemperaturePalettePost.yaml'
+  effects:
+    type: array
+    minItems: 0
+    maxItems: 3
+    items:
+      type: object
+      properties:
+        effect:
+          $ref: '../../common/SupportedEffects.yaml'

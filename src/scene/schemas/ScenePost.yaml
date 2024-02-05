@@ -14,57 +14,11 @@ properties:
     items:
       $ref: './ActionPost.yaml'
   metadata:
-    type: object
-    properties:
-      name:
-        type: string
-        minLength: 1
-        maxLength: 32
-        description: Human readable name of a resource
-      image:
-        description: 'Reference with unique identifier for the image representing the scene only accepting “rtype”: “public_image” on creation'
-        $ref: '../../common/ResourceIdentifier.yaml'
-      appdata:
-        type: string
-        minLength: 1
-        maxLength: 16
-        description: Application specific data. Free format string.
+    $ref: './SceneMetadata.yaml'
   group:
-    description: |
-      Group associated with this Scene. All services in the group are part of this scene.
-      If the group is changed the scene is update (e.g. light added/removed)
     $ref: '../../common/ResourceIdentifier.yaml'
   palette:
-    type: object
-    description: Group of colors that describe the palette of colors to be used when playing dynamics
-    properties:
-      color:
-        type: array
-        minItems: 0
-        maxItems: 9
-        items:
-          $ref: './ColorPaletteGet.yaml'
-      dimming:
-        type: array
-        minItems: 0
-        maxItems: 1
-        items:
-          $ref: '../../common/Dimming.yaml'
-      color_temperature:
-        type: array
-        minItems: 0
-        maxItems: 1
-        items:
-          $ref: './ColorTemperaturePalettePost.yaml'
-      effects:
-        type: array
-        minItems: 0
-        maxItems: 3
-        items:
-          type: object
-          properties:
-            effect:
-              $ref: '../../common/SupportedEffects.yaml'
+    $ref: './ScenePalette.yaml'
   speed:
     type: number
     minimum: 0
