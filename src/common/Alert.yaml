@@ -1,0 +1,6 @@
+type: object
+description: Joined alert control
+properties:
+  action:
+    type: string
+    example: breathe

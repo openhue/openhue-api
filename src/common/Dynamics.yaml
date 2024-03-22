@@ -1,0 +1,6 @@
+type: object
+properties:
+  duration:
+    type: integer
+    minimum: 0
+    description: Duration of a light transition or timed effects in ms.

@@ -8,22 +8,19 @@ properties:
   dimming:
     $ref: '../../common/Dimming.yaml'
   dimming_delta:
-    $ref: './DimmingDelta.yaml'
+    $ref: '../../common//DimmingDelta.yaml'
   color_temperature:
     $ref: '../../common/ColorTemperature.yaml'
   color_temperature_delta:
-    $ref: './ColorTemperatureDelta.yaml'
+    $ref: '../../common/ColorTemperatureDelta.yaml'
   color:
-    $ref: './Color.yaml'
+    $ref: '../../common/Color.yaml'
   dynamics:
     $ref: './Dynamics.yaml'
   alert:
-    type: object
-    properties:
-      action:
-        type: string
+    $ref: '../../common/Alert.yaml'
   signaling:
-    $ref: './Signaling.yaml'
+    $ref: '../../common/Signaling.yaml'
   mode:
     type: string
     enum:

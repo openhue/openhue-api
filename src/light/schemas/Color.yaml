@@ -1,4 +1,0 @@
-type: object
-properties:
-  xy:
-    $ref: '../../common/GamutPosition.yaml'

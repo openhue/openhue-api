@@ -10,83 +10,16 @@ properties:
   dimming:
     $ref: '../../common/Dimming.yaml'
   dimming_delta:
-    type: object
-    required:
-      - action
-    properties:
-      action:
-        type: string
-        enum:
-          - up
-          - down
-          - stop
-      brightness_delta:
-        type: number
-        minimum: 0
-        maximum: 100
-        description: Brightness percentage of full-scale increase delta to current dimlevel. Clip at Max-level or Min-level.
+    $ref: '../../common//DimmingDelta.yaml'
   color_temperature:
-    type: object
-    description: Joined color temperature control
-    properties:
-      mirek:
-        $ref: '../../common/Mirek.yaml'
+    $ref: '../../common/ColorTemperature.yaml'
   color_temperature_delta:
-    type: object
-    required:
-      - action
-    properties:
-      action:
-        type: string
-        enum:
-          - up
-          - down
-          - stop
-      mirek_delta:
-        $ref: '../../common/Mirek.yaml'
-        description: Mirek delta to current mirek. Clip at mirek_minimum and mirek_maximum of mirek_schema.
+    $ref: '../../common/ColorTemperatureDelta.yaml'
   color:
     $ref: '../../common/Color.yaml'
   alert:
-    type: object
-    description: Joined alert control
-    properties:
-      action:
-        type: string
-        example: breathe
+    $ref: '../../common/Alert.yaml'
   signaling:
-    type: object
-    description: Feature containing basic signaling properties.
-    properties:
-      signal:
-        type: string
-        description: |
-          - `no_signal`: No signal is active. Write “no_signal” to stop active signal.
-          - `on_off`: Toggles between max brightness and Off in fixed color.
-          - `on_off_color`: Toggles between off and max brightness with color provided.
-          - `alternating`: Alternates between 2 provided colors.
-        enum:
-          - no_signal
-          - on_off
-          - on_off_color
-          - alternating
-      duration:
-        type: integer
-        minimum: 0
-        maximum: 65534000
-        description: |
-          Duration has a max of 65534000 ms and a stepsize of 1 second.
-          Values inbetween steps will be rounded.
-          Duration is ignored for `no_signal`.
-      color:
-        type: array
-        description: List of colors to apply to the signal (not supported by all signals)
-        items:
-          $ref: '../../common/Color.yaml'
+    $ref: '../../common/Signaling.yaml'
   dynamics:
-    type: object
-    properties:
-      duration:
-        type: integer
-        minimum: 0
-        description: Duration of a light transition or timed effects in ms.
+    $ref: '../../common/Dynamics.yaml'
