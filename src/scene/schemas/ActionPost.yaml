@@ -31,8 +31,4 @@ properties:
           effect:
             $ref: '../../common/SupportedEffects.yaml'
       dynamics:
-        type: object
-        properties:
-          duration:
-            type: integer
-            description: Duration of a light transition or timed effects in ms.
+        $ref: '../../common/Dynamics.yaml'
