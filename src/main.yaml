@@ -32,6 +32,8 @@ tags:
     description: API to manage light services. These are offered by devices with lighting capabilities.
   - name: LightLevel
     description: API to manage light level services. These are offered by devices with light level sensing capabilities.
+  - name: Motion
+    description: API to manage motion services. These are offered by devices with motion sensing capabilities.
   - name: GroupedLight
     description: API to manage grouped light services. These are offered by rooms, zones, and homes.
   - name: Bridge
