@@ -78,6 +78,8 @@ paths:
 #  Motion
   /clip/v2/resource/motion:
     $ref: './motion/motion.yaml'
+  /clip/v2/resource/motion/{motionId}:
+    $ref: './motion/motion_{motionId}.yaml'
 #  Grouped Level
   /clip/v2/resource/grouped_light:
     $ref: './grouped_light/grouped_light.yaml'
