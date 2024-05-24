@@ -19,7 +19,7 @@ allOf:
             type: object
             properties:
               changed:
-                type: datetime
+                type: string
                 description: last time the value of this property is changed
               motion:
                 type: boolean
