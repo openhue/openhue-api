@@ -1,0 +1,40 @@
+type: object
+allOf:
+  - $ref: '../../common/ResourceOwned.yaml'
+  - type: object
+    properties:
+      enabled:
+        type: boolean
+        description: ture when the sensor is activated, false when deactivated
+      motion:
+        type: object
+        properties:
+          motion:
+            type: boolean
+            description: Deprecated. Moved to motion_report/motion.
+          motion_valid:
+            type: boolean
+            description: Deprecated. Motion is valid when motion_report property is present, invalid when absent.
+          motion_report:
+            type: object
+            properties:
+              changed:
+                type: string
+                description: last time the value of this property is changed
+              motion:
+                type: boolean
+                description: true if motion is detected
+      sensitivity:
+        type: object
+        properties:
+          status:
+            type: string
+            enum:
+              - set
+              - changing
+          sensitivity:
+            type: integer
+            description: Sensitivity of the sensor. Value in the range 0 to sensitivity_max
+          sensitivity_max:
+            type: integer
+            description: Maximum value of the sensitivity configuration attribute.
