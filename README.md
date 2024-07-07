@@ -1,8 +1,5 @@
 # OpenHue API
 [![Build](https://github.com/openhue/openhue-api/actions/workflows/build.yml/badge.svg)](https://github.com/openhue/openhue-api/actions/workflows/build.yml)
-[![GitHub Issues](https://img.shields.io/github/issues/openhue/openhue-api)](https://github.com/openhue/openhue-api/issues)
-[![GitHub Repo stars](https://img.shields.io/github/stars/openhue/openhue-api)](https://github.com/openhue/openhue-api/stargazers)
-[![GitHub License file](https://img.shields.io/github/license/openhue/openhue-api)](https://github.com/openhue/openhue-api/blob/main/LICENSE)
 [![GitHub Releases](https://img.shields.io/github/v/release/openhue/openhue-api?logo=openapiinitiative&labelColor=white&color=grey)](https://github.com/openhue/openhue-api/releases/latest)
 
 [OpenHue](https://www.openhue.io) is an open-source project that provides a comprehensive OpenAPI specification for the Philips Hue REST API, known as CLIP (_Connected Lighting Interface Protocol_) API.
@@ -115,6 +112,7 @@ The `build/` folder will also contain all the files required to display the HTML
 With these initial setup steps completed, you're ready to start developing and utilizing the OpenHue OpenAPI specification for your projects.
 
 ## License
+[![GitHub License file](https://img.shields.io/github/license/openhue/openhue-api)](https://github.com/openhue/openhue-api/blob/main/LICENSE)
 
 OpenHue is distributed under the [Apache License 2.0](http://www.apache.org/licenses/),
 making it open and free for anyone to use and contribute to.
