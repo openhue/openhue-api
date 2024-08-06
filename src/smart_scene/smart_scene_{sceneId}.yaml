@@ -1,0 +1,152 @@
+get:
+  operationId: getSmartScene
+  summary: Get a smart scene
+  description: Get details of a single smart scene from its given `{sceneId}`
+  tags:
+    - Smart Scene
+  security:
+    - HueApplicationKey: [ ]
+  parameters:
+    - name: sceneId
+      in: path
+      schema:
+        type: string
+      required: true
+      description: ID of the smart scene.
+  responses:
+    '200':
+      description: Smart Scene Success Response
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: '../common/ApiResponse.yaml'
+              - type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: './schemas/SmartSceneGet.yaml'
+    401:
+      $ref: '../common/error.yaml#/components/responses/Unauthorized'
+    403:
+      $ref: '../common/error.yaml#/components/responses/Forbidden'
+    404:
+      $ref: '../common/error.yaml#/components/responses/NotFound'
+    405:
+      $ref: '../common/error.yaml#/components/responses/MethodNotAllowed'
+    406:
+      $ref: '../common/error.yaml#/components/responses/NotAcceptable'
+    409:
+      $ref: '../common/error.yaml#/components/responses/Conflict'
+    429:
+      $ref: '../common/error.yaml#/components/responses/TooManyRequests'
+    500:
+      $ref: '../common/error.yaml#/components/responses/InternalServerError'
+    503:
+      $ref: '../common/error.yaml#/components/responses/ServiceUnavailable'
+    507:
+      $ref: '../common/error.yaml#/components/responses/InsufficientStorage'
+put:
+  operationId: updateSmartScene
+  summary: Update a smart scene
+  description: Update a single smart scene from its given `{sceneId}`
+  tags:
+    - Smart Scene
+  security:
+    - HueApplicationKey: [ ]
+  parameters:
+    - name: sceneId
+      in: path
+      schema:
+        type: string
+      required: true
+      description: ID of the scene.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: './schemas/SmartScenePut.yaml'
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: '../common/ApiResponse.yaml'
+              - type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '../common/ResourceIdentifier.yaml'
+    401:
+      $ref: '../common/error.yaml#/components/responses/Unauthorized'
+    403:
+      $ref: '../common/error.yaml#/components/responses/Forbidden'
+    404:
+      $ref: '../common/error.yaml#/components/responses/NotFound'
+    405:
+      $ref: '../common/error.yaml#/components/responses/MethodNotAllowed'
+    406:
+      $ref: '../common/error.yaml#/components/responses/NotAcceptable'
+    409:
+      $ref: '../common/error.yaml#/components/responses/Conflict'
+    429:
+      $ref: '../common/error.yaml#/components/responses/TooManyRequests'
+    500:
+      $ref: '../common/error.yaml#/components/responses/InternalServerError'
+    503:
+      $ref: '../common/error.yaml#/components/responses/ServiceUnavailable'
+    507:
+      $ref: '../common/error.yaml#/components/responses/InsufficientStorage'
+delete:
+  operationId: deleteSmartScene
+  summary: Delete a smart scene
+  description: Delete a single smart scene from its given `{sceneId}`
+  tags:
+    - Smart Scene
+  security:
+    - HueApplicationKey: [ ]
+  parameters:
+    - name: sceneId
+      in: path
+      schema:
+        type: string
+      required: true
+      description: ID of the smart scene.
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: '../common/ApiResponse.yaml'
+              - type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '../common/ResourceIdentifier.yaml'
+    401:
+      $ref: '../common/error.yaml#/components/responses/Unauthorized'
+    403:
+      $ref: '../common/error.yaml#/components/responses/Forbidden'
+    404:
+      $ref: '../common/error.yaml#/components/responses/NotFound'
+    405:
+      $ref: '../common/error.yaml#/components/responses/MethodNotAllowed'
+    406:
+      $ref: '../common/error.yaml#/components/responses/NotAcceptable'
+    409:
+      $ref: '../common/error.yaml#/components/responses/Conflict'
+    429:
+      $ref: '../common/error.yaml#/components/responses/TooManyRequests'
+    500:
+      $ref: '../common/error.yaml#/components/responses/InternalServerError'
+    503:
+      $ref: '../common/error.yaml#/components/responses/ServiceUnavailable'
+    507:
+      $ref: '../common/error.yaml#/components/responses/InsufficientStorage'

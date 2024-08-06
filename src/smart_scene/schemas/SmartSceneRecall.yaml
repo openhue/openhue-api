@@ -1,0 +1,10 @@
+type: object
+properties:
+  action:
+    type: string
+    description: Activate will start the smart (24h) scene; deactivate will stop it
+    enum:
+      - activate
+      - deactivate
+required:
+  - action
