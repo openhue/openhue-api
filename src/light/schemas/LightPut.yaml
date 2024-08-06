@@ -16,7 +16,7 @@ properties:
   color:
     $ref: '../../common/Color.yaml'
   dynamics:
-    $ref: './Dynamics.yaml'
+    $ref: './LightDynamics.yaml'
   alert:
     $ref: '../../common/Alert.yaml'
   signaling:
