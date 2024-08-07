@@ -1,0 +1,33 @@
+type: object
+properties:
+  start_time:
+    type: object
+    properties:
+      kind:
+        type: string
+        enum:
+          - time
+          - sunset
+      time:
+        type: object
+        description: this property is only used when property “kind” is “time”
+        properties:
+          hour:
+            type: integer
+            minimum: 0
+            maximum: 23
+          minute:
+            type: integer
+            minimum: 0
+            maximum: 59
+          second:
+            type: integer
+            minimum: 0
+            maximum: 59
+    required:
+      - kind
+  target:
+    $ref: '../../common/ResourceIdentifier.yaml'
+required:
+  - start_time
+  - target

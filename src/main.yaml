@@ -42,6 +42,8 @@ tags:
     description: API to manage bridge homes. Homes group rooms as well as devices not assigned to a room.
   - name: Scene
     description: API to manage scenes. Scenes are used to store and recall settings for a group of lights.
+  - name: Smart Scene
+    description: API to manage smart scenes
   - name: Room
     description: API to manage rooms. Rooms group devices and each device can only be part of one room.
   - name: Zone
@@ -100,6 +102,11 @@ paths:
     $ref: './scene/scene.yaml'
   /clip/v2/resource/scene/{sceneId}:
     $ref: './scene/scene_{sceneId}.yaml'
+#  Smart Scene
+  /clip/v2/resource/smart_scene:
+    $ref: './smart_scene/smart_scene.yaml'
+  /clip/v2/resource/smart_scene/{sceneId}:
+    $ref: './smart_scene/smart_scene_{sceneId}.yaml'
 #  Room
   /clip/v2/resource/room:
     $ref: './room/room.yaml'

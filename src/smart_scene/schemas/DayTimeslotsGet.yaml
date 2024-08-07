@@ -1,0 +1,13 @@
+type: object
+properties:
+  timeslots:
+    type: array
+    items:
+      $ref: './SmartSceneTimeslotGet.yaml'
+  recurrence:
+    type: array
+    items:
+      $ref: './Weekday.yaml'
+required:
+  - timeslots
+  - recurrence

@@ -1,0 +1,44 @@
+type: object
+allOf:
+  - $ref: '../../common/Resource.yaml'
+  - type: object
+    properties:
+      type:
+        type: string
+        enum:
+          - smart_scene
+      metadata:
+        $ref: './SmartSceneMetadataWithImage.yaml'
+      group:
+        $ref: '../../common/ResourceIdentifier.yaml'
+      week_timeslots:
+        description: information on what is the light state for every timeslot of the day
+        type: array
+        items:
+          $ref: './DayTimeslotsGet.yaml'
+      transition_duration:
+        description: duration of the transition from on one timeslot's scene to the other (defaults to 60000ms)
+        type: integer
+      active_timeslot:
+        description: the active time slot in execution
+        type: object
+        properties:
+          timeslot_id:
+            type: integer
+          weekday:
+            $ref: './Weekday.yaml'
+        required:
+          - timeslot_id
+          - weekday
+      state:
+        description: the current state of the smart scene. The default state is inactive if no recall is provided
+        type: string
+        enum:
+          - active
+          - inactive
+    required:
+      - metadata
+      - group
+      - week_timeslots
+      - transition_duration
+      - state

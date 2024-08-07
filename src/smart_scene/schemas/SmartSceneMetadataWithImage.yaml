@@ -1,0 +1,7 @@
+type: object
+allOf:
+  - $ref: './SmartSceneMetadata.yaml'
+  - type: object
+    properties:
+      image:
+        $ref: '../../common/ResourceIdentifier.yaml'
