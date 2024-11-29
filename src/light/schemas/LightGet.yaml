@@ -14,8 +14,8 @@ allOf:
             $ref: './LightArchetype.yaml'
           fixed_mired:
             type: integer
-            minimum: 0
-            maximum: 100
+            minimum: 153
+            maximum: 500
             description: A fixed mired value of the white lamp
       on:
         $ref: '../../common/On.yaml'
