@@ -11,7 +11,7 @@ setup: ## Setup the dev environment
 .PHONY: build
 build: _check-redocly-installation ## Bundle the OpenAPI single-file specification in the ./build folder
 	@echo "Building the OpenAPI single-file specification..."
-	@redocly bundle -o build/openhue.yaml
+	@redocly bundle src/main.yaml -o build/openhue.yaml
 
 .PHONY: verify
 verify: _check-redocly-installation ## Check that the specification is valid

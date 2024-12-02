@@ -7,13 +7,13 @@ apis:
     rules:
       no-ambiguous-paths: error
 
-#theme:
-#  openapi:
-#    htmlTemplate: ./docs/index.html
-#    schemaExpansionLevel: 2
-#    generateCodeSamples:
-#      languages:
-#        - lang: curl
-#        - lang: Java
-#        - lang: Node.js
+theme:
+  openapi:
+    htmlTemplate: ./docs/index.html
+    schemaExpansionLevel: 2
+    generateCodeSamples:
+      languages:
+        - lang: curl
+        - lang: Java
+        - lang: Node.js
 
