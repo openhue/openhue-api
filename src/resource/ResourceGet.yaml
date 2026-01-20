@@ -45,3 +45,5 @@ allOf:
           - geofence_client
           - geolocation
           - smart_scene
+          - grouped_motion
+          - grouped_light_level
