@@ -1,6 +1,7 @@
 # OpenHue API
 [![Build](https://github.com/openhue/openhue-api/actions/workflows/build.yml/badge.svg)](https://github.com/openhue/openhue-api/actions/workflows/build.yml)
 [![GitHub Releases](https://img.shields.io/github/v/release/openhue/openhue-api?logo=openapiinitiative&labelColor=white&color=grey)](https://github.com/openhue/openhue-api/releases/latest)
+[![API Docs](https://img.shields.io/badge/API-Docs-blue)](https://api.redocly.com/registry/bundle/openhue/openhue/v2/openapi.yaml)
 
 [OpenHue](https://www.openhue.io) is an open-source project that provides a comprehensive OpenAPI specification for the Philips Hue REST API, known as CLIP (_Connected Lighting Interface Protocol_) API.
 This specification serves as a bridge between developers and Philips Hue smart lighting systems, enabling seamless integration
@@ -8,8 +9,15 @@ and control of Hue lighting within various applications and platforms.
 
 ![OpenHue Logo](docs/images/header.png)
 
-> 🚀 The OpenHue project has just taken off, and you can follow the roadmap
-> progression from our [Discussions](https://github.com/openhue/openhue-api/discussions/11) space in GitHub!
+> 📣 Follow the project roadmap and join the discussion in our [GitHub Discussions](https://github.com/openhue/openhue-api/discussions/11)!
+
+## Table of Contents
+- [Introduction](#introduction)
+- [Quick Start](#quick-start)
+- [Usage](#usage)
+- [Getting Started](#getting-started)
+- [License](#license)
+- [Acknowledgments](#acknowledgments)
 
 ## Introduction
 The Philips Hue lighting system is renowned for its versatility and convenience in home and commercial lighting solutions.
@@ -20,6 +28,30 @@ With OpenHue, developers can:
 - **Effortlessly Integrate Philips Hue**: OpenHue provides a clear and standardized way to connect your applications and services with Philips Hue smart lighting, allowing for easy automation, customization, and remote control of lighting scenes and individual bulbs.
 - **Enhance User Experiences**: By integrating OpenHue into your projects, you can create innovative lighting experiences that respond to user interactions, environmental conditions, or specific events, enhancing user comfort and ambiance.
 - **Save Development Time**: Avoid the complexities of reverse-engineering the Philips Hue API. OpenHue eliminates the need for developers to decipher the API's intricacies and reduces development time, enabling faster implementation of Hue-related features.
+
+### Supported Resources
+
+The OpenHue specification covers the following Hue API resources:
+
+- **Lighting**: light, grouped_light
+- **Rooms & Zones**: room, zone, bridge_home
+- **Scenes**: scene, smart_scene
+- **Sensors**: motion, temperature, light_level, button, contact, tamper
+- **Devices**: device, device_power, bridge
+- **Connectivity**: zigbee_connectivity, zgp_connectivity, wifi_connectivity
+- **Entertainment**: entertainment, entertainment_configuration
+- **Automation**: behavior_script, behavior_instance, geofence_client, geolocation
+- **Smart Home**: homekit, matter, matter_fabric
+
+## Quick Start
+
+```shell
+# Get the OpenAPI spec
+curl -O https://api.redocly.com/registry/bundle/openhue/openhue/v2/openapi.yaml
+
+# Or generate a client (e.g., Python)
+npx @openapitools/openapi-generator-cli generate -g python -i https://api.redocly.com/registry/bundle/openhue/openhue/v2/openapi.yaml -o my-openhue-client
+```
 
 ## Usage
 
@@ -69,11 +101,13 @@ To begin developing with OpenHue's OpenAPI specification, follow these steps:
 ### Prerequisites
 Before you start, ensure that you have the following prerequisites installed:
 
+- **Git**: For cloning and version control.
 - **Node.js and NPM**: OpenHue relies on Node.js and NPM for certain tasks. Make sure you have them installed. You can download them from the official website: [Node.js](https://nodejs.org/).
+- **Make**: For running build commands (pre-installed on macOS/Linux).
 
 ### Fork the Repository
-Before contributing to OpenHue, it's a good practice to [fork](https://github.com/openhue/open-hue/fork) the repository to your own GitHub account.
-This will create a copy of the project that you can work on independently.
+Before contributing to OpenHue, it's a good practice to [fork](https://github.com/openhue/openhue-api/fork) the repository to your own GitHub account.
+This will create a copy of the project that you can work on independently. See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed contribution guidelines.
 
 ### Setup
 
@@ -82,7 +116,7 @@ This will create a copy of the project that you can work on independently.
 git clone https://github.com/your-username/openhue-api.git
 cd openhue-api
 ```
-2Run the following command to set up the development environment. This will install the Redocly CLI, which is used for documentation management:
+2. Run the following command to set up the development environment. This will install the Redocly CLI, which is used for documentation management:
 ```shell
 make setup
 ```
