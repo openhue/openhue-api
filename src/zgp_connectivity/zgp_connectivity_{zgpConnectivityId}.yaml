@@ -1,0 +1,103 @@
+get:
+  operationId: getZgpConnectivity
+  summary: Get ZGP connectivity.
+  description: Get details of a single ZGP connectivity resource from its given `{zgpConnectivityId}`.
+  tags:
+    - ZgpConnectivity
+  security:
+    - HueApplicationKey: [ ]
+  parameters:
+    - name: zgpConnectivityId
+      in: path
+      schema:
+        type: string
+      required: true
+      description: ID of the ZGP connectivity
+  responses:
+    200:
+      description: ZgpConnectivity Success Response
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: '../common/ApiResponse.yaml'
+              - type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: './schemas/ZgpConnectivityGet.yaml'
+    401:
+      $ref: '../common/error.yaml#/components/responses/Unauthorized'
+    403:
+      $ref: '../common/error.yaml#/components/responses/Forbidden'
+    404:
+      $ref: '../common/error.yaml#/components/responses/NotFound'
+    405:
+      $ref: '../common/error.yaml#/components/responses/MethodNotAllowed'
+    406:
+      $ref: '../common/error.yaml#/components/responses/NotAcceptable'
+    409:
+      $ref: '../common/error.yaml#/components/responses/Conflict'
+    429:
+      $ref: '../common/error.yaml#/components/responses/TooManyRequests'
+    500:
+      $ref: '../common/error.yaml#/components/responses/InternalServerError'
+    503:
+      $ref: '../common/error.yaml#/components/responses/ServiceUnavailable'
+    507:
+      $ref: '../common/error.yaml#/components/responses/InsufficientStorage'
+put:
+  operationId: updateZgpConnectivity
+  summary: Update ZGP connectivity.
+  description: Update a single ZGP connectivity resource from its given `{zgpConnectivityId}`.
+  tags:
+    - ZgpConnectivity
+  security:
+    - HueApplicationKey: [ ]
+  parameters:
+    - name: zgpConnectivityId
+      in: path
+      schema:
+        type: string
+      required: true
+      description: ID of the ZGP connectivity
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: './schemas/ZgpConnectivityPut.yaml'
+  responses:
+    200:
+      description: Success
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: '../common/ApiResponse.yaml'
+              - type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '../common/ResourceIdentifier.yaml'
+    401:
+      $ref: '../common/error.yaml#/components/responses/Unauthorized'
+    403:
+      $ref: '../common/error.yaml#/components/responses/Forbidden'
+    404:
+      $ref: '../common/error.yaml#/components/responses/NotFound'
+    405:
+      $ref: '../common/error.yaml#/components/responses/MethodNotAllowed'
+    406:
+      $ref: '../common/error.yaml#/components/responses/NotAcceptable'
+    409:
+      $ref: '../common/error.yaml#/components/responses/Conflict'
+    429:
+      $ref: '../common/error.yaml#/components/responses/TooManyRequests'
+    500:
+      $ref: '../common/error.yaml#/components/responses/InternalServerError'
+    503:
+      $ref: '../common/error.yaml#/components/responses/ServiceUnavailable'
+    507:
+      $ref: '../common/error.yaml#/components/responses/InsufficientStorage'

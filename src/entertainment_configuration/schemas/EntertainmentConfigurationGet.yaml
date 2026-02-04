@@ -1,0 +1,86 @@
+type: object
+allOf:
+  - $ref: '../../common/Resource.yaml'
+  - type: object
+    properties:
+      metadata:
+        type: object
+        properties:
+          name:
+            type: string
+            description: Human readable name of the configuration.
+      configuration_type:
+        type: string
+        enum:
+          - screen
+          - monitor
+          - music
+          - 3dspace
+          - other
+        description: Type of entertainment configuration.
+      status:
+        type: string
+        enum:
+          - active
+          - inactive
+        description: Status of the entertainment configuration.
+      stream_proxy:
+        type: object
+        properties:
+          mode:
+            type: string
+            enum:
+              - auto
+              - manual
+          node:
+            $ref: '../../common/ResourceIdentifier.yaml'
+      channels:
+        type: array
+        items:
+          type: object
+          properties:
+            channel_id:
+              type: integer
+            position:
+              type: object
+              properties:
+                x:
+                  type: number
+                y:
+                  type: number
+                z:
+                  type: number
+            members:
+              type: array
+              items:
+                type: object
+                properties:
+                  service:
+                    $ref: '../../common/ResourceIdentifier.yaml'
+                  index:
+                    type: integer
+      locations:
+        type: object
+        properties:
+          service_locations:
+            type: array
+            items:
+              type: object
+              properties:
+                service:
+                  $ref: '../../common/ResourceIdentifier.yaml'
+                positions:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      x:
+                        type: number
+                      y:
+                        type: number
+                      z:
+                        type: number
+      light_services:
+        type: array
+        items:
+          $ref: '../../common/ResourceIdentifier.yaml'

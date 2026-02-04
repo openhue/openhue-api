@@ -1,0 +1,16 @@
+type: object
+properties:
+  type:
+    type: string
+    description: Type of the supported resources (always `behavior_instance` here)
+  enabled:
+    type: boolean
+    description: True to enable the behavior instance.
+  configuration:
+    type: object
+    description: Configuration for this behavior instance.
+  metadata:
+    type: object
+    properties:
+      name:
+        type: string

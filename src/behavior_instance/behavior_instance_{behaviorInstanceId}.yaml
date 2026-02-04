@@ -1,0 +1,103 @@
+get:
+  operationId: getBehaviorInstance
+  summary: Get behavior instance.
+  description: Get details of a single behavior instance resource from its given `{behaviorInstanceId}`.
+  tags:
+    - BehaviorInstance
+  security:
+    - HueApplicationKey: [ ]
+  parameters:
+    - name: behaviorInstanceId
+      in: path
+      schema:
+        type: string
+      required: true
+      description: ID of the behavior instance
+  responses:
+    200:
+      description: BehaviorInstance Success Response
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: '../common/ApiResponse.yaml'
+              - type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: './schemas/BehaviorInstanceGet.yaml'
+    401:
+      $ref: '../common/error.yaml#/components/responses/Unauthorized'
+    403:
+      $ref: '../common/error.yaml#/components/responses/Forbidden'
+    404:
+      $ref: '../common/error.yaml#/components/responses/NotFound'
+    405:
+      $ref: '../common/error.yaml#/components/responses/MethodNotAllowed'
+    406:
+      $ref: '../common/error.yaml#/components/responses/NotAcceptable'
+    409:
+      $ref: '../common/error.yaml#/components/responses/Conflict'
+    429:
+      $ref: '../common/error.yaml#/components/responses/TooManyRequests'
+    500:
+      $ref: '../common/error.yaml#/components/responses/InternalServerError'
+    503:
+      $ref: '../common/error.yaml#/components/responses/ServiceUnavailable'
+    507:
+      $ref: '../common/error.yaml#/components/responses/InsufficientStorage'
+put:
+  operationId: updateBehaviorInstance
+  summary: Update behavior instance.
+  description: Update a single behavior instance resource from its given `{behaviorInstanceId}`.
+  tags:
+    - BehaviorInstance
+  security:
+    - HueApplicationKey: [ ]
+  parameters:
+    - name: behaviorInstanceId
+      in: path
+      schema:
+        type: string
+      required: true
+      description: ID of the behavior instance
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: './schemas/BehaviorInstancePut.yaml'
+  responses:
+    200:
+      description: Success
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: '../common/ApiResponse.yaml'
+              - type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '../common/ResourceIdentifier.yaml'
+    401:
+      $ref: '../common/error.yaml#/components/responses/Unauthorized'
+    403:
+      $ref: '../common/error.yaml#/components/responses/Forbidden'
+    404:
+      $ref: '../common/error.yaml#/components/responses/NotFound'
+    405:
+      $ref: '../common/error.yaml#/components/responses/MethodNotAllowed'
+    406:
+      $ref: '../common/error.yaml#/components/responses/NotAcceptable'
+    409:
+      $ref: '../common/error.yaml#/components/responses/Conflict'
+    429:
+      $ref: '../common/error.yaml#/components/responses/TooManyRequests'
+    500:
+      $ref: '../common/error.yaml#/components/responses/InternalServerError'
+    503:
+      $ref: '../common/error.yaml#/components/responses/ServiceUnavailable'
+    507:
+      $ref: '../common/error.yaml#/components/responses/InsufficientStorage'

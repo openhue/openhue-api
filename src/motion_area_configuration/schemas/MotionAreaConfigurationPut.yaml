@@ -1,0 +1,8 @@
+type: object
+properties:
+  type:
+    type: string
+    description: Type of the supported resources (always `motion_area_configuration` here)
+  enabled:
+    type: boolean
+    description: True when configuration is active.

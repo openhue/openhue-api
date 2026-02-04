@@ -1,0 +1,63 @@
+type: object
+allOf:
+  - $ref: '../../common/ResourceOwned.yaml'
+  - type: object
+    properties:
+      metadata:
+        type: object
+        properties:
+          control_id:
+            type: integer
+            description: Control identifier of the switch, unique within the device.
+      relative_rotary:
+        type: object
+        properties:
+          rotary_report:
+            type: object
+            properties:
+              updated:
+                type: string
+                format: date-time
+                description: Last time the value of this property was updated.
+              action:
+                type: string
+                enum:
+                  - start
+                  - repeat
+                description: Type of rotary event.
+              rotation:
+                type: object
+                properties:
+                  direction:
+                    type: string
+                    enum:
+                      - clock_wise
+                      - counter_clock_wise
+                    description: Direction of rotation.
+                  steps:
+                    type: integer
+                    description: Amount of rotation since last event in case of repeat.
+                  duration:
+                    type: integer
+                    description: Duration of rotation since last event in milliseconds.
+          last_event:
+            type: object
+            description: Deprecated. Use rotary_report instead.
+            properties:
+              action:
+                type: string
+                enum:
+                  - start
+                  - repeat
+              rotation:
+                type: object
+                properties:
+                  direction:
+                    type: string
+                    enum:
+                      - clock_wise
+                      - counter_clock_wise
+                  steps:
+                    type: integer
+                  duration:
+                    type: integer

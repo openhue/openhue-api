@@ -1,0 +1,11 @@
+type: object
+allOf:
+  - $ref: '../../common/ResourceOwned.yaml'
+  - type: object
+    properties:
+      has_qr_code:
+        type: boolean
+        description: Indicates if QR code for Matter commissioning is available.
+      max_fabrics:
+        type: integer
+        description: Maximum number of fabrics that can be added.

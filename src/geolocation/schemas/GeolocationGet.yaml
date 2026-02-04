@@ -1,0 +1,8 @@
+type: object
+allOf:
+  - $ref: '../../common/Resource.yaml'
+  - type: object
+    properties:
+      is_configured:
+        type: boolean
+        description: True if geolocation is configured.

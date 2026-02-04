@@ -1,0 +1,27 @@
+type: object
+allOf:
+  - $ref: '../../common/Resource.yaml'
+  - type: object
+    properties:
+      description:
+        type: string
+        description: Description of the behavior script.
+      configuration_schema:
+        type: object
+        description: JSON schema for configuration.
+      trigger_schema:
+        type: object
+        description: JSON schema for trigger.
+      state_schema:
+        type: object
+        description: JSON schema for state.
+      version:
+        type: string
+        description: Version of the behavior script.
+      metadata:
+        type: object
+        properties:
+          name:
+            type: string
+          category:
+            type: string

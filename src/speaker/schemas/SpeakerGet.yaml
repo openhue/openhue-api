@@ -1,0 +1,12 @@
+type: object
+allOf:
+  - $ref: '../../common/ResourceOwned.yaml'
+  - type: object
+    properties:
+      alerts:
+        type: array
+        items:
+          type: string
+          enum:
+            - soundloop
+        description: Supported speaker alerts.

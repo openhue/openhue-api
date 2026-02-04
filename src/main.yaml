@@ -50,6 +50,62 @@ tags:
     description: API to manage zones. Zones group services and each service can be part of multiple zones.
   - name: Temperature
     description: API to manage temperature services. These are offered by devices with temperature sensing capabilities.
+  - name: Button
+    description: API to manage button services. These are offered by devices with buttons.
+  - name: BellButton
+    description: API to manage bell button services.
+  - name: RelativeRotary
+    description: API to manage relative rotary controls.
+  - name: Contact
+    description: API to manage contact sensors.
+  - name: Tamper
+    description: API to manage tamper detection sensors.
+  - name: CameraMotion
+    description: API to manage camera motion detection.
+  - name: GroupedMotion
+    description: API to manage grouped motion sensors.
+  - name: GroupedLightLevel
+    description: API to manage grouped light level sensors.
+  - name: ConvenienceAreaMotion
+    description: API to manage convenience area motion.
+  - name: SecurityAreaMotion
+    description: API to manage security area motion.
+  - name: MotionAreaCandidate
+    description: API to manage motion area candidates.
+  - name: MotionAreaConfiguration
+    description: API to manage motion area configuration.
+  - name: ZigbeeConnectivity
+    description: API to manage zigbee connectivity status.
+  - name: ZgpConnectivity
+    description: API to manage Zigbee Green Power connectivity.
+  - name: WifiConnectivity
+    description: API to manage WiFi connectivity.
+  - name: ZigbeeDeviceDiscovery
+    description: API to manage zigbee device discovery.
+  - name: Homekit
+    description: API to manage Apple HomeKit integration.
+  - name: Matter
+    description: API to manage Matter protocol support.
+  - name: MatterFabric
+    description: API to manage Matter fabric configuration.
+  - name: Entertainment
+    description: API to manage entertainment services.
+  - name: EntertainmentConfiguration
+    description: API to manage entertainment configuration.
+  - name: Speaker
+    description: API to manage speaker devices.
+  - name: BehaviorScript
+    description: API to manage automation scripts.
+  - name: BehaviorInstance
+    description: API to manage automation instances.
+  - name: GeofenceClient
+    description: API to manage geofence clients.
+  - name: Geolocation
+    description: API to manage geolocation.
+  - name: DeviceSoftwareUpdate
+    description: API to manage device software updates.
+  - name: ServiceGroup
+    description: API to manage service groups.
 paths:
 #  Authentication
   /api:
@@ -122,6 +178,146 @@ paths:
     $ref: './temperature/temperature.yaml'
   /clip/v2/resource/temperature/{temperatureId}:
     $ref: './temperature/temperature_{temperatureId}.yaml'
+#  Button
+  /clip/v2/resource/button:
+    $ref: './button/button.yaml'
+  /clip/v2/resource/button/{buttonId}:
+    $ref: './button/button_{buttonId}.yaml'
+#  Bell Button
+  /clip/v2/resource/bell_button:
+    $ref: './bell_button/bell_button.yaml'
+  /clip/v2/resource/bell_button/{bellButtonId}:
+    $ref: './bell_button/bell_button_{bellButtonId}.yaml'
+#  Relative Rotary
+  /clip/v2/resource/relative_rotary:
+    $ref: './relative_rotary/relative_rotary.yaml'
+  /clip/v2/resource/relative_rotary/{relativeRotaryId}:
+    $ref: './relative_rotary/relative_rotary_{relativeRotaryId}.yaml'
+#  Contact
+  /clip/v2/resource/contact:
+    $ref: './contact/contact.yaml'
+  /clip/v2/resource/contact/{contactId}:
+    $ref: './contact/contact_{contactId}.yaml'
+#  Tamper
+  /clip/v2/resource/tamper:
+    $ref: './tamper/tamper.yaml'
+  /clip/v2/resource/tamper/{tamperId}:
+    $ref: './tamper/tamper_{tamperId}.yaml'
+#  Camera Motion
+  /clip/v2/resource/camera_motion:
+    $ref: './camera_motion/camera_motion.yaml'
+  /clip/v2/resource/camera_motion/{cameraMotionId}:
+    $ref: './camera_motion/camera_motion_{cameraMotionId}.yaml'
+#  Grouped Motion
+  /clip/v2/resource/grouped_motion:
+    $ref: './grouped_motion/grouped_motion.yaml'
+  /clip/v2/resource/grouped_motion/{groupedMotionId}:
+    $ref: './grouped_motion/grouped_motion_{groupedMotionId}.yaml'
+#  Grouped Light Level
+  /clip/v2/resource/grouped_light_level:
+    $ref: './grouped_light_level/grouped_light_level.yaml'
+  /clip/v2/resource/grouped_light_level/{groupedLightLevelId}:
+    $ref: './grouped_light_level/grouped_light_level_{groupedLightLevelId}.yaml'
+#  Convenience Area Motion
+  /clip/v2/resource/convenience_area_motion:
+    $ref: './convenience_area_motion/convenience_area_motion.yaml'
+  /clip/v2/resource/convenience_area_motion/{convenienceAreaMotionId}:
+    $ref: './convenience_area_motion/convenience_area_motion_{convenienceAreaMotionId}.yaml'
+#  Security Area Motion
+  /clip/v2/resource/security_area_motion:
+    $ref: './security_area_motion/security_area_motion.yaml'
+  /clip/v2/resource/security_area_motion/{securityAreaMotionId}:
+    $ref: './security_area_motion/security_area_motion_{securityAreaMotionId}.yaml'
+#  Motion Area Candidate
+  /clip/v2/resource/motion_area_candidate:
+    $ref: './motion_area_candidate/motion_area_candidate.yaml'
+  /clip/v2/resource/motion_area_candidate/{motionAreaCandidateId}:
+    $ref: './motion_area_candidate/motion_area_candidate_{motionAreaCandidateId}.yaml'
+#  Motion Area Configuration
+  /clip/v2/resource/motion_area_configuration:
+    $ref: './motion_area_configuration/motion_area_configuration.yaml'
+  /clip/v2/resource/motion_area_configuration/{motionAreaConfigurationId}:
+    $ref: './motion_area_configuration/motion_area_configuration_{motionAreaConfigurationId}.yaml'
+#  Zigbee Connectivity
+  /clip/v2/resource/zigbee_connectivity:
+    $ref: './zigbee_connectivity/zigbee_connectivity.yaml'
+  /clip/v2/resource/zigbee_connectivity/{zigbeeConnectivityId}:
+    $ref: './zigbee_connectivity/zigbee_connectivity_{zigbeeConnectivityId}.yaml'
+#  ZGP Connectivity
+  /clip/v2/resource/zgp_connectivity:
+    $ref: './zgp_connectivity/zgp_connectivity.yaml'
+  /clip/v2/resource/zgp_connectivity/{zgpConnectivityId}:
+    $ref: './zgp_connectivity/zgp_connectivity_{zgpConnectivityId}.yaml'
+#  WiFi Connectivity
+  /clip/v2/resource/wifi_connectivity:
+    $ref: './wifi_connectivity/wifi_connectivity.yaml'
+  /clip/v2/resource/wifi_connectivity/{wifiConnectivityId}:
+    $ref: './wifi_connectivity/wifi_connectivity_{wifiConnectivityId}.yaml'
+#  Zigbee Device Discovery
+  /clip/v2/resource/zigbee_device_discovery:
+    $ref: './zigbee_device_discovery/zigbee_device_discovery.yaml'
+  /clip/v2/resource/zigbee_device_discovery/{zigbeeDeviceDiscoveryId}:
+    $ref: './zigbee_device_discovery/zigbee_device_discovery_{zigbeeDeviceDiscoveryId}.yaml'
+#  HomeKit
+  /clip/v2/resource/homekit:
+    $ref: './homekit/homekit.yaml'
+  /clip/v2/resource/homekit/{homekitId}:
+    $ref: './homekit/homekit_{homekitId}.yaml'
+#  Matter
+  /clip/v2/resource/matter:
+    $ref: './matter/matter.yaml'
+  /clip/v2/resource/matter/{matterId}:
+    $ref: './matter/matter_{matterId}.yaml'
+#  Matter Fabric
+  /clip/v2/resource/matter_fabric:
+    $ref: './matter_fabric/matter_fabric.yaml'
+  /clip/v2/resource/matter_fabric/{matterFabricId}:
+    $ref: './matter_fabric/matter_fabric_{matterFabricId}.yaml'
+#  Entertainment
+  /clip/v2/resource/entertainment:
+    $ref: './entertainment/entertainment.yaml'
+  /clip/v2/resource/entertainment/{entertainmentId}:
+    $ref: './entertainment/entertainment_{entertainmentId}.yaml'
+#  Entertainment Configuration
+  /clip/v2/resource/entertainment_configuration:
+    $ref: './entertainment_configuration/entertainment_configuration.yaml'
+  /clip/v2/resource/entertainment_configuration/{entertainmentConfigurationId}:
+    $ref: './entertainment_configuration/entertainment_configuration_{entertainmentConfigurationId}.yaml'
+#  Speaker
+  /clip/v2/resource/speaker:
+    $ref: './speaker/speaker.yaml'
+  /clip/v2/resource/speaker/{speakerId}:
+    $ref: './speaker/speaker_{speakerId}.yaml'
+#  Behavior Script
+  /clip/v2/resource/behavior_script:
+    $ref: './behavior_script/behavior_script.yaml'
+  /clip/v2/resource/behavior_script/{behaviorScriptId}:
+    $ref: './behavior_script/behavior_script_{behaviorScriptId}.yaml'
+#  Behavior Instance
+  /clip/v2/resource/behavior_instance:
+    $ref: './behavior_instance/behavior_instance.yaml'
+  /clip/v2/resource/behavior_instance/{behaviorInstanceId}:
+    $ref: './behavior_instance/behavior_instance_{behaviorInstanceId}.yaml'
+#  Geofence Client
+  /clip/v2/resource/geofence_client:
+    $ref: './geofence_client/geofence_client.yaml'
+  /clip/v2/resource/geofence_client/{geofenceClientId}:
+    $ref: './geofence_client/geofence_client_{geofenceClientId}.yaml'
+#  Geolocation
+  /clip/v2/resource/geolocation:
+    $ref: './geolocation/geolocation.yaml'
+  /clip/v2/resource/geolocation/{geolocationId}:
+    $ref: './geolocation/geolocation_{geolocationId}.yaml'
+#  Device Software Update
+  /clip/v2/resource/device_software_update:
+    $ref: './device_software_update/device_software_update.yaml'
+  /clip/v2/resource/device_software_update/{deviceSoftwareUpdateId}:
+    $ref: './device_software_update/device_software_update_{deviceSoftwareUpdateId}.yaml'
+#  Service Group
+  /clip/v2/resource/service_group:
+    $ref: './service_group/service_group.yaml'
+  /clip/v2/resource/service_group/{serviceGroupId}:
+    $ref: './service_group/service_group_{serviceGroupId}.yaml'
 components:
   securitySchemes:
     HueApplicationKey:

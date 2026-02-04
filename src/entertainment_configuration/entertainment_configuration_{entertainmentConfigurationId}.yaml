@@ -1,0 +1,103 @@
+get:
+  operationId: getEntertainmentConfiguration
+  summary: Get entertainment configuration.
+  description: Get details of a single entertainment configuration resource from its given `{entertainmentConfigurationId}`.
+  tags:
+    - EntertainmentConfiguration
+  security:
+    - HueApplicationKey: [ ]
+  parameters:
+    - name: entertainmentConfigurationId
+      in: path
+      schema:
+        type: string
+      required: true
+      description: ID of the entertainment configuration
+  responses:
+    200:
+      description: EntertainmentConfiguration Success Response
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: '../common/ApiResponse.yaml'
+              - type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: './schemas/EntertainmentConfigurationGet.yaml'
+    401:
+      $ref: '../common/error.yaml#/components/responses/Unauthorized'
+    403:
+      $ref: '../common/error.yaml#/components/responses/Forbidden'
+    404:
+      $ref: '../common/error.yaml#/components/responses/NotFound'
+    405:
+      $ref: '../common/error.yaml#/components/responses/MethodNotAllowed'
+    406:
+      $ref: '../common/error.yaml#/components/responses/NotAcceptable'
+    409:
+      $ref: '../common/error.yaml#/components/responses/Conflict'
+    429:
+      $ref: '../common/error.yaml#/components/responses/TooManyRequests'
+    500:
+      $ref: '../common/error.yaml#/components/responses/InternalServerError'
+    503:
+      $ref: '../common/error.yaml#/components/responses/ServiceUnavailable'
+    507:
+      $ref: '../common/error.yaml#/components/responses/InsufficientStorage'
+put:
+  operationId: updateEntertainmentConfiguration
+  summary: Update entertainment configuration.
+  description: Update a single entertainment configuration resource from its given `{entertainmentConfigurationId}`.
+  tags:
+    - EntertainmentConfiguration
+  security:
+    - HueApplicationKey: [ ]
+  parameters:
+    - name: entertainmentConfigurationId
+      in: path
+      schema:
+        type: string
+      required: true
+      description: ID of the entertainment configuration
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: './schemas/EntertainmentConfigurationPut.yaml'
+  responses:
+    200:
+      description: Success
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: '../common/ApiResponse.yaml'
+              - type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '../common/ResourceIdentifier.yaml'
+    401:
+      $ref: '../common/error.yaml#/components/responses/Unauthorized'
+    403:
+      $ref: '../common/error.yaml#/components/responses/Forbidden'
+    404:
+      $ref: '../common/error.yaml#/components/responses/NotFound'
+    405:
+      $ref: '../common/error.yaml#/components/responses/MethodNotAllowed'
+    406:
+      $ref: '../common/error.yaml#/components/responses/NotAcceptable'
+    409:
+      $ref: '../common/error.yaml#/components/responses/Conflict'
+    429:
+      $ref: '../common/error.yaml#/components/responses/TooManyRequests'
+    500:
+      $ref: '../common/error.yaml#/components/responses/InternalServerError'
+    503:
+      $ref: '../common/error.yaml#/components/responses/ServiceUnavailable'
+    507:
+      $ref: '../common/error.yaml#/components/responses/InsufficientStorage'

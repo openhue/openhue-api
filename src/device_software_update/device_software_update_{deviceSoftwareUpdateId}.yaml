@@ -1,0 +1,103 @@
+get:
+  operationId: getDeviceSoftwareUpdate
+  summary: Get device software update.
+  description: Get details of a single device software update resource from its given `{deviceSoftwareUpdateId}`.
+  tags:
+    - DeviceSoftwareUpdate
+  security:
+    - HueApplicationKey: [ ]
+  parameters:
+    - name: deviceSoftwareUpdateId
+      in: path
+      schema:
+        type: string
+      required: true
+      description: ID of the device software update
+  responses:
+    200:
+      description: DeviceSoftwareUpdate Success Response
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: '../common/ApiResponse.yaml'
+              - type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: './schemas/DeviceSoftwareUpdateGet.yaml'
+    401:
+      $ref: '../common/error.yaml#/components/responses/Unauthorized'
+    403:
+      $ref: '../common/error.yaml#/components/responses/Forbidden'
+    404:
+      $ref: '../common/error.yaml#/components/responses/NotFound'
+    405:
+      $ref: '../common/error.yaml#/components/responses/MethodNotAllowed'
+    406:
+      $ref: '../common/error.yaml#/components/responses/NotAcceptable'
+    409:
+      $ref: '../common/error.yaml#/components/responses/Conflict'
+    429:
+      $ref: '../common/error.yaml#/components/responses/TooManyRequests'
+    500:
+      $ref: '../common/error.yaml#/components/responses/InternalServerError'
+    503:
+      $ref: '../common/error.yaml#/components/responses/ServiceUnavailable'
+    507:
+      $ref: '../common/error.yaml#/components/responses/InsufficientStorage'
+put:
+  operationId: updateDeviceSoftwareUpdate
+  summary: Update device software update.
+  description: Update a single device software update resource from its given `{deviceSoftwareUpdateId}`.
+  tags:
+    - DeviceSoftwareUpdate
+  security:
+    - HueApplicationKey: [ ]
+  parameters:
+    - name: deviceSoftwareUpdateId
+      in: path
+      schema:
+        type: string
+      required: true
+      description: ID of the device software update
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: './schemas/DeviceSoftwareUpdatePut.yaml'
+  responses:
+    200:
+      description: Success
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: '../common/ApiResponse.yaml'
+              - type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '../common/ResourceIdentifier.yaml'
+    401:
+      $ref: '../common/error.yaml#/components/responses/Unauthorized'
+    403:
+      $ref: '../common/error.yaml#/components/responses/Forbidden'
+    404:
+      $ref: '../common/error.yaml#/components/responses/NotFound'
+    405:
+      $ref: '../common/error.yaml#/components/responses/MethodNotAllowed'
+    406:
+      $ref: '../common/error.yaml#/components/responses/NotAcceptable'
+    409:
+      $ref: '../common/error.yaml#/components/responses/Conflict'
+    429:
+      $ref: '../common/error.yaml#/components/responses/TooManyRequests'
+    500:
+      $ref: '../common/error.yaml#/components/responses/InternalServerError'
+    503:
+      $ref: '../common/error.yaml#/components/responses/ServiceUnavailable'
+    507:
+      $ref: '../common/error.yaml#/components/responses/InsufficientStorage'
