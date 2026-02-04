@@ -1,0 +1,10 @@
+type: object
+allOf:
+  - $ref: '../../common/ResourceOwned.yaml'
+  - type: object
+    properties:
+      motion_sensors:
+        type: array
+        items:
+          $ref: '../../common/ResourceIdentifier.yaml'
+        description: List of motion sensor resources that are candidates for this area.

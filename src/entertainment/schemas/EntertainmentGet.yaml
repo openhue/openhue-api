@@ -1,0 +1,30 @@
+type: object
+allOf:
+  - $ref: '../../common/ResourceOwned.yaml'
+  - type: object
+    properties:
+      renderer:
+        type: boolean
+        description: Indicates if the device can be used for entertainment streaming.
+      proxy:
+        type: boolean
+        description: Indicates if the device is acting as entertainment proxy.
+      max_streams:
+        type: integer
+        description: Maximum number of streams this device supports.
+      segments:
+        type: object
+        properties:
+          configurable:
+            type: boolean
+          max_segments:
+            type: integer
+          segments:
+            type: array
+            items:
+              type: object
+              properties:
+                start:
+                  type: integer
+                length:
+                  type: integer

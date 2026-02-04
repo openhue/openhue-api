@@ -1,0 +1,103 @@
+get:
+  operationId: getZigbeeConnectivity
+  summary: Get zigbee connectivity.
+  description: Get details of a single zigbee connectivity resource from its given `{zigbeeConnectivityId}`.
+  tags:
+    - ZigbeeConnectivity
+  security:
+    - HueApplicationKey: [ ]
+  parameters:
+    - name: zigbeeConnectivityId
+      in: path
+      schema:
+        type: string
+      required: true
+      description: ID of the zigbee connectivity
+  responses:
+    200:
+      description: ZigbeeConnectivity Success Response
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: '../common/ApiResponse.yaml'
+              - type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: './schemas/ZigbeeConnectivityGet.yaml'
+    401:
+      $ref: '../common/error.yaml#/components/responses/Unauthorized'
+    403:
+      $ref: '../common/error.yaml#/components/responses/Forbidden'
+    404:
+      $ref: '../common/error.yaml#/components/responses/NotFound'
+    405:
+      $ref: '../common/error.yaml#/components/responses/MethodNotAllowed'
+    406:
+      $ref: '../common/error.yaml#/components/responses/NotAcceptable'
+    409:
+      $ref: '../common/error.yaml#/components/responses/Conflict'
+    429:
+      $ref: '../common/error.yaml#/components/responses/TooManyRequests'
+    500:
+      $ref: '../common/error.yaml#/components/responses/InternalServerError'
+    503:
+      $ref: '../common/error.yaml#/components/responses/ServiceUnavailable'
+    507:
+      $ref: '../common/error.yaml#/components/responses/InsufficientStorage'
+put:
+  operationId: updateZigbeeConnectivity
+  summary: Update zigbee connectivity.
+  description: Update a single zigbee connectivity resource from its given `{zigbeeConnectivityId}`.
+  tags:
+    - ZigbeeConnectivity
+  security:
+    - HueApplicationKey: [ ]
+  parameters:
+    - name: zigbeeConnectivityId
+      in: path
+      schema:
+        type: string
+      required: true
+      description: ID of the zigbee connectivity
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: './schemas/ZigbeeConnectivityPut.yaml'
+  responses:
+    200:
+      description: Success
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: '../common/ApiResponse.yaml'
+              - type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '../common/ResourceIdentifier.yaml'
+    401:
+      $ref: '../common/error.yaml#/components/responses/Unauthorized'
+    403:
+      $ref: '../common/error.yaml#/components/responses/Forbidden'
+    404:
+      $ref: '../common/error.yaml#/components/responses/NotFound'
+    405:
+      $ref: '../common/error.yaml#/components/responses/MethodNotAllowed'
+    406:
+      $ref: '../common/error.yaml#/components/responses/NotAcceptable'
+    409:
+      $ref: '../common/error.yaml#/components/responses/Conflict'
+    429:
+      $ref: '../common/error.yaml#/components/responses/TooManyRequests'
+    500:
+      $ref: '../common/error.yaml#/components/responses/InternalServerError'
+    503:
+      $ref: '../common/error.yaml#/components/responses/ServiceUnavailable'
+    507:
+      $ref: '../common/error.yaml#/components/responses/InsufficientStorage'

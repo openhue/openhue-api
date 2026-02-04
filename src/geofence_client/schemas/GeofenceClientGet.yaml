@@ -1,0 +1,11 @@
+type: object
+allOf:
+  - $ref: '../../common/Resource.yaml'
+  - type: object
+    properties:
+      name:
+        type: string
+        description: Name of the geofence client.
+      is_at_home:
+        type: boolean
+        description: True if the client is currently at home.

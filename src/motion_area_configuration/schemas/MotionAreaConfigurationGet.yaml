@@ -1,0 +1,13 @@
+type: object
+allOf:
+  - $ref: '../../common/ResourceOwned.yaml'
+  - type: object
+    properties:
+      enabled:
+        type: boolean
+        description: True when configuration is active.
+      motion_sensors:
+        type: array
+        items:
+          $ref: '../../common/ResourceIdentifier.yaml'
+        description: List of motion sensors in this area configuration.

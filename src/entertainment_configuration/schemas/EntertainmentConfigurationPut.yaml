@@ -1,0 +1,25 @@
+type: object
+properties:
+  type:
+    type: string
+    description: Type of the supported resources (always `entertainment_configuration` here)
+  metadata:
+    type: object
+    properties:
+      name:
+        type: string
+        description: Human readable name of the configuration.
+  configuration_type:
+    type: string
+    enum:
+      - screen
+      - monitor
+      - music
+      - 3dspace
+      - other
+  action:
+    type: string
+    enum:
+      - start
+      - stop
+    description: Start or stop streaming.

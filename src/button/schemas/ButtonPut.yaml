@@ -1,0 +1,17 @@
+type: object
+properties:
+  type:
+    type: string
+    description: Type of the supported resources (always `button` here)
+  metadata:
+    type: object
+    properties:
+      control_id:
+        type: integer
+        description: Control identifier of the switch, unique within the device.
+  button:
+    type: object
+    properties:
+      repeat_interval:
+        type: integer
+        description: Interval in milliseconds for repeat events.

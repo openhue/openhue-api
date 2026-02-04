@@ -1,0 +1,35 @@
+type: object
+allOf:
+  - $ref: '../../common/ResourceOwned.yaml'
+  - type: object
+    properties:
+      status:
+        type: string
+        enum:
+          - connected
+          - disconnected
+          - connectivity_issue
+          - unidirectional_incoming
+        description: Current connectivity status of the device.
+      mac_address:
+        type: string
+        description: MAC address of the device.
+      channel:
+        type: object
+        properties:
+          status:
+            type: string
+            enum:
+              - set
+              - changing
+          value:
+            type: string
+            enum:
+              - channel_11
+              - channel_15
+              - channel_20
+              - channel_25
+            description: Current zigbee channel.
+      extended_pan_id:
+        type: string
+        description: Extended PAN ID of the zigbee network.

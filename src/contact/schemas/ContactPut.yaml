@@ -1,0 +1,8 @@
+type: object
+properties:
+  type:
+    type: string
+    description: Type of the supported resources (always `contact` here)
+  enabled:
+    type: boolean
+    description: True when sensor is activated, false when deactivated.

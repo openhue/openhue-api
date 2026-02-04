@@ -1,0 +1,36 @@
+type: object
+allOf:
+  - $ref: '../../common/Resource.yaml'
+  - type: object
+    properties:
+      script_id:
+        type: string
+        description: ID of the behavior script this instance is running.
+      enabled:
+        type: boolean
+        description: True if the behavior instance is enabled.
+      state:
+        type: object
+        description: Current state of the behavior instance.
+      configuration:
+        type: object
+        description: Configuration for this behavior instance.
+      dependees:
+        type: array
+        items:
+          $ref: '../../common/ResourceIdentifier.yaml'
+      status:
+        type: string
+        enum:
+          - initializing
+          - running
+          - disabled
+          - errored
+      last_error:
+        type: string
+        description: Last error message if status is errored.
+      metadata:
+        type: object
+        properties:
+          name:
+            type: string

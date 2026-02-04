@@ -1,0 +1,14 @@
+type: object
+allOf:
+  - $ref: '../../common/ResourceOwned.yaml'
+  - type: object
+    properties:
+      enabled:
+        type: boolean
+        description: True when sensor is activated, false when deactivated.
+      motion:
+        type: object
+        properties:
+          motion:
+            type: boolean
+            description: True if motion is detected.

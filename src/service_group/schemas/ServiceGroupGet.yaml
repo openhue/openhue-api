@@ -1,0 +1,10 @@
+type: object
+allOf:
+  - $ref: '../../common/Resource.yaml'
+  - type: object
+    properties:
+      services:
+        type: array
+        items:
+          $ref: '../../common/ResourceIdentifier.yaml'
+        description: List of services in this group.
