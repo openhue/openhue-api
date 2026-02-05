@@ -36,10 +36,12 @@ The OpenHue specification covers the following Hue API resources:
 - **Lighting**: light, grouped_light
 - **Rooms & Zones**: room, zone, bridge_home
 - **Scenes**: scene, smart_scene
-- **Sensors**: motion, temperature, light_level, button, contact, tamper
-- **Devices**: device, device_power, bridge
-- **Connectivity**: zigbee_connectivity, zgp_connectivity, wifi_connectivity
-- **Entertainment**: entertainment, entertainment_configuration
+- **Sensors**: motion, temperature, light_level, button, bell_button, relative_rotary, contact, tamper, camera_motion
+- **Grouped Sensors**: grouped_motion, grouped_light_level
+- **Motion Areas**: convenience_area_motion, security_area_motion, motion_area_candidate, motion_area_configuration
+- **Devices**: device, device_power, device_software_update, bridge, service_group
+- **Connectivity**: zigbee_connectivity, zgp_connectivity, wifi_connectivity, zigbee_device_discovery
+- **Entertainment**: entertainment, entertainment_configuration, speaker
 - **Automation**: behavior_script, behavior_instance, geofence_client, geolocation
 - **Smart Home**: homekit, matter, matter_fabric
 
