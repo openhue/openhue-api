@@ -85,3 +85,5 @@ fabric.properties
 
 # IntelliJ HTTP Client
 *.private.env.json
+
+onlinedoc.html

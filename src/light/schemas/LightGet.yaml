@@ -2,21 +2,46 @@ type: object
 allOf:
   - $ref: '../../common/ResourceOwned.yaml'
   - type: object
+    required:
+      - metadata
+      - identify
+      - service_id
+      - on
+      - mode
     properties:
       metadata:
         type: object
         description: Deprecated, use metadata on device level
+        required:
+          - name
+          - archetype
+          - function
         properties:
           name:
             type: string
             description: Human readable name of a resource
           archetype:
             $ref: './LightArchetype.yaml'
+          function:
+            type: string
+            description: Function of the light service
+            enum:
+              - functional
+              - decorative
+              - mixed
+              - unknown
           fixed_mired:
             type: integer
             minimum: 153
             maximum: 500
             description: A fixed mired value of the white lamp
+      identify:
+        type: object
+        description: Triggers identification sequence on the light
+      service_id:
+        type: integer
+        minimum: 0
+        description: Service identification number. 0 indicates service of a single instance
       on:
         $ref: '../../common/On.yaml'
       dimming:

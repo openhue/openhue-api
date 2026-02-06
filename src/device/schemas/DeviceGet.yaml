@@ -3,6 +3,11 @@ description: Definition of a device resource
 allOf:
   - $ref: '../../common/ResourceOwned.yaml'
   - type: object
+    required:
+      - product_data
+      - metadata
+      - identify
+      - services
     properties:
       type:
         type: string
@@ -12,6 +17,9 @@ allOf:
         $ref: './ProductData.yaml'
       metadata:
         type: object
+        required:
+          - name
+          - archetype
         properties:
           name:
             type: string
@@ -20,6 +28,9 @@ allOf:
             description: Human readable name of a resource
           archetype:
             $ref: './ProductArchetype.yaml'
+      identify:
+        type: object
+        description: Triggers a visual identification sequence on the device
       usertest:
         type: object
         properties:

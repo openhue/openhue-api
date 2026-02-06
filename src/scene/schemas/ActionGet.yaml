@@ -1,29 +1,28 @@
 type: object
-allOf:
-  - $ref: '../../common/ResourceOwned.yaml'
-  - type: object
+required:
+  - target
+  - action
+properties:
+  target:
+    description: The identifier of the light to execute the action on
+    $ref: '../../common/ResourceIdentifier.yaml'
+  action:
+    type: object
+    description: The action to be executed on recall
     properties:
-      target:
+      on:
+        $ref: '../../common/On.yaml'
+      dimming:
+        $ref: '../../common/Dimming.yaml'
+      color:
+        $ref: '../../common/Color.yaml'
+      color_temperature:
+        $ref: '../../common/ColorTemperature.yaml'
+      gradient:
+        $ref: '../../common/Gradient.yaml'
+      effects:
         type: object
-        description: The identifier of the light to execute the action on
-        $ref: '../../common/ResourceIdentifier.yaml'
-      action:
-        type: object
-        description: The action to be executed on recall
+        description: Basic feature containing effect properties.
         properties:
-          on:
-            $ref: '../../common/On.yaml'
-          dimming:
-            $ref: '../../common/Dimming.yaml'
-          color:
-            $ref: '../../common/Color.yaml'
-          color_temperature:
-            $ref: '../../common/ColorTemperature.yaml'
-          gradient:
-            $ref: '../../common/Gradient.yaml'
-          effects:
-            type: object
-            description: Basic feature containing effect properties.
-            properties:
-              effect:
-                $ref: '../../common/SupportedEffects.yaml'
+          effect:
+            $ref: '../../common/SupportedEffects.yaml'

@@ -1,5 +1,8 @@
 type: object
 description: CIE XY gamut position
+required:
+  - x
+  - y
 properties:
   x:
     type: number

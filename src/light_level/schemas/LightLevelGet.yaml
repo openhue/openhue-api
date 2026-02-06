@@ -2,12 +2,18 @@ type: object
 allOf:
   - $ref: '../../common/ResourceOwned.yaml'
   - type: object
+    required:
+      - enabled
+      - light
     properties:
       enabled:
         type: boolean
         description: true when sensor is activated, false when deactivated
       light:
         type: object
+        required:
+          - light_level
+          - light_level_valid
         properties:
           light_level:
             type: integer

@@ -3,6 +3,9 @@ description: Definition of a bridge resource
 allOf:
   - $ref: '../../common/ResourceOwned.yaml'
   - type: object
+    required:
+      - bridge_id
+      - time_zone
     properties:
       type:
         type: string
@@ -10,9 +13,11 @@ allOf:
           - bridge
       bridge_id:
         type: string
-        description: Unique identifier of the bridge as printed on the device. Lower case (shouldn't it be upper case?)
+        description: Unique identifier of the bridge as printed on the device. Lower case.
       time_zone:
         type: object
+        required:
+          - time_zone
         properties:
           time_zone:
             type: string

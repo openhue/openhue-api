@@ -2,12 +2,18 @@ type: object
 allOf:
   - $ref: '../../common/ResourceOwned.yaml'
   - type: object
+    required:
+      - enabled
+      - motion
     properties:
       enabled:
         type: boolean
-        description: ture when the sensor is activated, false when deactivated
+        description: true when the sensor is activated, false when deactivated
       motion:
         type: object
+        required:
+          - motion
+          - motion_valid
         properties:
           motion:
             type: boolean

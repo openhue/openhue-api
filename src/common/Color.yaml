@@ -1,4 +1,6 @@
 type: object
+required:
+  - xy
 properties:
   xy:
     $ref: ./GamutPosition.yaml

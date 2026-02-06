@@ -1,4 +1,11 @@
 type: object
+required:
+  - model_id
+  - manufacturer_name
+  - product_name
+  - product_archetype
+  - certified
+  - software_version
 properties:
   model_id:
     type: string
