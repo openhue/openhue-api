@@ -106,6 +106,8 @@ tags:
     description: API to manage device software updates.
   - name: ServiceGroup
     description: API to manage service groups.
+  - name: Event
+    description: API to fetch device events.
 paths:
 #  Authentication
   /api:
@@ -318,6 +320,8 @@ paths:
     $ref: './service_group/service_group.yaml'
   /clip/v2/resource/service_group/{serviceGroupId}:
     $ref: './service_group/service_group_{serviceGroupId}.yaml'
+  /eventstream/clip/v2:
+    $ref: './eventstream/eventstream.yaml'
 components:
   securitySchemes:
     HueApplicationKey:

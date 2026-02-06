@@ -1,0 +1,85 @@
+type: object
+properties:
+  id:
+    type: string
+    pattern: ^[0-9a-f]{8}-([0-9a-f]{4}-){3}[0-9a-f]{12}$
+    example: 4bc4c418-e0d1-434d-aeca-b8e8bd39032b
+    description: A UUID that identifies this batch of events.
+  type:
+    type: string
+    enum:
+      - add
+      - delete
+      - error
+      - update
+  creationtime:
+    type: string
+    format: date-time
+    description: Time of creation for this batch of events.
+    example: "2026-02-05T19:33:06Z"
+  data:
+    type: array
+    description: Array of resources affected by this batch of events.
+    items:
+      description: Individual resource data
+      allOf:
+        - $ref: '../../common/Resource.yaml'
+        - type: object
+          additionalProperties: true
+      example:
+        id: f685b0df-4684-4818-8e06-9127ded032cf
+        id_v1: /groups/2
+        type: grouped_light
+        on:
+          on: false
+        dimming:
+          brightness: 0.0
+        owner:
+          rid: 8e47075a-9cdc-4765-a8e7-8de65371dd93
+          rtype: room
+required:
+  - id
+  - creationtime
+  - data
+  - type
+example:
+  creationtime: "2026-02-05T20:04:15Z"
+  id: 7c1d96be-cf0d-4c3c-8f13-08df14b3966b
+  type: update
+  data:
+    - id: 40252235-b3e6-488c-b981-495a1755c5f9
+      id_v1: /lights/22
+      on:
+        on: false
+      owner:
+        rid: 8eae78ef-be2d-4b67-b6cf-ad027b147914
+        rtype: device
+      service_id: 0
+      type: light
+    - id: 639d878e-add1-4dca-89d5-a141ce4bd10b
+      id_v1: /lights/12
+      on:
+        on: false
+      owner:
+        rid: c6328005-e4dd-4470-8b4d-5408f393d4a6
+        rtype: device
+      service_id: 0
+      type: light
+    - id: de4a6334-d168-4016-8681-97cdd7751f36
+      id_v1: /lights/8
+      on:
+        on: false
+      owner:
+        rid: 1cf4070c-53dd-4cf0-8518-eb3e0da63a86
+        rtype: device
+      service_id: 0
+      type: light
+    - id: 725e6c00-50d4-40f5-8214-3a97f2e25c72
+      id_v1: /lights/19
+      on:
+        on: false
+      owner:
+        rid: 5b8a4967-0339-487e-a66d-92c21d5d72c4
+        rtype: device
+      service_id: 0
+      type: light
