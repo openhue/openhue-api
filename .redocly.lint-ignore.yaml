@@ -1,5 +1,8 @@
 # This file instructs Redocly's linter to ignore the rules contained for specific parts of your API.
-# See https://redoc.ly/docs/cli/ for more information.
+# See https://redocly.com/docs/cli/ for more information.
+src/eventstream/eventstream.yaml:
+  no-invalid-media-type-examples:
+    - '#/get/responses/200/content/text~1event-stream/example'
 src/auth/auth.yaml:
   security-defined:
     - '#/post'

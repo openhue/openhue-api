@@ -1,0 +1,82 @@
+get:
+  operationId: getEventStream
+  summary: Get Events.
+  description: Long poll or stream device event data.
+  tags:
+    - Event
+  security:
+    - HueApplicationKey: [ ]
+  parameters:
+    - name: If-None-Match
+      in: header
+      required: false
+      description: |
+        Unix timestamp of the last seen event, followed by `:0`.
+
+        If any events in the server's buffer have a timestamp greater than this,
+        the server will send them immediately instead of blocking for new events.
+        The server does not maintain a persistent buffer and purges old events
+        after several minutes and does not indicate when the value of
+        If-None-Match falls outside of its buffered window, so clients must poll
+        consistently often else events will be silently missed.
+      example: "1770336203:0"
+      schema:
+        type: string
+  responses:
+    200:
+      description: Events Success Response
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: './schemas/Event.yaml'
+
+        text/event-stream:
+          encoding:
+            id:
+              contentType: text/plain
+            data:
+              contentType: application/json
+          schema:
+            type: object
+            properties:
+              id:
+                type: string
+              data:
+                type: array
+                items:
+                  $ref: './schemas/Event.yaml'
+          example: |
+            id: 1770343753:0
+            data: [{"creationtime":"2026-02-06T02:09:13Z","data":[{"id":"1e3d9a73-7069-40ed-a889-051763348737","id_v1":"/lights/20","on":{"on":false},"owner":{"rid":"9dcb0171-4b4f-4c47-874f-6b56bde667a0","rtype":"device"},"service_id":0,"type":"light"}],"id":"dbcbe13e-5528-4f1e-a174-bd2da08c965d","type":"update"}]
+
+            id: 1770343754:0
+            data: [{"creationtime":"2026-02-06T02:09:14Z","data":[{"id":"1e3d9a73-7069-40ed-a889-051763348737","id_v1":"/lights/20","on":{"on":true},"owner":{"rid":"9dcb0171-4b4f-4c47-874f-6b56bde667a0","rtype":"device"},"service_id":0,"type":"light"}],"id":"fb3f562c-85f9-4a58-a322-9f1dfed6523d","type":"update"},{"creationtime":"2026-02-06T02:09:14Z","data":[{"dimming":{"brightness":66.8},"id":"96af506d-a5bb-449f-8988-56f295d04112","id_v1":"/groups/87","on":{"on":true},"owner":{"rid":"01643626-e52f-410c-8a74-e2267c4878f3","rtype":"room"},"type":"grouped_light"},{"dimming":{"brightness":58.397499999999994},"id":"a4cd9293-cca3-4fa1-b8a0-04d4f378c561","id_v1":"/groups/0","owner":{"rid":"2f14a1a8-8194-4037-b669-ddc87cf25b76","rtype":"bridge_home"},"type":"grouped_light"},{"dimming":{"brightness":58.397499999999994},"id":"c0cfcba9-61f8-4b9f-8b87-9a1aea9f1278","id_v1":"/groups/4","owner":{"rid":"d2efe778-c40c-4b2c-9e10-2130d47df9dd","rtype":"zone"},"type":"grouped_light"}],"id":"fa3295e1-aa6f-40b7-8988-69bfc12c3695","type":"update"}]
+
+            id: 1770343762:0
+            data: [{"creationtime":"2026-02-06T02:09:22Z","data":[{"dimming":{"brightness":59.68},"id":"639d878e-add1-4dca-89d5-a141ce4bd10b","id_v1":"/lights/12","owner":{"rid":"c6328005-e4dd-4470-8b4d-5408f393d4a6","rtype":"device"},"service_id":0,"type":"light"}],"id":"d4b9453b-e5c5-48fc-9492-12cfee4ef5fa","type":"update"}]
+
+            id: 1770343763:0
+            data: [{"creationtime":"2026-02-06T02:09:22Z","data":[{"dimming":{"brightness":49.8},"id":"de4a6334-d168-4016-8681-97cdd7751f36","id_v1":"/lights/8","owner":{"rid":"1cf4070c-53dd-4cf0-8518-eb3e0da63a86","rtype":"device"},"service_id":0,"type":"light"}],"id":"aa861a05-545e-4c6d-b082-d04f839fb9e4","type":"update"},{"creationtime":"2026-02-06T02:09:22Z","data":[{"dimming":{"brightness":74.7},"id":"725e6c00-50d4-40f5-8214-3a97f2e25c72","id_v1":"/lights/19","owner":{"rid":"5b8a4967-0339-487e-a66d-92c21d5d72c4","rtype":"device"},"service_id":0,"type":"light"}],"id":"3efd062d-9bc6-439d-b0f6-8a5ca2dd1420","type":"update"},{"creationtime":"2026-02-06T02:09:22Z","data":[{"dimming":{"brightness":49.8},"id":"40252235-b3e6-488c-b981-495a1755c5f9","id_v1":"/lights/22","owner":{"rid":"8eae78ef-be2d-4b67-b6cf-ad027b147914","rtype":"device"},"service_id":0,"type":"light"}],"id":"9c1f0372-2635-4520-bc13-7baf3c38563e","type":"update"},{"creationtime":"2026-02-06T02:09:22Z","data":[{"dimming":{"brightness":58.495000000000005},"id":"0148a2ea-ba13-44b9-abe7-ec14053a3b7c","id_v1":"/groups/3","owner":{"rid":"23cffa12-6dbd-4980-82ed-033e395f7ad3","rtype":"room"},"type":"grouped_light"},{"dimming":{"brightness":61.717499999999994},"id":"a4cd9293-cca3-4fa1-b8a0-04d4f378c561","id_v1":"/groups/0","owner":{"rid":"2f14a1a8-8194-4037-b669-ddc87cf25b76","rtype":"bridge_home"},"type":"grouped_light"},{"dimming":{"brightness":61.717499999999994},"id":"c0cfcba9-61f8-4b9f-8b87-9a1aea9f1278","id_v1":"/groups/4","owner":{"rid":"d2efe778-c40c-4b2c-9e10-2130d47df9dd","rtype":"zone"},"type":"grouped_light"}],"id":"e1a1df8c-c38e-46b6-ba08-23ddf85ba7cd","type":"update"}]
+
+    401:
+      $ref: '../common/error.yaml#/components/responses/Unauthorized'
+    403:
+      $ref: '../common/error.yaml#/components/responses/Forbidden'
+    404:
+      $ref: '../common/error.yaml#/components/responses/NotFound'
+    405:
+      $ref: '../common/error.yaml#/components/responses/MethodNotAllowed'
+    406:
+      $ref: '../common/error.yaml#/components/responses/NotAcceptable'
+    409:
+      $ref: '../common/error.yaml#/components/responses/Conflict'
+    429:
+      $ref: '../common/error.yaml#/components/responses/TooManyRequests'
+    500:
+      $ref: '../common/error.yaml#/components/responses/InternalServerError'
+    503:
+      $ref: '../common/error.yaml#/components/responses/ServiceUnavailable'
+    507:
+      $ref: '../common/error.yaml#/components/responses/InsufficientStorage'
