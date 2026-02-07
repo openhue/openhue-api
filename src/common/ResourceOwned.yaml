@@ -3,6 +3,8 @@ description: Common resource properties including the owner
 allOf:
   - $ref: './Resource.yaml'
   - type: object
+    required:
+      - owner
     properties:
       owner:
         $ref: './ResourceIdentifier.yaml'

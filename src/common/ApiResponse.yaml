@@ -1,4 +1,7 @@
 type: object
+required:
+  - errors
+  - data
 properties:
   errors:
     type: array

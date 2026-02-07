@@ -67,6 +67,8 @@ components:
   schemas:
     ErrorResponse:
       type: object
+      required:
+        - errors
       properties:
         errors:
           type: array
@@ -74,6 +76,8 @@ components:
             $ref: '#/components/schemas/Error'
     Error:
       type: object
+      required:
+        - description
       properties:
         description:
           type: string

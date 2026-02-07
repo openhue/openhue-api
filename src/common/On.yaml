@@ -1,4 +1,6 @@
 type: object
+required:
+  - on
 properties:
   on:
     type: boolean

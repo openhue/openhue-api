@@ -2,6 +2,13 @@ type: object
 allOf:
   - $ref: '../../common/ResourceOwned.yaml'
   - type: object
+    required:
+      - actions
+      - metadata
+      - group
+      - speed
+      - auto_dynamic
+      - status
     properties:
       type:
         type: string

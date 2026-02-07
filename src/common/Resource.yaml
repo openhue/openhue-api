@@ -1,5 +1,8 @@
 type: object
 description: Common resource properties
+required:
+  - type
+  - id
 properties:
   type:
     type: string

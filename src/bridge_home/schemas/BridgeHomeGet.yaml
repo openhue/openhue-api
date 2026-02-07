@@ -3,6 +3,9 @@ description: Definition of a bridge resource
 allOf:
   - $ref: '../../common/Resource.yaml'
   - type: object
+    required:
+      - children
+      - services
     properties:
       type:
         type: string

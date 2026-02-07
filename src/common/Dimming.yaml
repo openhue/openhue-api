@@ -1,4 +1,6 @@
 type: object
+required:
+  - brightness
 properties:
   brightness:
     $ref: './Brightness.yaml'
