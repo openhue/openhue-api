@@ -10,6 +10,7 @@ properties:
         $ref: '../../common/Mirek.yaml'
       mirek_valid:
         type: boolean
+        readOnly: true
         description: Indication whether the mirek value is valid for this effect
   speed:
     type: number

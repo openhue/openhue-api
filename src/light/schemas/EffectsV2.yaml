@@ -6,24 +6,23 @@ description: |
 properties:
   action:
     type: object
-    description: Write-only. Set effect with optional parameters.
+    writeOnly: true
+    description: Set effect with optional parameters.
     properties:
       effect:
         $ref: '../../common/SupportedEffects.yaml'
-      effect_values:
-        type: array
-        description: Possible effect values supported by this light.
-        items:
-          $ref: '../../common/SupportedEffects.yaml'
       parameters:
         $ref: './EffectsV2Parameters.yaml'
   status:
     type: object
-    description: Read-only. Current effect status and active parameters.
+    readOnly: true
+    description: Current effect status and active parameters.
     properties:
       effect:
+        readOnly: true
         $ref: '../../common/SupportedEffects.yaml'
       effect_values:
+        readOnly: true
         type: array
         description: Possible effect values supported by this light.
         items:
