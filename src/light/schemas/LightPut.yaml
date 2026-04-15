@@ -30,6 +30,8 @@ properties:
     $ref: '../../common/Gradient.yaml'
   effects:
     $ref: './Effects.yaml'
+  effects_v2:
+    $ref: './EffectsV2.yaml'
   timed_effects:
     type: object
     description: Basic feature containing timed effect properties.

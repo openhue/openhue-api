@@ -1,0 +1,32 @@
+type: object
+description: |
+  Extended effect control with support for custom color, color temperature, and speed parameters.
+  This property is present on lights that support the newer effects engine and allows fine-grained
+  control over effect appearance beyond what the basic `effects` property provides.
+properties:
+  action:
+    type: object
+    description: Write-only. Set effect with optional parameters.
+    properties:
+      effect:
+        $ref: '../../common/SupportedEffects.yaml'
+      effect_values:
+        type: array
+        description: Possible effect values supported by this light.
+        items:
+          $ref: '../../common/SupportedEffects.yaml'
+      parameters:
+        $ref: './EffectsV2Parameters.yaml'
+  status:
+    type: object
+    description: Read-only. Current effect status and active parameters.
+    properties:
+      effect:
+        $ref: '../../common/SupportedEffects.yaml'
+      effect_values:
+        type: array
+        description: Possible effect values supported by this light.
+        items:
+          $ref: '../../common/SupportedEffects.yaml'
+      parameters:
+        $ref: './EffectsV2Parameters.yaml'

@@ -1,0 +1,18 @@
+type: object
+description: Parameters for controlling the appearance of an active effect.
+properties:
+  color:
+    $ref: '../../common/Color.yaml'
+  color_temperature:
+    type: object
+    properties:
+      mirek:
+        $ref: '../../common/Mirek.yaml'
+      mirek_valid:
+        type: boolean
+        description: Indication whether the mirek value is valid for this effect
+  speed:
+    type: number
+    minimum: 0
+    maximum: 1
+    description: Speed of the effect animation. 0.0 is slowest, 1.0 is fastest.
