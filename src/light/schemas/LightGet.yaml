@@ -114,14 +114,21 @@ allOf:
           speed:
             type: number
             minimum: 0
-            maximum: 0
+            maximum: 1
             description: speed of dynamic palette or effect. The speed is valid for the dynamic palette if the status is dynamic_palette or for the corresponding effect listed in status. In case of status none, the speed is not valid
           speed_valid:
             type: boolean
             description: Indicates whether the value presented in speed is valid
       alert:
         type: object
-        description: TODO # TODO find the AlertEffectType
+        description: Joined alert control
+        properties:
+          action_values:
+            type: array
+            description: Supported alert actions for this light.
+            items:
+              type: string
+              example: breathe
       signaling:
         type: object
         description: Feature containing signaling properties.
@@ -264,3 +271,31 @@ allOf:
                         $ref: '../../common/Mirek.yaml'
                       color:
                         $ref: '../../common/Color.yaml'
+      product_data:
+        type: object
+        description: Product data about the light.
+        properties:
+          function:
+            type: string
+            description: Function of the light source.
+            enum:
+              - functional
+              - decorative
+              - mixed
+              - unknown
+      geometry:
+        type: object
+        description: Geometry information for pixel-addressable lights such as gradient strips.
+        properties:
+          pixel_positions:
+            type: array
+            description: Ordered list of pixel positions for this light. Empty for non-gradient lights.
+            items:
+              type: object
+              properties:
+                x:
+                  type: number
+                'y':
+                  type: number
+                z:
+                  type: number
