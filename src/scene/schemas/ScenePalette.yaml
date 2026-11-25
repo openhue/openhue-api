@@ -28,3 +28,7 @@ properties:
       properties:
         effect:
           $ref: '../../common/SupportedEffects.yaml'
+  effects_v2:
+    type: array
+    items:
+      $ref: './SceneEffectsV2.yaml'

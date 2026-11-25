@@ -1,0 +1,10 @@
+type: object
+description: Effect with optional parameters, as stored in a scene action or palette.
+properties:
+  action:
+    type: object
+    properties:
+      effect:
+        $ref: '../../common/SupportedEffects.yaml'
+      parameters:
+        $ref: '../../light/schemas/EffectsV2Parameters.yaml'
