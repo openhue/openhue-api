@@ -27,4 +27,18 @@ allOf:
             description: Signals that the light supports.
             items:
               $ref: '../../common/SupportedSignals.yaml'
-
+      dimming_delta:
+        type: object
+        description: Empty on GET. Write relative dimming through GroupedLightPut.
+      color:
+        type: object
+        description: Empty on GET. Write color through GroupedLightPut.
+      color_temperature:
+        type: object
+        description: Empty on GET. Write color temperature through GroupedLightPut.
+      color_temperature_delta:
+        type: object
+        description: Empty on GET. Write relative color temperature through GroupedLightPut.
+      dynamics:
+        type: object
+        description: Empty on GET. Write transition duration through GroupedLightPut.
