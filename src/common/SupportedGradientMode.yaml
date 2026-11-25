@@ -4,3 +4,4 @@ enum:
   - interpolated_palette
   - interpolated_palette_mirrored
   - random_pixelated
+  - segmented_palette
