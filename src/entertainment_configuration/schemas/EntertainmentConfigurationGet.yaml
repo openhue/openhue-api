@@ -9,6 +9,10 @@ allOf:
           name:
             type: string
             description: Human readable name of the configuration.
+      name:
+        type: string
+        deprecated: true
+        description: Same as metadata.name.
       configuration_type:
         type: string
         enum:
@@ -69,6 +73,19 @@ allOf:
               properties:
                 service:
                   $ref: '../../common/ResourceIdentifier.yaml'
+                position:
+                  type: object
+                  deprecated: true
+                  description: Same as the first entry of positions.
+                  properties:
+                    x:
+                      type: number
+                    y:
+                      type: number
+                    z:
+                      type: number
+                equalization_factor:
+                  type: number
                 positions:
                   type: array
                   items:

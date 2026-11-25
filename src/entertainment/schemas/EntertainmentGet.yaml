@@ -6,6 +6,10 @@ allOf:
       renderer:
         type: boolean
         description: Indicates if the device can be used for entertainment streaming.
+      renderer_reference:
+        $ref: '../../common/ResourceIdentifier.yaml'
+      equalizer:
+        type: boolean
       proxy:
         type: boolean
         description: Indicates if the device is acting as entertainment proxy.

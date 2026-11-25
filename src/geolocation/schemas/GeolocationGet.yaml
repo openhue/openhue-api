@@ -6,3 +6,13 @@ allOf:
       is_configured:
         type: boolean
         description: True if geolocation is configured.
+      sun_today:
+        type: object
+        properties:
+          sunset_time:
+            type: string
+            description: Local sunset time as HH:MM:SS.
+            example: '18:00:00'
+          day_type:
+            type: string
+            example: normal_day

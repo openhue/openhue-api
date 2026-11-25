@@ -9,3 +9,12 @@ allOf:
           - active
           - ready
         description: Current status of the device discovery.
+      action:
+        type: object
+        properties:
+          action_type_values:
+            type: array
+            description: Discovery actions that can be started.
+            items:
+              type: string
+              example: search

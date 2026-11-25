@@ -25,3 +25,12 @@ allOf:
             type: string
           category:
             type: string
+      supported_features:
+        type: array
+        description: Optional features this script supports.
+        items:
+          type: string
+          example: style_sunrise
+      max_number_instances:
+        type: integer
+        description: Maximum number of instances of this script.

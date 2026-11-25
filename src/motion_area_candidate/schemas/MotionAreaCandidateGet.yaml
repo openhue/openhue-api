@@ -8,3 +8,11 @@ allOf:
         items:
           $ref: '../../common/ResourceIdentifier.yaml'
         description: List of motion sensor resources that are candidates for this area.
+      capabilities:
+        type: array
+        items:
+          type: string
+          example: sensor
+      characteristics:
+        type: array
+        items: {}

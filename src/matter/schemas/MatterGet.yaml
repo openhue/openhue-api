@@ -9,3 +9,6 @@ allOf:
       max_fabrics:
         type: integer
         description: Maximum number of fabrics that can be added.
+      software_version_string:
+        type: string
+        example: '1.4.2'
