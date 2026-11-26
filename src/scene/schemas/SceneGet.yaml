@@ -42,3 +42,17 @@ allOf:
               - inactive
               - static
               - dynamic_palette
+          last_recall:
+            type: string
+            format: date-time
+            description: When the scene was last recalled. Absent if it never was.
+      recall:
+        type: object
+        description: Empty on GET. Recall the scene through ScenePut.
+      last_actions_update:
+        type: object
+        description: What last changed the scene actions.
+        properties:
+          source:
+            type: string
+            example: clip
