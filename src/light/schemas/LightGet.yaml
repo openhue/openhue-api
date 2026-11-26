@@ -54,6 +54,9 @@ allOf:
             minimum: 0
             maximum: 100
             description: Percentage of the maximum lumen the device outputs on minimum brightness
+      dimming_delta:
+        type: object
+        description: Present on dimmable lights and empty on GET. Write relative dimming through LightPut.
       color_temperature:
         type: object
         properties:
@@ -78,6 +81,9 @@ allOf:
                 minimum: 153
                 maximum: 500
                 description: maximum color temperature this light supports
+      color_temperature_delta:
+        type: object
+        description: Present on color temperature lights and empty on GET. Write relative color temperature through LightPut.
       color:
         type: object
         properties:
@@ -299,3 +305,35 @@ allOf:
                   type: number
                 z:
                   type: number
+      content_configuration:
+        type: object
+        description: Mounting configuration of the light, reported by lights such as wall washers and lightstrips.
+        properties:
+          orientation:
+            type: object
+            properties:
+              status:
+                type: string
+                example: set
+              configurable:
+                type: boolean
+              orientation:
+                type: string
+                example: vertical
+          order:
+            type: object
+            properties:
+              status:
+                type: string
+                example: set
+              configurable:
+                type: boolean
+              order:
+                type: string
+                example: forward
+          association:
+            type: object
+            properties:
+              association:
+                type: string
+                example: not_associated

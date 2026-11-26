@@ -6,13 +6,18 @@ description: |
 properties:
   action:
     type: object
-    writeOnly: true
-    description: Set effect with optional parameters.
+    description: Set effect with optional parameters. On GET it carries only the effects the light accepts.
     properties:
       effect:
         $ref: '../../common/SupportedEffects.yaml'
       parameters:
         $ref: './EffectsV2Parameters.yaml'
+      effect_values:
+        readOnly: true
+        type: array
+        description: Effects that can be set through action.
+        items:
+          $ref: '../../common/SupportedEffects.yaml'
   status:
     type: object
     readOnly: true
