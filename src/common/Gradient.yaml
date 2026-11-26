@@ -5,7 +5,12 @@ properties:
     type: array
     description: Collection of gradients points. For control of the gradient points through a PUT a minimum of 2 points need to be provided.
     items:
-      $ref: './Color.yaml'
+      type: object
+      required:
+        - color
+      properties:
+        color:
+          $ref: './Color.yaml'
     maxItems: 5
   mode:
     $ref: './SupportedGradientMode.yaml'

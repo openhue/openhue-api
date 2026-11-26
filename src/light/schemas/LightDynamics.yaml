@@ -6,7 +6,7 @@ properties:
   speed:
     type: number
     minimum: 0
-    maximum: 0
+    maximum: 1
     description: |
       Speed of dynamic palette or effect.
       The speed is valid for the dynamic palette if the status is `dynamic_palette` or for the corresponding effect listed in status.

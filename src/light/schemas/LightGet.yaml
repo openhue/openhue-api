@@ -254,23 +254,23 @@ allOf:
                   - previous
               dimming:
                 $ref: '../../common/Dimming.yaml'
-              color:
+          color:
+            type: object
+            properties:
+              mode:
+                type: string
+                enum:
+                  - color_temperature
+                  - color
+                  - previous
+                description: State to activate after powerup. Availability of “color_temperature” and “color” modes depend on the capabilities of the lamp. Colortemperature will set the colortemperature to the specified value after power up. When setting color_temperature, the color_temperature property must be included Color will set the color tot he specified value after power up. When setting color mode, the color property must be included Previous will set color to the state it was in before powering off.
+              color_temperature:
                 type: object
                 properties:
-                  mode:
-                    type: string
-                    enum:
-                      - color_temperature
-                      - color
-                      - previous
-                    description: State to activate after powerup. Availability of “color_temperature” and “color” modes depend on the capabilities of the lamp. Colortemperature will set the colortemperature to the specified value after power up. When setting color_temperature, the color_temperature property must be included Color will set the color tot he specified value after power up. When setting color mode, the color property must be included Previous will set color to the state it was in before powering off.
-                  color_temperature:
-                    type: object
-                    properties:
-                      mirek:
-                        $ref: '../../common/Mirek.yaml'
-                      color:
-                        $ref: '../../common/Color.yaml'
+                  mirek:
+                    $ref: '../../common/Mirek.yaml'
+              color:
+                $ref: '../../common/Color.yaml'
       product_data:
         type: object
         description: Product data about the light.
