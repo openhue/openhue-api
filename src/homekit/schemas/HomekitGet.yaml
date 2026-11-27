@@ -10,6 +10,15 @@ allOf:
           - pairing
           - unpaired
         description: Current HomeKit pairing status.
+      status_values:
+        type: array
+        description: Possible pairing statuses.
+        items:
+          type: string
+          enum:
+            - paired
+            - pairing
+            - unpaired
       action:
         type: string
         enum:

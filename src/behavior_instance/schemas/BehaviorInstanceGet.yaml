@@ -17,8 +17,18 @@ allOf:
         description: Configuration for this behavior instance.
       dependees:
         type: array
+        description: Resources this instance depends on.
         items:
-          $ref: '../../common/ResourceIdentifier.yaml'
+          type: object
+          properties:
+            target:
+              $ref: '../../common/ResourceIdentifier.yaml'
+            level:
+              type: string
+              example: critical
+            type:
+              type: string
+              example: ResourceDependee
       status:
         type: string
         enum:

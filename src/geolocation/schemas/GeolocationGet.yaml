@@ -6,3 +6,18 @@ allOf:
       is_configured:
         type: boolean
         description: True if geolocation is configured.
+      sun_today:
+        type: object
+        description: Info related to today's sun (only available when geolocation has been configured)
+        properties:
+          sunset_time:
+            type: string
+            description: 'time of day at sunset (in local time, and only valid on normal days, see property day_type). Format: `HH:MM:SS`.'
+            example: '18:00:00'
+          day_type:
+            type: string
+            enum:
+              - normal_day
+              - polar_day
+              - polar_night
+            example: normal_day

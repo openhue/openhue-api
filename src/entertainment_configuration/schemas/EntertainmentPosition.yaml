@@ -1,0 +1,17 @@
+type: object
+properties:
+  x:
+    type: number
+    minimum: -1
+    maximum: 1
+    description: Coordinate of a single axis
+  y:
+    type: number
+    minimum: -1
+    maximum: 1
+    description: Coordinate of a single axis
+  z:
+    type: number
+    minimum: -1
+    maximum: 1
+    description: Coordinate of a single axis

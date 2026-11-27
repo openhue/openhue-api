@@ -8,7 +8,15 @@ allOf:
         properties:
           name:
             type: string
+            minLength: 1
+            maxLength: 32
             description: Human readable name of the configuration.
+      name:
+        type: string
+        minLength: 1
+        maxLength: 32
+        deprecated: true
+        description: Same as metadata.name.
       configuration_type:
         type: string
         enum:
@@ -42,14 +50,7 @@ allOf:
             channel_id:
               type: integer
             position:
-              type: object
-              properties:
-                x:
-                  type: number
-                y:
-                  type: number
-                z:
-                  type: number
+              $ref: './EntertainmentPosition.yaml'
             members:
               type: array
               items:
@@ -69,17 +70,20 @@ allOf:
               properties:
                 service:
                   $ref: '../../common/ResourceIdentifier.yaml'
+                position:
+                  allOf:
+                    - $ref: './EntertainmentPosition.yaml'
+                  deprecated: true
+                  description: Same as the first entry of positions.
+                equalization_factor:
+                  type: number
+                  default: 1
+                  maximum: 1
+                  description: Relative equalization factor applied to the entertainment service, to compensate for differences in brightness in the entertainment configuration. Value cannot be 0, writing 0 changes it to lowest possible value.
                 positions:
                   type: array
                   items:
-                    type: object
-                    properties:
-                      x:
-                        type: number
-                      y:
-                        type: number
-                      z:
-                        type: number
+                    $ref: './EntertainmentPosition.yaml'
       light_services:
         type: array
         items:
