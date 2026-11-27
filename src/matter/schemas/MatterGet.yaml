@@ -11,4 +11,6 @@ allOf:
         description: Maximum number of fabrics that can be added.
       software_version_string:
         type: string
+        description: Indicates the software version of the matter daemon
+        pattern: '^[0-9][A-Za-z0-9]*(?:.(?:[A-Za-z0-9]+(?:[-_][A-Za-z0-9]+)?)){1,2}$'
         example: '1.4.2'

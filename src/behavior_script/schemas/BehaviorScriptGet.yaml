@@ -33,4 +33,6 @@ allOf:
           example: style_sunrise
       max_number_instances:
         type: integer
+        minimum: 0
+        maximum: 255
         description: Maximum number of instances of this script.
